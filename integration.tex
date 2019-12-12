@@ -1,0 +1,1697 @@
+\documentclass[11pt]{mathsnotes}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[parfill]{parskip}    
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+
+\title{Integration Basics}
+\date{\today} 
+
+\begin{document}
+\maketitle
+
+\section{Comments}
+
+There's a theme of `economy' in the presentation of the theorems.
+For example, Fubini's Theorem is given in pretty intense generality, 
+but several more specific results follow trivially from it, 
+such as Leibnitz' Rule, equality of continuous mixed derivatives,
+volumes of solids of revolution, Cavalieri's Principle and most importantly 
+the volume of the image of a rectangle under a linear transformation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Issues}
+
+
+
+These are incomplete/problematic:
+\begin{itemize}
+  \item 3.10 Would like a proof using the notions developed here rather than 
+  topological facts.
+  \item 3.11, 3.12, 3.19, 3.25, 3.28, 3.29, 3.31, 3.40, 3.41 Needs proof.
+  \item Still not sure I understand what 3.21 is getting at.  Is it asking for a partition 
+  which doesn't contain any rectangles in $A-C$? If so its easy to 
+  draw JM sets with two connected components which seem to break this idea.
+  \item 3.33 (b) straight up makes no sense. $f$ is defined on $[a, b] \times [c, d]$
+  and $G(x)$ is defined, nonsensically, as $\int_a^{g(x)}f(t, x)dt$.
+  \item Be more clear on the hypothesis of Fubinis for switching order in 3.35.
+  \item 3-37 (b) is reportedly broken. Still needs doing with an improved 
+  hypothesis.
+\end{itemize}
+
+It would be good to check whether an argument about absolute convergence should ever be made explicitly.  
+
+In other proofs Lemma 3.1 is used generously, in the sense that if $(P')$ 
+is a family of partitions subject to some condition which does not restrict the
+`fine-ness' of $P'$
+then each $P'$ is a refinement of some generic partition and so any result 
+involving an infinumum/suprememum over all partitions holds equally well over
+the restricted set of partitions.  Would be good to clear this up.
+
+Personally I think the original statement 3.21 is pretty confusing.  I could 
+state explicitly that the partition contains no subrectangles contained in $A-C.$
+\vspace{3em}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Problems}
+
+\begin{problem}{3.1}
+  Let $f: [0,1] \times [0, 1] \to \reals$ be defined by
+ \begin{equation*}
+    f(x, y) =
+    \begin{cases*}
+      0 & if $0 \leq x < \frac{1}{2}$ \\
+      1 & if $ \frac{1}{2} \leq x \leq 1 $.
+    \end{cases*}
+  \end{equation*}
+Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
+\end{problem}
+
+\begin{proof}
+  For $\varepsilon > 0$ let $P_\varepsilon$ be the partition with subrectangles 
+  \begin{align*}
+    S_1 &= [0, \frac{1}{2} - \frac{\varepsilon}{4}] \times [0, 1] \\
+    S_2 &= [\frac{1}{2} -\frac{\varepsilon}{4}, \frac{1}{2} + \frac{\varepsilon}{4}] \times [0, 1] \\
+    S_3 &= [\frac{1}{2} + \frac{\varepsilon}{4}, 1] \times [0, 1]
+   \end{align*}
+   Then 
+   $U(f, P_\varepsilon) - L(f, P_\varepsilon)$ = $\dfrac{\varepsilon}{2} < \varepsilon$ 
+   i.e. $f$ is integrable
+   and $\int f = \inf U(f, P_\varepsilon) = \frac{1}{2}.$
+\end{proof}
+
+
+\begin{problem}{3.2}
+  Let $f: A \to \reals$ be integrable and $g = f$ except at finitely many points.
+  Then $g$ is integrable and $\int f = \int g.$
+\end{problem}
+
+\begin{proof}
+  Suppose $f$ and $g$ differ except at a single point $x$.
+  Let $P$ be some partition fine enough that $x$ lies in a single 
+  subrectangle $S$. Then
+  $$(U-L)(g, P) = (U-L)(f, P) + (M_S-m_S)(g-f)\cdot v(S)$$
+  can be made arbitrarily small, as the term $(U-L)(f, P)$ vanishes by 
+  integrability of $f$ and the other term can be made as small
+  as we like by insiting that the rectangle $S$ is sufficiently small. 
+  Furthermore if $g(x) > f(x)$ then 
+  \begin{align*}
+    \int g = \inf [U(g, P)] = \inf[ U(f, P) + (M_S(g - f)\cdot v(S))] = \inf[U(f, P)] = \int f
+  \end{align*}
+  with a similar argument for when $g(x) < f(x).$  
+  Repetition of the argument proves the result for a finite collection of 
+  points.
+\end{proof}
+
+
+\begin{problem}{3.3 Linearity of the Integral.}
+  Let $f, g: A \to \reals$ be integrable.
+  Then $\int f+g  = \int f + \int g$ and $\int cf =c\int f$.
+\end{problem}
+
+\begin{proof}
+  Since 
+  $$m_S(f) + m_S(g) \leq f(x) + g(x) \ \ \forall x \in S$$
+  it follows that
+  $$m_S(f) + m_S(g) \leq \inf_{S}(f + g) = m_S(f + g).$$
+  Then $L(f, P) + L(g, P) \leq L(f + g, P)$ follows easily and by a similar argument 
+  $U(f + g, P) \leq U(f, P) + U(g, P).$  Hence the differece 
+  $(U-L)(f + g, P)$ is bounded from above by $(U-L)(f, P) + (U-L)(g, P)$ 
+  which vanishes by integrability of $f$ and $g$.
+
+  To compute the value of the integral, 
+  \begin{align*}
+    \int f + \int g = \sup L(f, P) + \sup L(g, P) = \sup[ L(f, P) + L(g, P) ] 
+    \leq \sup L (f + g, P) = \int f + g \\
+    \int f + \int g = \inf U(f, P) + \inf U(g, P) = \inf[ U(f, P) + U(f, P) ]
+    \geq \inf U(f + g, P) = \int f + g
+  \end{align*}
+  and so $\inf f + \int g = \int f + g.$
+
+  Finally for constants $c$, 
+  \begin{align*}
+    \inf U(cf, P) = c \inf U(f, P) = c \sup L(f, P) = \sup L(cf, P)
+  \end{align*}
+  i.e $cf$ is integrable with the value 
+  $\int cf = \inf U(cf, P) = c \inf U(f, P) = c \int f.$
+\end{proof}
+
+
+
+\begin{problem}{3.4}
+  Let $f: A\to \reals$ and let $P$ be a partition of $A$. Then $f$ is integrable
+  if and only if the restriction of $f$ to each subrectangle is integrable, 
+  and in this case $\int_A f = \sum_P \int_S f|_S.$
+\end{problem}
+
+\begin{proof}
+  Let the $n$ subrectangles of $P$ be $S_i$ and suppose that each $f|_{S_i}$ is integrable.
+  Then for any $\varepsilon > 0$ and each $i$ there is a partitions $P_i$ of $S_i$ such that 
+  $(U - L)(f|_{S_i}, P_i) <\varepsilon / n.$
+  Then 
+  \begin{align*}
+    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f|S_i)\cdot v(S_{ij}) ] < 
+    \varepsilon \Longrightarrow 
+    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f)\cdot v(S_{ij}) ] < 
+    \varepsilon
+  \end{align*}
+  where the latter double sum is $(U - L)f$ over the partition formed by taking the union of
+  all the $P_i.$  Hence $f$ is integrable.
+
+  On the other hand for any rectangle $S \in P$  we have
+  $$(U-L)(f|_S, S) = (U-L)(f, S) \leq (U - L)(f, P)$$
+  since $U-L$ is non-negative and $S$ is containined in $P$. 
+  If $f$ is integrable then the RHS can be made arbitrarily small by refining $P$, 
+  in which case $S$ may need to be replaced by the part of that refinement which 
+  covers it, $S = \cup P'$. Then $(U-L)(f|_S, P')$ vanishes and so $f|_S$
+  is integrable.
+
+  To compute the integral we have, for partitions $P_S$ of each $S$
+  \begin{align*}
+    \sum_P \int_{S} f|_S = 
+    \sum_P \sup [L(f|_S, P_S)] = 
+    \sup \bigg[\sum_P L(f|_S, P_s)\bigg] = 
+    \sup \bigg[\sum_P \sum_{P_i} m_{S_ij}(f)\cdot v(S_{ij}) \bigg].
+  \end{align*}
+  The last term is the supremum over partitions $P'$ which are generic partitions
+  of $A$ but for the refinement that each rectangle must be contained in one of the
+  original $S \in P.$  
+  Hence the supremum over such partitions coincides with the supremum over generic ones
+  and so $\sum \int f|_S = \int f.$
+\end{proof}
+
+
+\begin{problem}{3.5}
+  Let $g, f: A \to \reals$ be integrable and suppose $f \leq g$.  
+  Then $\int f \leq \int g.$
+\end{problem}
+
+\begin{proof}
+  \begin{align*}
+  \int f \ =
+  \ \ \inf \sum M_S(f) \cdot v(S)\ \  \leq 
+  \ \ \inf \sum M_S(g) \cdot v(S) \ \ = 
+  \ \int g.
+  \end{align*}
+\end{proof}
+
+
+\begin{problem}
+  If $f: A \to \reals$ is integrable then $|f|$ is integrable and
+  $\big | \int f \big | \leq \int |f|.$
+\end{problem}
+
+\begin{proof}
+  \begin{align*}
+    (U-L)(|f|, P) = \sum (M_S(|f|) - m_S(|f|))\cdot v(S) 
+    \leq \sum (M_S(f) - m_S(f))\cdot v(S)
+  \end{align*}
+  which is as small as we like by integrability of $f$. The required comparison
+  follows from taking infinums of
+  $$\big | \sum M_s(f) \cdot(S) \big |  \leq 
+  \sum |M_s(f) \cdot(S)| = 
+  \sum M_s(|f|) \cdot(S).$$ 
+\end{proof}
+
+\begin{problem}{3.7}
+  Let $f: [0, 1]\times[0,1] \to \reals$ be defined by 
+   \begin{equation*}
+    f(x, y) =
+    \begin{cases*}
+      0 & if $x$ is irrational or y is irrational \\
+      1/q & if $x$ is rational and $y=p/q$ in lowest terms.
+    \end{cases*}
+  \end{equation*}
+  Then $f$ is integrable and the integral is $0.$
+\end{problem}
+
+
+\begin{proof}
+  \color{ForestGreen}?
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{3.8}
+  The rectangle $A = \Pi [a_i, b_i] \subset \reals^m$ 
+  does not have content zero if each $a_i < b_i.$
+\end{problem}
+
+\begin{proof}
+  Let $U_1, ..., U_n$ be a finite cover of closed rectangles with each $U_i$ contained in $A$ and
+  let $P_d = (a_d = t_{d0} < ... < t_{dk(d)} = b_d)$ be the partition containing all 
+  the endpoints of $U_i$ in the $d$th dimension, $d = 1,..,m$.
+  Then each $v(U_i) = \Pi_{d=1}^m \sum ( t_{d,j} - t_{d,j-1} )$ for a 
+  `certain number' of summands.
+  Moreover each $\Pi_{d=1}^m(t_{d,j} - t_{d,j-1})$ lies in at least one $U_i,$
+  so
+  \begin{align*}
+    \sum v(U_i) \geq 
+    \prod_{d = 1}^m \sum_{j=1}^{k(d)}(t_{d,j} - t_{d,j-1}) = 
+    \prod(b_d - a_d) = v(A)
+  \end{align*}
+  which is positive so long as each $a_i < b_i.$
+\end{proof}
+
+\begin{problem}{3.9}
+  An unbounded set cannot have content zero, but can have measure zero.
+\end{problem}
+
+\begin{proof}
+  If $A$ has content zero then there is a finite cover of $A$ by closed rectangles.
+  Then each point of $A$ lies in some closed rectangle, i.e. $A$ is bounded.
+
+  The set $\{1 ,2, 3, ...\}$ is clearly unbounded, but the cover 
+   $n \in [n - \frac{\varepsilon}{2^{n+1}},n + \frac{\varepsilon}{2^{n+1}} ]$
+   has volume $\varepsilon$, which is as small as we like.
+\end{proof}
+
+\begin{problem}{3.10}
+  A bounded set of content zero has boundary of content zero, but 
+  a bounded set of measure zero may have boundary with positive measure.
+\end{problem}
+
+\begin{proof}{Using results from topology.}
+  Let $C$ be a bounded set, $\overline{C}$ the closure of $C$ and 
+  $U_i$ a finite cover of $C$ by closed rectangles. Then $U = U_i$ is a finite union 
+  of closed sets, hence closed. The closure of a set is by definition the smallest 
+  closed set and yet also contains that set's boundary, whence
+  $ \partial C \subset \overline{C} \subset U$ and so $\partial C$ has content zero.
+
+  On the other hand the set $\rationals \cap [0, 1]$ is bounded and has zero measure
+  but its boundary is that whole interval.
+\end{proof}
+\color{ForestGreen}
+  Would be better to give a proof using only the theorems introduced in the book so far.
+\color{Black}
+
+
+
+\begin{problem}{3.11}
+  Let $A \subset [0, 1]$ be the union over countably many intervals $(a_i, b_i)$
+  such that each rational number in $(0, 1)$ is contianed in  some interval.
+  Problem $1-18$ states that $\partial A = [0, 1] - A$.
+  Show that if each $b_i > a_i$ then $A$ does not have zero measure.
+\end{problem}
+\begin{proof}
+  \color{ForestGreen} Follows from the subaditivity of a measure, but since that tool has not been introduced need a different proof.
+\end{proof}
+
+
+\begin{problem}{3.12}
+  Let $f: [a, b] \to \reals$ be increasing. Then the set 
+  $X = \{ x: f\ discontinuous\ as\ f \}$ has measure zero.
+\end{problem}
+
+\begin{proof}
+  \color{ForestGreen}
+\end{proof}
+
+
+\begin{problem}{3.13}
+  Any open cover admits a countable subcover.
+\end{problem}
+
+\begin{proof}
+  The first result is that the collection of `rational rectangles' - closed rectangles 
+  with all rational endpoints - is countable. This is a consequence of theorem which says
+  a finite cartesian product of countable sets is countable, after identifying the rectangle 
+  in $\rationals^n$ with a point in $\rationals^{2n}$.
+
+  For the main result, let $C_i$ be any open cover. For any $x$ in our set, 
+  there is some $C_i$ containing $x$.  Then there is a closed rectangle $B$ with
+  $x \in B \subset C_i$.  By a generalisation of the argument that any interval contains 
+  infinitley many rational numbers, there is a rational rectangle $A_x$ with 
+  $x \in A_x \subset B \subset C_i.$
+  Then the union of all the $A_x$ is obviously a cover, which cannot be larger than $\cup_\naturals A_j$ since there are only countably many rational rectangles $A$.
+  Then each $x$ is in some $A_j \subset C_j$, whence $C_j$ is a cover.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{3.14}
+  If $f$ and $g$ are integrable then so is $f\cdot g$.
+\end{problem}
+
+\begin{proof}
+  Let $D_f,\ D_g$ be the sets on which $f$ and $g$ are not continuous.
+  Then (Theorem 3.8) both are measure zero and so (Theorem 3.4 / subaditivity of measure)
+  $D_{f\cdot g} \subset D_f \cup D_g$ is measure zero.
+  By Theorem 3.8 again $f \cdot g$ is integrable.
+\end{proof}
+
+
+\begin{problem}{3.15}
+  If $C$ has content zero then $C$ is Jordan Measurable and 
+  then volume of $C$ is zero.
+\end{problem}
+
+\begin{proof}
+  Since $C$ is content zero it can be covered by finitely many closed rectangles.
+  Let $a_i, b_i$ be the smallest and largest of the endpoints in each dimension,
+  then define $A = \prod [a_i, b_i].$ Then $A$ contains $C$ which is therefore bounded.
+  By problem 3.10 the boundary of $C$ has content zero, hence measure zero and so
+  the $C$ is Jordan Measurable.
+
+  To compute the integral take $\varepsilon > 0$ and let 
+  $U_1, ..., U_n$ be some cover of $C$ which has volume smaller than $\varepsilon.$
+  Let $P$ be some partition of $A$ consisting 
+  of each $U$ together with other rectangles $V$.
+  Then 
+  \begin{align*}
+    L(\chi_C, P) = \sum 1 \cdot v(U) + \sum 0 \cdot v(V) = \sum v(U) < \varepsilon
+  \end{align*}
+  and so $\int_C 1 = 0.$
+
+\end{proof}
+
+\begin{problem}{3.16}
+  The same does not hold for bounded sets of measure zero.
+\end{problem}
+
+\begin{proof}
+  Consider $\rationals \cap [0,1].$  The set is bounded and has zero measure but 
+  (becasue the boundary is large) not integrable. 
+  If $P$ is any partition, then each subrectangle $S$ contains both rational and
+  irrational numbers, so $M_s(\chi_C) = 1$ and $m_s(\chi_C) = 0.$  Clearly the upper and lower 
+  sums over $P$ can never agree.
+\end{proof}
+
+\begin{problem}{3.17}
+  If $C$ is a bounded set of measure zero and $\int_C 1$ exists then it must be zero.
+\end{problem}
+
+\begin{proof}
+  Let $A$ be some rectangle containing $C$ so that $\int_C 1 = \int_A \chi_C$
+  and let $P$ be a partition of $A$.  Then 
+  \begin{align*}
+    L(\chi_C, P) = 
+    \sum m(\chi_C, S)\cdot v(S) + \sum m(\chi_C, Q) \cdot v(Q) = 
+    \sum v(S)
+  \end{align*}
+  where $S$ are the subrectangles contained in $C$ and $Q$ are the rest.
+  The inclusion $S \subset C$ implies $S$ is also zero measure, and 
+  so by problem 3.8 is a degenerate rectangle. This is not allowed in 
+  our definition of a partition and so all subrectangles 
+  are of the type $Q$, so $L(\chi_C, P) = 0$ for any partition $P$.
+  We have assumed that the integral exists, and so its value must be zero.
+\end{proof}
+
+
+\begin{problem}{3.18}
+  If $f: A\to\reals$ is non-negative and $\int f = 0$ then the
+  support of $f$ has measure zero.
+\end{problem}
+
+\begin{proof}
+  For any integer $n$ and $\varepsilon > 0$ let $P$ be a partition with 
+  $\sum M_S(f)\cdot v(S) < \varepsilon/n.$ 
+  Then either $M_S(f) > 1/n$ or $M_S(f) \leq 1/n$ and so 
+  \begin{align*}
+    \sum_{M\leq 1/n} M_S(f) \cdot v(S) + \sum_{M > 1/n} \frac{1}{n}v(S) < 
+    \varepsilon/n
+  \end{align*}
+  from which (since both sums are finite)
+  \begin{align*}
+    \sum_{i = 1,...k} v(S_i) < \varepsilon.
+  \end{align*}
+
+  If $D_n$ is defined as  $\{ x: f(x) > 1 / n \}$ then it is surely covered by these
+  $S$, which the argument above shows to be a cover of content zero.
+  The support of $supp(f) = D_1 \cup D_2 \cup ...$ is a countable union of 
+  measure zero sets, hence measure zero.
+\end{proof}
+
+
+\begin{problem}{3.19}
+  Let $U$ be the open set in problem 3.11.
+  If $f = \chi_U$ except on a set of measure zero then $f$ is not integrable.
+\end{problem}
+
+\begin{proof}
+  \color{ForestGreen}?
+\end{proof}
+
+
+\begin{problem}{3.20}
+  An increasing function from $[a, b]$ to $\reals$ is integrable.
+\end{problem}
+\begin{proof}
+  By problem 3.12 the subset of the domain where the function is 
+  discontinuous has measure zero. The function is therefore integrable by theorem 3.8.
+\end{proof}
+
+
+\begin{problem}{3.21}
+  Let $A$ be a closed rectangle and $C \subset A$ and let $P$ be some 
+  partition in which every subrectangle is either contained in $C$, 
+  or intersects $C$ (without being contained.)  That is, there are no
+  subrectangles in $A-C$.
+\end{problem}
+
+\begin{proof}
+\color{ForestGreen} ?
+\end{proof}
+
+\begin{problem}{3.22}
+  If $A$ is a JM set and $\varepsilon > 0$ there is a compact JM set $C \subset A$
+  such that $\int_{A-C}1 < \varepsilon.$ 
+\end{problem}
+
+% \begin{proof}
+%   Let $U_1, ...U_n$ be a cover of $\partial A$ by \textit{open} rectangles and define
+%   \begin{align*}
+%     C = \overline{A} - \bigcup U_i = \overline{A} \cap \big (\bigcup U_i^c\big )
+%   \end{align*}
+%   where $X^c$ denotes the complement of $X$ in the ambient space, $X-C$
+%   and $\overline{A}$ is the closure of $A$.  $C$ is compact so it remains to show that
+%   it has a small boundary.  
+
+%   If $x$ is some point in $\partial C$ then any neighbourhood of $x$
+%   contains a point $a \in C$, which the definition of $C$ directly
+%   implies is not in any of the $U_i$.
+%   The same neighbourhood contains another point $b$ which is not in $C$, i.e. 
+%   \begin{align*}
+%     b \in \overline A^c  \bigcup U_i.
+%   \end{align*}
+%   If $b$ is not in $\overline{A}^c$ then it must be in a $U_i$.
+%   Otherwise it is in $\overline{A}^c$ ie. is in the exterior of $A$. Hence our 
+%   rectangle contains a point in the exterior of $A$ (that one is $b$) and a point in 
+%   the closure of $A$ (that one is $x$).
+%   \footnote{since $C\subset A \Rightarrow \partial C \subset \overline{A}.$}
+%   Then it contains a point in 
+% \end{proof}
+
+\begin{proof}
+  \color{ForestGreen}
+  Baffling statement.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{3.23}
+  Let $C = A \times B$ be a set of content zero.
+  Let $A' \subset A$ be the set of $x \in A$ such that 
+  $\{ y \in B: (x, y) \in C \}$ is not content zero.
+  Then $A'$ is measure zero.
+\end{problem}
+\begin{proof}
+  By problem 3.15 $C$ is Jordan Measurable and has volume $0$.
+\end{proof}
+
+
+
+\begin{problem}{3.24}
+  The result of problem 3.23 does not hold in general for sets of measure zero.
+\end{problem}
+
+\begin{proof}
+  Let $C\subset [0,1] \times [0,1]$ be the union of all 
+  $\{ p/q \} \times [0, 1]$ where $p/q$ is a rational number in $[0, 1]$ with 
+  $p/q$ in lowest terms. It's a werid comb kind of thing.
+  The $C$ has content zero as the bounded countable union of measure zero sets, but 
+  for any $p/q$ the set $\{ y \in [0, 1]: (p/q, y) \in C \} = [0, p/q]$
+  is not content zero for any $p/q$, i.e. $A'$ is all rationals in $[0,1]$, which 
+  is not content zero.
+\end{proof}
+
+
+
+\begin{problem}{3.25}
+  Non-degenerate rectangles have positive measure.
+  (Alternative proof to problem 3.8.  Useful, because that proof sucks.)
+\end{problem}
+
+\begin{proof}
+  \color{ForestGreen}
+  Seems to be more going on than I thought.
+\end{proof}
+  
+
+
+\begin{problem}{3.26}
+  Let $f: [a, b] \to \reals$ be integrable and non-negative and let 
+  $A_f$ be the region between the graph of $f(x)$ and the $x$-axis.
+  Then $A_f$ is Jordan Measurable and has area $\int_a^b f.$
+\end{problem}
+
+\begin{proof}
+  The boundary of $A$ consists of three bounded line segments and the graph of $f$.
+  Since $f$ is integrable, it is continuous almost everywhere and so the 
+  the graph is a countable union\footnote{A measure zero subset of an interval must be a countable union of singletons.}
+   of continuous plane curves.  Together with 
+  the obvious fact that $A_f$ is bounded establishes that $A_f$ is 
+  Jordan measurable.
+
+  Let $M$ be some upper bound for $f$.  Then 
+  \begin{align*}
+    \mathcal{L}(x) = \int_{[0, M]} \chi_{A_f}(x, y)dy = f(x)
+  \end{align*}
+  and so by Fubini the volume of $A_f$ is 
+  \begin{align*}
+    \int_{A_f}1 = 
+    \int_{[a, b]\times[0, M]} \chi_{A_f}
+    \int_{[a, b]} \mathcal{L}(x) = 
+    \int_a^b f.
+  \end{align*}
+\end{proof}
+
+
+
+\begin{problem}{3.27}
+  If $f: [a, b] \times [a, b] \to \reals$ is continuous then 
+  \begin{align*}
+    \int_a^b \int_a^y f(x, y)dxdy = \int_a^b \int_x^b f(x, y)dy  dx.
+  \end{align*}
+\end{problem}
+
+\begin{proof}
+  Let $C$ be the region above the diagonal, that is 
+  \begin{align*}
+    \{ (x, y) : y \in [a, b]\ and \ x \in [a, y] \} = 
+    \{ (x, y) : x \in [a, b]\ and \ y \in [x, b] \}.
+  \end{align*}
+  Then 
+  \begin{align*}
+    \int_C f = 
+    \int_{[a, b], [a, b]}\chi_C \cdot f = 
+    \int_{[a, b]}\bigg(\int_{[a, b]}(f\cdot \chi_C)(x, y)dy\bigg)dx = 
+    \int_a^b \bigg(\int_x^b f dy\bigg)dx
+  \end{align*}
+  with the other side following from a similar calculation.
+\end{proof}
+
+
+\begin{problem}{3.28}
+  $D_{1, 2}f = D_{2, 1}f$ so long as these are continuous.
+\end{problem}
+\begin{proof}
+  \color{ForestGreen}?
+\end{proof}
+
+
+
+
+\begin{problem}{3.29}
+  Find the volume of the solid obtained by rotating a 
+  JM set in the $yz$ plane about the $z$-axis.
+\end{problem}
+\begin{proof}
+  \color{ForestGreen}?
+\end{proof}
+
+
+
+
+
+\begin{problem}{3.30}
+  Let $C$ be the set in problem $1.17$ (the evil dense subset of the unit square 
+  containing at most one point on any horizontal or vertical line.)
+  Then both $\int_0^1 \int_0^1 \chi_C dydx$ and  $\int_0^1 \int_0^1 \chi_C dxdy$
+  are zero but the integral over $C$ does not exist.
+
+  In other words, the converse of Fubini's theorem does not hold in general.
+\end{problem}
+
+\begin{proof}
+  For any fixed $x$, the integral $\int_0^1\chi_C(x, y)dy$ is clearly zero since
+  $C$ contains at most a single point on the line $\{x\} \times [0,1]$ from which
+  it follows that the first double integral is $0$.  The argument for the other one
+  is exactly the same.
+
+  Since $C$ is dense, any rectangle contains both a point inside $C$ and
+  a point outside $C$ and so $M_S = 1, m_S = 0$ for any rectangle $S$.
+  Clearly the upper and lower integrals cannot coincide.
+\end{proof}
+
+
+\begin{problem}{3.31}
+  For $A = [a_1, b_1] \times ...\times [a_n, b_n]$ and $f: A \to \reals$
+  define $F: A: \reals$ by
+  \begin{align*}
+    F(x) = \int_{[a_1, b_1]\times ... \times[a_n, b_n]}f.
+  \end{align*}
+  What is $D_if(x)$ for $x$ in the interior of $A$?
+\end{problem}
+
+\begin{proof}
+  \color{ForestGreen}?
+\end{proof}
+
+
+
+\begin{problem}{3.32: Leibnitz' Rule}
+  Let $f: [a, b] \times [c, d] \to \reals$ be continuous and suppose
+  $D_2f$ is continuous.  Define $F(y) = \int_a^bf(x, y)dx.$
+  Then $F'(y) = \int_a^bD_2f(x, y)dx.$
+\end{problem}
+
+\begin{proof}
+  Rewrite $F(y)$ as 
+  \begin{align*}
+    \int_a^b \int_c^y D_2f(x, t)dtdx + \int_a^b f(x, c) dx.
+  \end{align*}
+  By continuity of $D_2f$ the order of integration may be reversed.
+  The result follows from the fundamental theorem of calculus applied to the
+  first integral and the $y$-independence of the second.
+\end{proof}
+
+
+\begin{problem}{3.33}
+  If $f:[a, b] \times [c, d] \to \reals$ is continuous, define
+  $F(x, y) = \int_a^xf(t, y)dt.$ Find $D_1F$ and $D_2F$.
+\end{problem}
+
+\begin{proof}
+  By the FTC, $D_1F(x, y) = f(x, y)$ and by Leibnitz' rule $D_2F(x, y) = \int_a^bD_2f(t, y)dt.$
+\end{proof}
+
+
+
+
+
+\begin{problem}{3.34}
+  Let $g_1, g_2: \reals^2 \to \reals$ be continuously differentiable and 
+  suppose $D_1g_2 = D_2g_1.$  Define 
+  \begin{align*}
+    f(x, y) = \int_0^x g_1(t, 0)dt + \int_0^yg_2(x, t)dt.
+  \end{align*}
+  Then $D_1f(x, y) = g_1(x, y).$
+\end{problem}
+
+\begin{proof}
+  By FTC and Leibnitz' rule
+  \begin{align*}
+    D_1f(x, y)
+    &= g_1(x, 0) + \int_0^yD_1g_2(x, t)dt \\
+    &= g_1(x, 0) + \int_0^yD_2g_1(x, t)dt \\
+    &= g_1(x, 0) + g_1(x, y) - g_1(x, 0) \\
+    &= g_1(x, y).
+  \end{align*}
+\end{proof}
+
+
+
+\begin{problem}{3.35}
+  If $G: \reals^n \to \reals^n$ is a invertible linear transformation and $U$ a 
+  rectangle, then the volume of $G(U)$ is $|\det G|\cdot v(U).$
+\end{problem}
+
+\begin{proof}
+  Let $U = [a_1, b_1] \times ... \times [a_n, b_n]$
+  and consider first of all three kinds of elementary transformations.  
+  \begin{enumerate}
+     \item $G$ takes one of the basis vectors $e^i$ to $ce^i$ and fixes the rest.
+     If $c$ is positive then 
+     \begin{align*}
+       v(G(U))
+       &= v([a_1, b_1]\times...\times[ca_i, c_bi]\times...\times[a_n, b_n]) \\
+       &= (b_1 - a_1)\cdot...\cdot(cb_i - ca_i)\cdot ... \cdot(b_n-a_n) \\
+       &= c\cdot v(U).
+     \end{align*}
+     The matrix representation of $G$ is the identity with the $i$-th 
+     entry replaced by $c$, which has determinant $c.$ 
+     If $c$ is negative then the absolute value signs are needed but 
+     the volume is unchanged, although $[a, b]$ must become $[cb, ca]$. 
+
+     \item $G$ swaps two dimensions and fixes the rest, i.e. 
+     $g(e_i) = e_j$ and $g(e_j) =e_i.$
+     As a matrix $G$ is the identity with zeros in the $i$ and $j$-th positions, 
+     and ones in the $G_{i, j}$ and $G_{j,i}$ positions.  In $\reals^3$ it might look like
+     \begin{align*}       
+       \begin{pmatrix}
+         1 & 0 & 0 \\
+         0 & 0 & 1 \\
+         0 & 1 & 0
+       \end{pmatrix}
+     \end{align*}
+     and in any dimension larger than one has determinant $-1.$  
+     Clearly this operation has no effect on the volume of the rectangle 
+
+     \item $G$ adds basis vector to another and fixes the rest, i.e.
+     \begin{align*}
+       G(x^1,..., x^i,..., x^j,..., x^n) = (x^1,..., x^i + x^j,..., x^j,..., x^n).
+     \end{align*}
+     As a matrix $G$ is the identity with a single extra one somewhere, and so it is easy to 
+     see that $\det G = 1$.
+
+
+     Linear operators on $\mathbb{R}^n$ are bounded, so the volume of $G(U)$
+     can be calculated as 
+     \begin{align*}
+       \int_{[-M_n, M_n]\times...\times [-M_1,M_1]}\chi_{G(U)}dx^1...dx^n
+     \end{align*}
+     for some upper bound $M$ of both $U$ and $G(U)$.  Since Fubini's theorem will allow us to interchange
+     the order of integration, we can assume that $G$ 
+     adds $e_2$ to $e_1$ and leaves the rest. Then $v(G(U)) = $
+     \begin{align*}
+       \int_{[-M_n, M_n]\times...\times[-M_3, M_3]} \bigg( 
+          \int_{[-M_2,M_2]\times[-M_1,M_1]} \chi_{G(U)}(x^1, x^2, ...)dx^1dx^2
+        \bigg) dx^3...dx^n.
+     \end{align*}
+     The value of the inner integral is the area of a parallelogram, which 
+     coincides with the area of the rectangle which fell over.  Hence this inner integral 
+     would not be changed by replacing $\chi_{G(U)}$ with $\chi_U.$
+     Furthermore, for fixed $a^1$ and $a^2$ and varying coordinates in the 
+     remaining positions, $\chi_U(a_1, a_2, x_3, ..., x_n)$ and 
+     $\chi_{G(U)}(a_1, a_2, x_3, ..., x_n)$ conincide exactly.
+     So for the purposes of evaulating this integral, $\chi_U$ will do 
+     just as well as $\chi_{U(G)}$, or in other words their volumes are equal.
+     
+     \end{enumerate}
+
+     Finally if $G$ is the composition of elementary operations as described above
+     then $G$ alters the volume of $U$ by a factor of 
+     \begin{align*}
+        |\det G_1| \cdot .. \cdot |\det G_m| = 
+        |\det G_1 \cdot ... \cdot \det G_m | = 
+        |\det (G_1 \cdot ... \cdot G_m) | = |\det G|.
+     \end{align*}
+     We take as a fact that these elemetary operations generate the whole group 
+     of invertible matrices and so this scaling factor is good for any invertible linear map.
+\end{proof}
+
+
+
+
+\begin{problem}{3.36 Cavalieri's Principle.}
+    Let $A$ and $B$ be JM subsets of $\reals^3$. 
+    Let $A_c = \{(x, y): (x, y, c) \in A\}$ and define $B_c$ similarly.
+    If each $A_c$ and $B_c$ are JM  and have the same area then $A$ and $B$
+    have the same volume.
+\end{problem}
+
+\begin{proof}
+  Let $[-M, M]^3$ be a rectangle bounding $A$ and $B$. Then 
+  \begin{align}
+    \int_{[-M, M]^3}\chi_A 
+    &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_A \bigg)dz \\
+    &= \int_{-M}^M \bigg( \int_{A_z} 1 \bigg) dz
+    = \int_{-M}^M \bigg( \int_{B_z} 1 \bigg) dz \\
+    &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_B \bigg)dz 
+    = \int_{[-M, M]^3}\chi_B.
+  \end{align}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{3.37}
+  Suppose that $f: (0, 1) \to \reals$ is non-negative and continuous.
+  Then $\int_{(0,1)}f$ exists if and only if 
+  $\lim_{\varepsilon \to 0} \int_\varepsilon^{1-\varepsilon}f$ exists.
+\end{problem}
+
+\begin{proof}
+  Let $o$ be the cover of $(0, 1)$ consisting of the intervals
+  $(1/n, 1 - 1/n)$ and $\Phi$ a $C^\infty$ partition of unity for $(0, 1)$
+  subordinate to $o$.
+  Then each $\phi_i$ in $\Phi$ has support contained in some 
+  $(1/m_i, 1 - 1/m_i)$ in $o$.
+  Choose an ordering of $\Phi$ so that if $i < j$ then $m_i \leq m_j$, that way
+  the support of $\phi_i$ is in $ (1 / m_j, 1 - 1/m_j) $ for all $j > i.$
+
+  Then the partial sums can be written as
+  \begin{align*}
+    \sum_{k=1}^n \int_{(0, 1)} \phi_k \cdot f = 
+    \sum_{k=1}^n \int_{1/m_k}^{1 - 1/m_k} \phi_k \cdot f = 
+    \sum_{k=1}^n \int_{1/m_n}^{1 - 1/m_n} \phi_k \cdot f =  
+    \int_{1/m_n}^{1 - 1/m_n} \sum_{k=1}^n  \phi_k \cdot f =  
+    \int_{1/m_n}^{1 - 1/m_n} f.
+  \end{align*}
+  Since $\phi \cdot f$ is non-negative, convergence and absolute conergence
+  are the same thing. Thus the extended integral exists if and only if the 
+  given limit exists.
+\end{proof}
+
+
+\begin{problem}{3.38}
+  Let $A_n$ be a closed set in $(n, n+1)$. Suppose that $f: \reals \to \reals$
+  satisfies $\int_{A_n}f = (-1)^n/n$ and $f=0$ outside $A_n.$ 
+  Then $f$ is not integrable.
+  % Find two different partitions of unity for $\mathbb{R}$ for which 
+  % the series $\sum_{\Phi} \int_{A_n} \phi \cdot f$ converge absolutely
+  % to different values.
+\end{problem}
+
+\begin{proof}
+  Let $\Phi_n$ be a partition of unity for $A_n$ and extend each 
+  $\phi$ to a function on $\mathbb{R}$ by setting $\phi=0$ outside 
+  $A_n$.
+  Then their union $\Phi$ is a partion of unity for all of $\mathbb{R}$
+  and 
+  \begin{align}
+    \sum_\Phi \int_\mathbb{R} \phi \cdot |f| = 
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \phi \cdot |f| \bigg) = 
+    \sum_\naturals \int_{A_n}f = -\log 2.
+  \end{align}
+
+  Following the example in the wiki for conditional convergence, 
+  define the sets 
+  \begin{align}
+    B_n = A_{2n - 1} \cup A_{2(2n-1)} \cup A_{4n}
+  \end{align}
+  and let $\Phi_n$ be a partition of unity for $B_n$, taking the 
+  value $0$ outside $B_n$.  Then as above
+  \begin{align}
+    \sum_\Phi \int_\reals \phi \cdot |f| = 
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \phi \cdot |f| \bigg) = 
+    \sum_\naturals \int_{B_n}f.
+  \end{align} 
+  Each of the integrals in the last sum has the value 
+  \begin{align}
+    \int_{B_n}f
+    &= \int_{A_{2n-1}}f + \int_{A_{2(2n-1)}}f + \int_{A_{4n}}f \\
+    &=  \frac{(-1)^{2n-1}}{2n-1} + 
+        \frac{(-1)^{2(2n-1)}}{2(2n-1)} + 
+        \frac{(-1)^{4n}}{4n} \\
+    &=  \frac{1}{2(2n-1)} +
+        \frac{1}{4n} -
+        \frac{1}{2n-1} \\
+    &= \frac{1}{2} \bigg(
+     \frac{-1}{2n-1} + \frac{1}{2n} \bigg)
+  \end{align}
+  and so the sum converges to $-1/2 \log 2.$
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{3.39}
+  The condition that $\det g$ in the formula for change of variables is
+  superfluous, due to Sard's Theorem.
+\end{problem}
+\begin{proof}
+  \color{ForestGreen} ?
+\end{proof}
+
+
+
+\begin{problem}{3-40}
+  If $g: \reals^n \to \reals^n$ and $\det g'(x) \neq 0$ then 
+  there is an open set containing $x$ in which 
+  $g = T \circ g_n \circ ... \circ g_1$ where each $g_i$
+  is of the form $g_i(x) = (x^i, ..., f_i(x^i), ..., x^n)$
+  and $T$ is a linear transformation.  Furthermore $g$ can be written as $g = g_n \circ...\circ g_1$ if and only if $g'$ is 
+  diagonal.
+\end{problem}
+
+\begin{proof}
+  \color{ForestGreen} ?
+\end{proof}
+
+\begin{problem}
+  \begin{align}
+    \int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi.}
+  \end{align}
+\end{problem}
+
+\begin{proof}
+  \begin{enumerate}
+    \item Define $f: \{r: r > 0 \} \times (0, 2\pi) \to \reals^2$ by
+    $f(r, \vartheta) = r(\cos \vartheta, \sin \vartheta).$
+    If $r(\cos \vartheta, \sin \vartheta) = r'(\cos \vartheta', \sin \vartheta')$
+    then the Pythagorean identity easily gives $r = r'$, and so 
+    $$\cos \vartheta = \cos \vartheta',\ \ \  \sin \vartheta = \sin \vartheta'.$$
+
+
+
+
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Definitions}
+
+\begin{theorem}
+  Let $A \subset \reals^n$ and $o$ an open cover of $A$.
+  Then there is countable collection $\Phi$ of $C^\infty$ 
+  functions $\phi$ defined on $A$ with the following properties:
+  \begin{enumerate}
+    \item For any $x \in A$, $0 \leq \phi(x) \leq 1$.
+    \item For any $x \in A$ there is an open set $V$ containing $x$ 
+    such that all but finitely many $\phi$ are zero on $V$.
+    \item For each $x \in A$, we have $\sum_\Phi \phi(x) = 1$ and 
+    by (2) this sum is finite in some open set around $x$.
+    \item For each $\phi \in \Phi$ there is an open set $U \in o$
+    such that $\phi = 0$ outisde some closed set contained in $U$ 
+    (the support of each $\phi$ is compact and contained in some 
+    $U \in o$.)
+  \end{enumerate}
+
+  A colletion satisfying (1) - (3) is called a $C^\infty$ partition of unity for $A$.
+  If it also satisfies (4) it is said to be subordinate to the cover $o$.
+\end{theorem}
+
+\vspace{2em}
+
+
+\begin{definition}
+  Let $o$ be an admissible open cover of an open set $A \subset \mathbb{R}^n$
+  (each $U \in o$ is contained in $A$) and $\Phi$ a partition of unity 
+  subordinate to $o$.  If $f: A \to \reals$ is bounded in some 
+  open set around each point in $A$ and the subset of $A$ where $f$
+  is discontinuous is measure zero then, each 
+  $\int_A \phi \cdot f$ exists.
+  If the series $\sum_\Phi \int_A \phi \cdot |f|$ converges 
+  then we say $f$ is integrable write 
+  $\int_A f = \sum_\Phi \int_A \phi \cdot f$.
+\end{definition}
+
+\vspace{3em}
+\begin{definition}
+  A $k-tensor$ is a multilinear map function from 
+  $V^k \to \reals$ where $V$ is some vector space.
+  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$
+  and becomes a is a vector space over $\mathbb{R}$.
+  If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
+  define a tensor-product:
+  \begin{align}
+    S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) = 
+    S(v_1, ..., v_k)\cdot T(v_{k+1}, ..., v_{k+l}).
+  \end{align}
+  This product is left and right distributive and associative.
+\end{definition}
+
+\vspace{3em}
+\begin{theorem}
+  Let $v_1, ..., v_n$ be a basis for $V$, and let 
+  $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
+  Then the set of all $k$-fold tensor products of $\varphi_i$ 
+  is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
+\end{theorem}
+
+
+\begin{definition}
+  A $k$-tensor is alternating if
+  \begin{align}
+    a(v_1, ..., v_i, v_j, ..., v_k) = -a(v_1, ..., v_j, v_i, ..., v_k)
+  \end{align}
+  i.e. two elements are swapped and the rest left alone.
+\end{definition}
+
+
+
+\vspace{3em}
+\begin{definition}
+  If $T$ is some $k$-tensor, 
+  then you can have an alternating tensor for free:
+  \begin{align}
+    Alt(T) = \frac{1}{k!}\sum_{\sigma \in S_k} sign(\sigma)
+      T(v_{\sigma1}, ..., v_{\sigma k})
+  \end{align}
+  where $S_k$ is the group of permutations on $k$ letters.
+\end{definition}
+
+\vspace{3em}
+In general, the tensor product of two alternating tensors is not likely to be alternating.  Enter the wedge:
+
+
+\begin{definition}
+  Let $\omega \in \Omega^k(V)$ and $\nu \in \Omega^l(V)$.
+  Then
+  \begin{align}
+    \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \times \nu)
+  \end{align}
+  is in $\Omega^{k+l}(V).$
+\end{definition}
+
+
+
+
+
+\end{document}  
