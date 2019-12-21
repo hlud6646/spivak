@@ -1685,16 +1685,25 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   \end{problem}
 
   \begin{proof}
-    % Let $v_1, ..., v_n$ be a basis of $V$, and $w_1, ..., w_n$
-    \color{ForestGreen}?
+    Let $v_1, ..., v_n$ be a basis and let $w_1, ..., w_n$ be $n$ vectors.
+    Let $A$ be the matrix such that $w_i = Av_i$ and let $F$ be the matrix 
+    of $f$ with respect to the basis $v_i$.  Then, taking huge liberties with 
+    notation, $\omega(f(w_1), f(w_n)) = $
+    \begin{align*}
+      \omega(F(w_1,w_n)) = 
+      \omega(FA(v_1,v_n)) = 
+      \det(FA)\cdot \omega(v_1, v_n) = 
+      \det F \cdot \omega(A(v_1, v_n)) = 
+      \det F \cdot \omega(w_1, w_n).
+    \end{align*}
   \end{proof}
 
 
   \begin{problem}{4.3}
     If $\omega$ is the volume element determined by $T$ and $\mu$ and $w_1, ..., w_n$ are vectors in $V$ then 
-    \begin{align}
+    \begin{align*}
       |\omega(w_1, ..., w_n)| = \sqrt{det(g_{ij})}.
-    \end{align}    
+    \end{align*}    
     Note that the hint for the problem has the indicies around the wrong way.
   \end{problem}
   \begin{proof}
@@ -1789,6 +1798,18 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{problem}{4.5}
     If $c: [0, 1] \to (\reals^n)^n$ is continuous and each $(c^1(t), ..., c^n(t))$ is a basis, 
     then any two have the same orientation. 
@@ -1815,6 +1836,52 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+\begin{problem}{4.6}
+  If $v_1, ..., v_{n-1} \in \reals^n$ are linearly independent then 
+  $[v_1, .., v_{n-1}, v_1 \times ... \times v_{n-1}]$ is the usual 
+  orientation for $\reals^n$.
+\end{problem}
+\begin{proof}
+  If $n=2$ then it follows from the definition that 
+  \begin{align*}
+    \begin{pmatrix}
+      v_1 \\ v_2
+    \end{pmatrix}
+    \times = 
+    \begin{pmatrix}
+      -v_2 \\ v_1
+    \end{pmatrix}.
+  \end{align*}
+  It is clear that $\times v$ is just $v$ rotated $90$ degrees anticlockwise,
+  which is the usual orientation.   To be extra sure, the matrix taking 
+  $(1, 0)$ to $(v_1, v_2)$ and $(0, 1)$ to $(-v_2, v_1)$ is 
+  \begin{align*}
+    \begin{pmatrix}
+      v_1 && -v_2 \\ v_2 && v_1
+    \end{pmatrix}
+  \end{align*}
+  which has positive determinant so long as at least one of $v$ is non-zero. \\
+  \color{ForestGreen} Rest of it???
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{problem}{4.8}
   If $\omega \in \Omega^n(V)$ is a volume element define a `cross product' in terms of $\omega$.
 \end{problem}
@@ -1829,6 +1896,45 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.11}
+  Let $f$ be a self-adjoint linear map on $V$ with respect to the inner product
+  $T$.  If $v_1, v_n$ is an orthonormal basis and $A = (a_{ij})$ is the matrix of 
+  $f$ with respect to $v_i$ then $A$ is symmetric.
+\end{problem}
+\begin{proof}
+  Going straight into jumbo calculations, $T(x, f(y)) = $
+  \begin{align*}
+    T \bigg( \sum_i x^iv_i, f \bigg( \sum_j y^jv_j  \bigg) \bigg) =
+    \sum_{i,j = 1}^n x^iy^jT(v_i, f(v_j)) =
+    \sum_{i,j = 1}^n x^iy^j \sum_k a_{jk} T(v_i, v_k) =
+    \sum_{i,j = 1}^n x^iy^ja_{ji}.
+  \end{align*}
+  By a similar calculation $T(f(x), y) = \sum_{i,j = 1}^n x^iy^ja_{ij}$.
+  Since $f$ is self-adjoint we have 
+  \begin{align*}
+    \sum_{i,j = 1}^n x^iy^ja_{ji} = \sum_{i,j = 1}^n x^iy^ja_{ij}
+  \end{align*}
+  for all $x, y$, and so $a_{ij}$ must equal $a_{ji}.$
+\end{proof}
 
 
 
