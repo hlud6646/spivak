@@ -52,7 +52,7 @@
 \newtheorem{question}{Question} 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
-\newtheorem{problem}{Problem}
+\newtheorem*{problem}{Problem}
 
 
 %common sets
@@ -165,6 +165,7 @@ These are incomplete/problematic:
   \item Be more clear on the hypothesis of Fubinis for switching order in 3.35.
   \item 3-37 (b) is reportedly broken. Still needs doing with an improved 
   hypothesis.
+  \item 4.4 might need a better comment on orientation.
 \end{itemize}
 
 It would be good to check whether an argument about absolute convergence should ever be made explicitly.  
@@ -497,9 +498,11 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{proof}{Using results from topology.}
   Let $C$ be a bounded set, $\overline{C}$ the closure of $C$ and 
-  $U_i$ a finite cover of $C$ by closed rectangles. Then $U = U_i$ is a finite union 
-  of closed sets, hence closed. The closure of a set is by definition the smallest 
-  closed set and yet also contains that set's boundary, whence
+  $U_i$ a finite cover of $C$ by closed rectangles. Then $U = \cup U_i$ is a finite union 
+  of closed sets, hence closed. 
+  The closure of $C$ is by definition the smallest 
+  closed set containing $C$.  Furthermore it can be shown that it also contains
+  the bounday of $C$, whence
   $ \partial C \subset \overline{C} \subset U$ and so $\partial C$ has content zero.
 
   On the other hand the set $\rationals \cap [0, 1]$ is bounded and has zero measure
@@ -1637,6 +1640,77 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+\break
+\section{Integration on Chains}
+
+
+
+\begin{problem}{4.1}
+  Let $e_1, ..., e_n$ be the usual basis of $\mathbb{R}^n$ and let $\phi_i$ be the dual basis.
+  Then \\
+  $(a) \ \phi_{i_1} \wedge ... \wedge \phi_{i_k} (e_{i_1}, e_{i_k}) = 1$ and
+  $(b)$ $\phi_{i_1} \wedge ... \wedge \phi_{i_k}(v_1, ..., v_k)$ is the determinant of 
+  the $k \times k$ minor of 
+  $$\begin{pmatrix}v_1 \\ ...\\ v_k\end{pmatrix}$$
+  obtained by selecting $i_1, ..., i_k$.
+\end{problem}
+
+\begin{proof}
+  By induction on $k$.
+  If $k = 1$ then $\phi_i(e_i) = 1.$
+  Assume the result for $k-1$. Then
+  \begin{align*}
+    (\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}}) \wedge \phi_{i_{k}}
+    (e_{i_1}, ..., e_{i_{k-1}}, e_{i_{k}})=
+    \frac{1}{(k-1)!} \sum_{S_k}sign(\sigma)(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) \cdot
+     \phi_{i_{k}}(e_{\sigma(i_k)}).
+  \end{align*}
+
+  Since $\phi_{i_{k}}(e_{\sigma(i_k)})$ is one if $\sigma$ fixes $i_k$ and zero otherwise and
+  $\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}}$ is alternating this reduces to 
+  \begin{align*}
+    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) = \\
+    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)^2(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{i_1}, ..., e_{i_{k-1}}) = \\
+    \frac{|S_{k-1}|}{(k-1)!} \cdot  \phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}} (e_{i_1}, ..., e_{i_{k-1}}) = 1
+  \end{align*}
+  by the inductive hypothesis.
+
+  \color{ForestGreen} Part (b) ?
+\end{proof}
+
+
+  \begin{problem}{4.2}
+    Let $f: V \to V$ be linear and $\dim V = n$.
+    Then $f^*: \Omega^n(V) \to \Omega^n(V)$ is multiplication by $\det f$.
+  \end{problem}
+
+  \begin{proof}
+    % Let $v_1, ..., v_n$ be a basis of $V$, and $w_1, ..., w_n$
+    \color{ForestGreen}?
+  \end{proof}
+
+
+  \begin{problem}{4.3}
+    If $\omega$ is the volume element determined by $T$ and $\mu$ and $w_1, ..., w_n$ are vectors in $V$ then 
+    \begin{align}
+      |\omega(w_1, ..., w_n)| = \sqrt{det(g_{ij})}.
+    \end{align}    
+    Note that the hint for the problem has the indicies around the wrong way.
+  \end{problem}
+  \begin{proof}
+    Let $v_1, ...v_n$ be an orthonormal basis with resepect to $T$ and $A = a_{ih}$ numbers such that 
+    $w_i = \sum_{h=1}^n a_{ih}v_h$.
+    Then 
+    \begin{align}
+      g_{ij} := T(w_i, w_j) = \sum_{h,g=1}^n a_{ih}a_{jg}T(v_i, v_j) = \sum_{k=1}^n a_{ik}a_{jk},
+    \end{align}
+    that is $(g_{ij}) = A\cdot A^T$ and
+    $$\sqrt{\det G} = \det A.$$
+
+    By theorem 4.6 we have 
+    $ \omega(w_1, ..., w_n) = \det A \cdot \omega(v_1, ...v_n) = \pm \det(A)$
+    (since $\omega$ is the volume element with respect to the orthonormal basis $v_i$) which proves the result.
+  \end{proof}
 
 
 
@@ -1666,6 +1740,128 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.4}
+  If $\omega$ is the volume element of $V$ determined by $T$ and $\mu$ and
+  $f: \reals^n \to V$ is an isomorphism such that $f^*T = \langle, \rangle$ and such that 
+  $[f(e_1), ..., f(e_n)] = \mu$ then $f*\omega = \det.$
+\end{problem}
+
+\begin{proof}
+  If $(f(e_i))$ were an orthonormal basis with positive orientation then 
+  \begin{align*}
+    1 = \omega( f(e_1), ..., f(e_n) ) = f*\omega(e_1, ..., e_n)
+  \end{align*}
+  i.e. $f^*\omega$ is the volume element in $\reals^n$.  Since this is unique it equals $\det$.
+
+  Orthonormailty of $(f(e_i))$ follows from the easy calculation
+  \begin{align*}
+    T(f(e_i), f(e_j)) = f^*T(e_i, e_j) = \langle e_i, e_j \rangle = \delta{ij}.
+  \end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.5}
+    If $c: [0, 1] \to (\reals^n)^n$ is continuous and each $(c^1(t), ..., c^n(t))$ is a basis, 
+    then any two have the same orientation. 
+\end{problem}
+
+\begin{proof}
+  Since $c(t)$ is a basis for any $t$ it must always be non-singular.
+  Hence $\det \circ c \neq 0$ on $[0, 1]$, which means it is always 
+  positive, or always negative.
+  Let $C_1$ and $C_2$ be the matrices of two bases in this family, and $A$ the transformation between them. 
+  Then 
+  \begin{align*}
+    \det A = \det(C^{-1}_1) \cdot \det C_2 > 0
+  \end{align*}
+  as the argument above ensures the determinants on the right have the same sign.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.8}
+  If $\omega \in \Omega^n(V)$ is a volume element define a `cross product' in terms of $\omega$.
+\end{problem}
+% \begin{prvf}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\break
 
 
 
@@ -1725,7 +1921,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \begin{theorem}
   Let $v_1, ..., v_n$ be a basis for $V$, and let 
   $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
-  Then the set of all $k$-fold tensor products of $\varphi_i$ 
+  Then the set of all 
+  \begin{align}
+    \phi_{i_1} \otimes ... \otimes \phi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
+  \end{align}
   is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
 \end{theorem}
 
@@ -1759,7 +1958,7 @@ In general, the tensor product of two alternating tensors is not likely to be al
   Let $\omega \in \Omega^k(V)$ and $\nu \in \Omega^l(V)$.
   Then
   \begin{align}
-    \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \times \nu)
+    \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \otimes \nu)
   \end{align}
   is in $\Omega^{k+l}(V).$
 \end{definition}
