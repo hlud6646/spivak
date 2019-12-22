@@ -88,6 +88,263 @@
 \begin{document}
 \maketitle
 
+
+
+\section{Definitions}
+% \begin{theorem}
+%   Let $A \subset \reals^n$ and $o$ an open cover of $A$.
+%   Then there is countable collection $\Phi$ of $C^\infty$ 
+%   functions $\phi$ defined on $A$ with the following properties:
+%   \begin{enumerate}
+%     \item For any $x \in A$, $0 \leq \phi(x) \leq 1$.
+%     \item For any $x \in A$ there is an open set $V$ containing $x$ 
+%     such that all but finitely many $\phi$ are zero on $V$.
+%     \item For each $x \in A$, we have $\sum_\Phi \phi(x) = 1$ and 
+%     by (2) this sum is finite in some open set around $x$.
+%     \item For each $\phi \in \Phi$ there is an open set $U \in o$
+%     such that $\phi = 0$ outisde some closed set contained in $U$ 
+%     (the support of each $\phi$ is compact and contained in some 
+%     $U \in o$.)
+%   \end{enumerate}
+
+%   A colletion satisfying (1) - (3) is called a $C^\infty$ partition of unity for $A$.
+%   If it also satisfies (4) it is said to be subordinate to the cover $o$.
+% \end{theorem}
+
+% \vspace{2em}
+
+
+% \begin{definition}
+%   Let $o$ be an admissible open cover of an open set $A \subset \mathbb{R}^n$
+%   (each $U \in o$ is contained in $A$) and $\Phi$ a partition of unity 
+%   subordinate to $o$.  If $f: A \to \reals$ is bounded in some 
+%   open set around each point in $A$ and the subset of $A$ where $f$
+%   is discontinuous is measure zero then, each 
+%   $\int_A \phi \cdot f$ exists.
+%   If the series $\sum_\Phi \int_A \phi \cdot |f|$ converges 
+%   then we say $f$ is integrable write 
+%   $\int_A f = \sum_\Phi \int_A \phi \cdot f$.
+% \end{definition}
+
+
+
+\subsection{Tensors}
+\begin{definition}
+  A $k-tensor$ is a multilinear map function from 
+  $V^k \to \reals$ where $V$ is some vector space.
+  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$.
+  If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
+  define a tensor-product:
+  \begin{align*}
+    S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) = 
+    S(v_1, ..., v_k)\cdot T(v_{k+1}, ..., v_{k+l}).
+  \end{align*}
+  This product is left and right distributive and associative if addition is defined the obvious way.
+\end{definition}
+
+\begin{theorem}
+  Let $v_1, ..., v_n$ be a basis for $V$, and let 
+  $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
+  Then the set of all 
+  \begin{align*}
+    \phi_{i_1} \otimes ... \otimes \phi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
+  \end{align*}
+  is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
+\end{theorem}
+
+
+\begin{definition}
+  A $k$-tensor is alternating if
+  \begin{align*}
+    a(v_1, ..., v_i, v_j, ..., v_k) = -a(v_1, ..., v_j, v_i, ..., v_k)
+  \end{align*}
+  i.e. two elements are swapped and the rest left alone.
+\end{definition}
+
+
+\begin{definition}
+  If $T$ is some $k$-tensor, 
+  then you can have an alternating tensor for free:
+  \begin{align*}
+    Alt(T) = \frac{1}{k!}\sum_{\sigma \in S_k} sign(\sigma)
+      T(v_{\sigma1}, ..., v_{\sigma k})
+  \end{align*}
+  where $S_k$ is the group of permutations on $k$ letters.
+\end{definition}
+
+In general, the tensor product of two alternating tensors is not likely to be alternating.  Enter the wedge:
+
+
+\begin{definition}
+  Let $\omega \in \Omega^k(V)$ and $\nu \in \Omega^l(V)$.
+  Then
+  \begin{align*}
+    \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \otimes \nu)
+  \end{align*}
+  is in $\Omega^{k+l}(V).$
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\break
+\subsection{Fields and Forms}
+\begin{definition}
+  For $p \in \reals^n$ the tangent space of $\reals^n$ at $p$ is the set of all $(p, v), v \in \reals^n$.
+  Write $v_p$ and say `the vector $v$ at $p$.'
+\end{definition}
+
+\begin{definition}
+  The tangent space inherits the inner product from $\reals^n$, by defining 
+  \begin{align*}
+    \langle v_p, w_p \rangle_p  = \langle v, w \rangle.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  For the standard orientation in $\reals^n_p$, the sensible choice is
+  \begin{align*}
+    [(e_1)_p, ..., (e_n)_p].
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  A vector field $F$ is a function such that 
+  \begin{align*}
+    F(p) \in \reals^n_p
+  \end{align*}
+  for every $p \in \reals^n.$  The component functions of $F$ are the functions 
+  $F_i: \reals^n \to \reals$ such that 
+  \begin{align*}
+    F(p) = F_1(p)\cdot(e_1)_p + ... + F_n(p)\cdot(e_n)_p.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  A $k-$form or differential form is a function on $\reals^n$ such that
+  \begin{align*}
+    \omega(p) \in \Omega^k(\reals^n_p).
+  \end{align*}
+  A $0-$form $f$ takes a vector $p$ and returns a tensor of rank $0$, that is a number.
+  Hence a $f$ is considered a function from $\reals^n$ to $\reals.$
+  Forms inherit the operations
+  \begin{align*}
+    (\omega + \mu)(p) &= \omega(p) + \mu(p)\\
+    (f \cdot \omega)(p)(v_1, ...v_k) &= f(p) \cdot \omega(p)(v_1, ..., v_k)\\
+    (\omega \wedge \mu)(p)(v_1, ..., v_k) &= \omega(p)(v_1,...v(k)) \wedge \mu(p)(v_1, ..., v_k).
+  \end{align*}
+  If $\phi_1(p), ..., \phi_n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p$ then any $k$-form can be written as
+  \begin{align*}
+    \omega(p) = \sum_{i_1<...<i_k} \omega_{i_1, ..., i_k}(p)\cdot[\phi_{i_1}(p)\wedge...\wedge\phi_{i_k}(p)]
+  \end{align*}
+  for numbers $\omega{i_1,...,i_k}$.  The form $\omega$ is said to be continuous if each of these functions is.
+
+  \end{definition}
+
+  \begin{definition}
+    If $f$ is a $0-$form (a function $\reals^n \to \reals$) define a $1-$form $df$, the  `differential of $f$ at $p$' by
+    \begin{align*}
+      df(p)(v_p) = Df(p)(v).
+    \end{align*}
+    For example, writing $x^i$ for the projection map $\pi^i$ we have 
+    \begin{align*}
+      dx^i(p)(v_p) = Dx^i(p)(v) = v^i
+    \end{align*}
+    and so $dx^1(p), ..., dx^n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p.$ 
+    In particular, $df$ in this basis is 
+    \begin{align*}
+      df(p)(v_p) = D_1f(p) \cdot dx^1(p)(v_p) + .... + D_nf(p)\cdot dx^n(p)(v_p)
+    \end{align*}
+    or without arguments 
+    \begin{align*}
+      df = D_1f\cdot dx^1 + .... + D_nf dx^n.
+    \end{align*}
+  \end{definition}
+
+
+  \begin{definition}
+    If $f: \reals^n \to \reals^m$ is differentiable define the trasnsformation induced by $f$ as
+    \begin{align*}
+      f_*(v_p) = (Df(p)(v))_{f(p)}.
+    \end{align*}
+  \end{definition}
+
+  \begin{definition}
+    For $f$ as above we have $f_* : \reals^n_p \to \reals^m_{f(p)}$. 
+    Write $f^*$ for the dual map\footnote{How can this be made precise?}
+    , i.e. if $T \in \Omega^k(\reals^n_f(p))$ then
+    \begin{align*}
+      f^* : \Omega^k(\reals^m_{f(p)}) &\to \Omega^k(\reals^n_p)\\
+      f^*(T)(v_1, ..., v_k) &= T(f_*(v_1), ..., f_*(v_k)).
+    \end{align*}
+    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by $f^*\omega(p) = f^*(\omega(f(p))).$
+    To be explicit, 
+    \begin{align*}
+     f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).      
+    \end{align*} 
+  \end{definition}
+
+
+
+  \begin{definition}
+    Let $\omega$ be a $k$-form:
+    \begin{align*}
+      \omega = \sum_{i_1 < ... < i_k} \omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
+    \end{align*}
+    Define the `differential of $\omega$' by 
+    \begin{align*}
+      d\omega = \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
+    \end{align*}
+  \end{definition}
+
+
+
 \section{Comments}
 
 There's a theme of `economy' in the presentation of the theorems.
@@ -225,7 +482,7 @@ state explicitly that the partition contains no subrectangles contained in $A-C.
 
 
 
-
+\break
 \section{Problems}
 
 \begin{problem}{3.1}
@@ -1967,266 +2224,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-\break
 
-
-
-\section{Definitions}
-
-\begin{theorem}
-  Let $A \subset \reals^n$ and $o$ an open cover of $A$.
-  Then there is countable collection $\Phi$ of $C^\infty$ 
-  functions $\phi$ defined on $A$ with the following properties:
-  \begin{enumerate}
-    \item For any $x \in A$, $0 \leq \phi(x) \leq 1$.
-    \item For any $x \in A$ there is an open set $V$ containing $x$ 
-    such that all but finitely many $\phi$ are zero on $V$.
-    \item For each $x \in A$, we have $\sum_\Phi \phi(x) = 1$ and 
-    by (2) this sum is finite in some open set around $x$.
-    \item For each $\phi \in \Phi$ there is an open set $U \in o$
-    such that $\phi = 0$ outisde some closed set contained in $U$ 
-    (the support of each $\phi$ is compact and contained in some 
-    $U \in o$.)
-  \end{enumerate}
-
-  A colletion satisfying (1) - (3) is called a $C^\infty$ partition of unity for $A$.
-  If it also satisfies (4) it is said to be subordinate to the cover $o$.
-\end{theorem}
-
-\vspace{2em}
-
-
-\begin{definition}
-  Let $o$ be an admissible open cover of an open set $A \subset \mathbb{R}^n$
-  (each $U \in o$ is contained in $A$) and $\Phi$ a partition of unity 
-  subordinate to $o$.  If $f: A \to \reals$ is bounded in some 
-  open set around each point in $A$ and the subset of $A$ where $f$
-  is discontinuous is measure zero then, each 
-  $\int_A \phi \cdot f$ exists.
-  If the series $\sum_\Phi \int_A \phi \cdot |f|$ converges 
-  then we say $f$ is integrable write 
-  $\int_A f = \sum_\Phi \int_A \phi \cdot f$.
-\end{definition}
-
-\vspace{3em}
-\begin{definition}
-  A $k-tensor$ is a multilinear map function from 
-  $V^k \to \reals$ where $V$ is some vector space.
-  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$
-  and becomes a is a vector space over $\mathbb{R}$.
-  If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
-  define a tensor-product:
-  \begin{align*}
-    S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) = 
-    S(v_1, ..., v_k)\cdot T(v_{k+1}, ..., v_{k+l}).
-  \end{align*}
-  This product is left and right distributive and associative.
-\end{definition}
-
-\vspace{3em}
-\begin{theorem}
-  Let $v_1, ..., v_n$ be a basis for $V$, and let 
-  $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
-  Then the set of all 
-  \begin{align*}
-    \phi_{i_1} \otimes ... \otimes \phi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
-  \end{align*}
-  is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
-\end{theorem}
-
-
-\begin{definition}
-  A $k$-tensor is alternating if
-  \begin{align*}
-    a(v_1, ..., v_i, v_j, ..., v_k) = -a(v_1, ..., v_j, v_i, ..., v_k)
-  \end{align*}
-  i.e. two elements are swapped and the rest left alone.
-\end{definition}
-
-
-
-\vspace{3em}
-\begin{definition}
-  If $T$ is some $k$-tensor, 
-  then you can have an alternating tensor for free:
-  \begin{align*}
-    Alt(T) = \frac{1}{k!}\sum_{\sigma \in S_k} sign(\sigma)
-      T(v_{\sigma1}, ..., v_{\sigma k})
-  \end{align*}
-  where $S_k$ is the group of permutations on $k$ letters.
-\end{definition}
-
-\vspace{3em}
-In general, the tensor product of two alternating tensors is not likely to be alternating.  Enter the wedge:
-
-
-\begin{definition}
-  Let $\omega \in \Omega^k(V)$ and $\nu \in \Omega^l(V)$.
-  Then
-  \begin{align*}
-    \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \otimes \nu)
-  \end{align*}
-  is in $\Omega^{k+l}(V).$
-\end{definition}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\break
-\section{Fields and Forms}
-\begin{definition}
-  For $p \in \reals^n$ the tangent space of $\reals^n$ at $p$ is the set of all $(p, v), v \in \reals^n$.
-  Write $v_p$ and say `the vector $v$ at $p$.'
-\end{definition}
-
-\begin{definition}
-  The tangent space inherits the inner product from $\reals^n$, by defining 
-  \begin{align*}
-    \langle v_p, w_p \rangle_p  = \langle v, w \rangle.
-  \end{align*}
-\end{definition}
-
-\begin{definition}
-  For the standard orientation in $\reals^n_p$, the sensible choice is
-  \begin{align*}
-    [(e_1)_p, ..., (e_n)_p].
-  \end{align*}
-\end{definition}
-
-\begin{definition}
-  A vector field $F$ is a function such that 
-  \begin{align*}
-    F(p) \in \reals^n_p
-  \end{align*}
-  for every $p \in \reals^n.$  The component functions of $F$ are the functions 
-  $F_i: \reals^n \to \reals$ such that 
-  \begin{align*}
-    F(p) = F_1(p)\cdot(e_1)_p + ... + F_n(p)\cdot(e_n)_p.
-  \end{align*}
-\end{definition}
-
-\begin{definition}
-  A $k-$form or differential form is a function on $\reals^n$ such that
-  \begin{align*}
-    \omega(p) \in \Omega^k(\reals^n_p).
-  \end{align*}
-  A $0-$form $f$ takes a vector $p$ and returns a tensor of rank $0$, that is a number.
-  Hence a $f$ is considered a function from $\reals^n$ to $\reals.$
-  Forms inherit the operations
-  \begin{align*}
-    (\omega + \mu)(p) &= \omega(p) + \mu(p)\\
-    (f \cdot \omega)(p)(v_1, ...v_k) &= f(p) \cdot \omega(p)(v_1, ..., v_k)\\
-    (\omega \wedge \mu)(p)(v_1, ..., v_k) &= \omega(p)(v_1,...v(k)) \wedge \mu(p)(v_1, ..., v_k).
-  \end{align*}
-  If $\phi_1(p), ..., \phi_n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p$ then any $k$-form can be written as
-  \begin{align*}
-    \omega(p) = \sum_{i_1<...<i_k} \omega_{i_1, ..., i_k}(p)\cdot[\phi_{i_1}(p)\wedge...\wedge\phi_{i_k}(p)]
-  \end{align*}
-  for numbers $\omega{i_1,...,i_k}$.  The form $\omega$ is said to be continuous if each of these functions is.
-
-  \end{definition}
-
-  \begin{definition}
-    If $f$ is a $0-$form (a function $\reals^n \to \reals$) define a $1-$form $df$, the  `differential of $f$ at $p$' by
-    \begin{align*}
-      df(p)(v_p) = Df(p)(v).
-    \end{align*}
-    For example, writing $x^i$ for the projection map $\pi^i$ we have 
-    \begin{align*}
-      dx^i(p)(v_p) = Dx^i(p)(v) = v^i
-    \end{align*}
-    and so $dx^1(p), ..., dx^n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p.$ 
-    In particular, $df$ in this basis is 
-    \begin{align*}
-      df(p)(v_p) = D_1f(p) \cdot dx^1(p)(v_p) + .... + D_nf(p)\cdot dx^n(p)(v_p)
-    \end{align*}
-    or without arguments 
-    \begin{align*}
-      df = D_1f\cdot dx^1 + .... + D_nf dx^n.
-    \end{align*}
-  \end{definition}
-
-
-  \begin{definition}
-    If $f: \reals^n \to \reals^m$ is differentiable define the trasnsformation induced by $f$ as
-    \begin{align*}
-      f_*(v_p) = (Df(p)(v))_{f(p)}.
-    \end{align*}
-  \end{definition}
-
-  \begin{definition}
-    For $f$ as above we have $f_* : \reals^n_p \to \reals^m_{f(p)}$. 
-    Write $f^*$ for the dual map\footnote{How can this be made precise?}
-    , i.e. if $T \in \Omega^k(\reals^n_f(p))$ then
-    \begin{align*}
-      f^* : \Omega^k(\reals^m_{f(p)}) &\to \Omega^k(\reals^n_p)\\
-      f^*(T)(v_1, ..., v_k) &= T(f_*(v_1), ..., f_*(v_k)).
-    \end{align*}
-    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by $f^*\omega(p) = f^*(\omega(f(p))).$
-    To be explicit, 
-    \begin{align*}
-     f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).      
-    \end{align*} 
-  \end{definition}
-
-
-
-  \begin{definition}
-    Let $\omega$ be a $k$-form:
-    \begin{align*}
-      \omega = \sum_{i_1 < ... < i_k} \omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
-    \end{align*}
-    Define the `differential of $\omega$' by 
-    \begin{align*}
-      d\omega = \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
-    \end{align*}
-  \end{definition}
 
 
 
