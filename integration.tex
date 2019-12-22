@@ -1181,14 +1181,14 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{proof}
   Let $[-M, M]^3$ be a rectangle bounding $A$ and $B$. Then 
-  \begin{align}
+  \begin{align*}
     \int_{[-M, M]^3}\chi_A 
     &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_A \bigg)dz \\
     &= \int_{-M}^M \bigg( \int_{A_z} 1 \bigg) dz
     = \int_{-M}^M \bigg( \int_{B_z} 1 \bigg) dz \\
     &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_B \bigg)dz 
     = \int_{[-M, M]^3}\chi_B.
-  \end{align}
+  \end{align*}
 \end{proof}
 
 
@@ -1401,28 +1401,28 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   $A_n$.
   Then their union $\Phi$ is a partion of unity for all of $\mathbb{R}$
   and 
-  \begin{align}
+  \begin{align*}
     \sum_\Phi \int_\mathbb{R} \phi \cdot |f| = 
     \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
     \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \phi \cdot |f| \bigg) = 
     \sum_\naturals \int_{A_n}f = -\log 2.
-  \end{align}
+  \end{align*}
 
   Following the example in the wiki for conditional convergence, 
   define the sets 
-  \begin{align}
+  \begin{align*}
     B_n = A_{2n - 1} \cup A_{2(2n-1)} \cup A_{4n}
-  \end{align}
+  \end{align*}
   and let $\Phi_n$ be a partition of unity for $B_n$, taking the 
   value $0$ outside $B_n$.  Then as above
-  \begin{align}
+  \begin{align*}
     \sum_\Phi \int_\reals \phi \cdot |f| = 
     \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
     \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \phi \cdot |f| \bigg) = 
     \sum_\naturals \int_{B_n}f.
-  \end{align} 
+  \end{align*} 
   Each of the integrals in the last sum has the value 
-  \begin{align}
+  \begin{align*}
     \int_{B_n}f
     &= \int_{A_{2n-1}}f + \int_{A_{2(2n-1)}}f + \int_{A_{4n}}f \\
     &=  \frac{(-1)^{2n-1}}{2n-1} + 
@@ -1433,7 +1433,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
         \frac{1}{2n-1} \\
     &= \frac{1}{2} \bigg(
      \frac{-1}{2n-1} + \frac{1}{2n} \bigg)
-  \end{align}
+  \end{align*}
   and so the sum converges to $-1/2 \log 2.$
 \end{proof}
 
@@ -1601,9 +1601,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \end{proof}
 
 \begin{problem}
-  \begin{align}
+  \begin{align*}
     \int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi.}
-  \end{align}
+  \end{align*}
 \end{problem}
 
 \begin{proof}
@@ -1710,9 +1710,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     Let $v_1, ...v_n$ be an orthonormal basis with resepect to $T$ and $A = a_{ih}$ numbers such that 
     $w_i = \sum_{h=1}^n a_{ih}v_h$.
     Then 
-    \begin{align}
+    \begin{align*}
       g_{ij} := T(w_i, w_j) = \sum_{h,g=1}^n a_{ih}a_{jg}T(v_i, v_j) = \sum_{k=1}^n a_{ik}a_{jk},
-    \end{align}
+    \end{align*}
     that is $(g_{ij}) = A\cdot A^T$ and
     $$\sqrt{\det G} = \det A.$$
 
@@ -2016,10 +2016,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   and becomes a is a vector space over $\mathbb{R}$.
   If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
   define a tensor-product:
-  \begin{align}
+  \begin{align*}
     S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) = 
     S(v_1, ..., v_k)\cdot T(v_{k+1}, ..., v_{k+l}).
-  \end{align}
+  \end{align*}
   This product is left and right distributive and associative.
 \end{definition}
 
@@ -2028,18 +2028,18 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   Let $v_1, ..., v_n$ be a basis for $V$, and let 
   $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
   Then the set of all 
-  \begin{align}
+  \begin{align*}
     \phi_{i_1} \otimes ... \otimes \phi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
-  \end{align}
+  \end{align*}
   is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
 \end{theorem}
 
 
 \begin{definition}
   A $k$-tensor is alternating if
-  \begin{align}
+  \begin{align*}
     a(v_1, ..., v_i, v_j, ..., v_k) = -a(v_1, ..., v_j, v_i, ..., v_k)
-  \end{align}
+  \end{align*}
   i.e. two elements are swapped and the rest left alone.
 \end{definition}
 
@@ -2049,10 +2049,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \begin{definition}
   If $T$ is some $k$-tensor, 
   then you can have an alternating tensor for free:
-  \begin{align}
+  \begin{align*}
     Alt(T) = \frac{1}{k!}\sum_{\sigma \in S_k} sign(\sigma)
       T(v_{\sigma1}, ..., v_{\sigma k})
-  \end{align}
+  \end{align*}
   where $S_k$ is the group of permutations on $k$ letters.
 \end{definition}
 
@@ -2063,9 +2063,9 @@ In general, the tensor product of two alternating tensors is not likely to be al
 \begin{definition}
   Let $\omega \in \Omega^k(V)$ and $\nu \in \Omega^l(V)$.
   Then
-  \begin{align}
+  \begin{align*}
     \omega \wedge \nu = \frac{(k+l)!}{k!l!}Alt(\omega \otimes \nu)
-  \end{align}
+  \end{align*}
   is in $\Omega^{k+l}(V).$
 \end{definition}
 
@@ -2119,6 +2119,7 @@ In general, the tensor product of two alternating tensors is not likely to be al
 
 
 \break
+\section{Fields and Forms}
 \begin{definition}
   For $p \in \reals^n$ the tangent space of $\reals^n$ at $p$ is the set of all $(p, v), v \in \reals^n$.
   Write $v_p$ and say `the vector $v$ at $p$.'
@@ -2155,7 +2156,78 @@ In general, the tensor product of two alternating tensors is not likely to be al
   \begin{align*}
     \omega(p) \in \Omega^k(\reals^n_p).
   \end{align*}
-\end{definition}
+  A $0-$form $f$ takes a vector $p$ and returns a tensor of rank $0$, that is a number.
+  Hence a $f$ is considered a function from $\reals^n$ to $\reals.$
+  Forms inherit the operations
+  \begin{align*}
+    (\omega + \mu)(p) &= \omega(p) + \mu(p)\\
+    (f \cdot \omega)(p)(v_1, ...v_k) &= f(p) \cdot \omega(p)(v_1, ..., v_k)\\
+    (\omega \wedge \mu)(p)(v_1, ..., v_k) &= \omega(p)(v_1,...v(k)) \wedge \mu(p)(v_1, ..., v_k).
+  \end{align*}
+  If $\phi_1(p), ..., \phi_n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p$ then any $k$-form can be written as
+  \begin{align*}
+    \omega(p) = \sum_{i_1<...<i_k} \omega_{i_1, ..., i_k}(p)\cdot[\phi_{i_1}(p)\wedge...\wedge\phi_{i_k}(p)]
+  \end{align*}
+  for numbers $\omega{i_1,...,i_k}$.  The form $\omega$ is said to be continuous if each of these functions is.
+
+  \end{definition}
+
+  \begin{definition}
+    If $f$ is a $0-$form (a function $\reals^n \to \reals$) define a $1-$form $df$, the  `differential of $f$ at $p$' by
+    \begin{align*}
+      df(p)(v_p) = Df(p)(v).
+    \end{align*}
+    For example, writing $x^i$ for the projection map $\pi^i$ we have 
+    \begin{align*}
+      dx^i(p)(v_p) = Dx^i(p)(v) = v^i
+    \end{align*}
+    and so $dx^1(p), ..., dx^n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p.$ 
+    In particular, $df$ in this basis is 
+    \begin{align*}
+      df(p)(v_p) = D_1f(p) \cdot dx^1(p)(v_p) + .... + D_nf(p)\cdot dx^n(p)(v_p)
+    \end{align*}
+    or without arguments 
+    \begin{align*}
+      df = D_1f\cdot dx^1 + .... + D_nf dx^n.
+    \end{align*}
+  \end{definition}
+
+
+  \begin{definition}
+    If $f: \reals^n \to \reals^m$ is differentiable define the trasnsformation induced by $f$ as
+    \begin{align*}
+      f_*(v_p) = (Df(p)(v))_{f(p)}.
+    \end{align*}
+  \end{definition}
+
+  \begin{definition}
+    For $f$ as above we have $f_* : \reals^n_p \to \reals^m_{f(p)}$. 
+    Write $f^*$ for the dual map\footnote{How can this be made precise?}
+    , i.e. if $T \in \Omega^k(\reals^n_f(p))$ then
+    \begin{align*}
+      f^* : \Omega^k(\reals^m_{f(p)}) &\to \Omega^k(\reals^n_p)\\
+      f^*(T)(v_1, ..., v_k) &= T(f_*(v_1), ..., f_*(v_k)).
+    \end{align*}
+    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by $f^*\omega(p) = f^*(\omega(f(p))).$
+    To be explicit, 
+    \begin{align*}
+     f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).      
+    \end{align*} 
+  \end{definition}
+
+
+
+  \begin{definition}
+    Let $\omega$ be a $k$-form:
+    \begin{align*}
+      \omega = \sum_{i_1 < ... < i_k} \omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
+    \end{align*}
+    Define the `differential of $\omega$' by 
+    \begin{align*}
+      d\omega = \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
+    \end{align*}
+  \end{definition}
+
 
 
 
