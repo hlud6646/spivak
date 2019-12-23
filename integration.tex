@@ -69,7 +69,7 @@
 
 
 
-\title{Integration Basics}
+\title{Integration on Manifolds}
 \date{\today} 
 \author{Hugo Ludemann}
 
@@ -94,16 +94,16 @@
 % \begin{theorem}
 %   Let $A \subset \reals^n$ and $o$ an open cover of $A$.
 %   Then there is countable collection $\Phi$ of $C^\infty$ 
-%   functions $\phi$ defined on $A$ with the following properties:
+%   functions $\varphi$ defined on $A$ with the following properties:
 %   \begin{enumerate}
-%     \item For any $x \in A$, $0 \leq \phi(x) \leq 1$.
+%     \item For any $x \in A$, $0 \leq \varphi(x) \leq 1$.
 %     \item For any $x \in A$ there is an open set $V$ containing $x$ 
-%     such that all but finitely many $\phi$ are zero on $V$.
-%     \item For each $x \in A$, we have $\sum_\Phi \phi(x) = 1$ and 
+%     such that all but finitely many $\varphi$ are zero on $V$.
+%     \item For each $x \in A$, we have $\sum_\Phi \varphi(x) = 1$ and 
 %     by (2) this sum is finite in some open set around $x$.
-%     \item For each $\phi \in \Phi$ there is an open set $U \in o$
-%     such that $\phi = 0$ outisde some closed set contained in $U$ 
-%     (the support of each $\phi$ is compact and contained in some 
+%     \item For each $\varphi \in \Phi$ there is an open set $U \in o$
+%     such that $\varphi = 0$ outisde some closed set contained in $U$ 
+%     (the support of each $\varphi$ is compact and contained in some 
 %     $U \in o$.)
 %   \end{enumerate}
 
@@ -120,18 +120,18 @@
 %   subordinate to $o$.  If $f: A \to \reals$ is bounded in some 
 %   open set around each point in $A$ and the subset of $A$ where $f$
 %   is discontinuous is measure zero then, each 
-%   $\int_A \phi \cdot f$ exists.
-%   If the series $\sum_\Phi \int_A \phi \cdot |f|$ converges 
+%   $\int_A \varphi \cdot f$ exists.
+%   If the series $\sum_\Phi \int_A \varphi \cdot |f|$ converges 
 %   then we say $f$ is integrable write 
-%   $\int_A f = \sum_\Phi \int_A \phi \cdot f$.
+%   $\int_A f = \sum_\Phi \int_A \varphi \cdot f$.
 % \end{definition}
 
 
 
 \subsection{Tensors}
 \begin{definition}
-  A $k-tensor$ is a multilinear map function from 
-  $V^k \to \reals$ where $V$ is some vector space.
+  A $k-$tensor is a multilinear map from 
+  $V^k \to \reals$ where $V$ is a vector space.
   The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$.
   If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
   define a tensor-product:
@@ -147,7 +147,7 @@
   $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
   Then the set of all 
   \begin{align*}
-    \phi_{i_1} \otimes ... \otimes \phi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
+    \varphi_{i_1} \otimes ... \otimes \varphi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
   \end{align*}
   is a basis for $\mathfrak{T}^k(V)$, which therefore has dimension $n^k.$
 \end{theorem}
@@ -279,9 +279,9 @@ In general, the tensor product of two alternating tensors is not likely to be al
     (f \cdot \omega)(p)(v_1, ...v_k) &= f(p) \cdot \omega(p)(v_1, ..., v_k)\\
     (\omega \wedge \mu)(p)(v_1, ..., v_k) &= \omega(p)(v_1,...v(k)) \wedge \mu(p)(v_1, ..., v_k).
   \end{align*}
-  If $\phi_1(p), ..., \phi_n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p$ then any $k$-form can be written as
+  If $\varphi_1(p), ..., \varphi_n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p$ then any $k$-form can be written as
   \begin{align*}
-    \omega(p) = \sum_{i_1<...<i_k} \omega_{i_1, ..., i_k}(p)\cdot[\phi_{i_1}(p)\wedge...\wedge\phi_{i_k}(p)]
+    \omega(p) = \sum_{i_1<...<i_k} \omega_{i_1, ..., i_k}(p)\cdot[\varphi_{i_1}(p)\wedge...\wedge\varphi_{i_k}(p)]
   \end{align*}
   for numbers $\omega{i_1,...,i_k}$.  The form $\omega$ is said to be continuous if each of these functions is.
 
@@ -331,6 +331,16 @@ In general, the tensor product of two alternating tensors is not likely to be al
   \end{definition}
 
 
+  % \begin{theorem}
+  %   If $f: \reals^n \to \reals^m$ is differentiable, then
+  %   \begin{enumerate}
+  %     \item $f^*(dx^i) = \sum_{j=1}^nD_jf^i \cdot dx^j$
+  %     \item $f^*(\omega + \mu) = f^*(\omega) + f^*(\mu)$
+  %     \item $f^*(g \cdot \omega) = (f \circ \omega) \cdot f^*\omega$
+  %     \item $f^*(\omega \wedge \mu) = f^*(\omega) \wedge f^*(\mu)$
+  %   \end{enumerate}
+  % \end{theorem}
+
 
   \begin{definition}
     Let $\omega$ be a $k$-form:
@@ -339,9 +349,57 @@ In general, the tensor product of two alternating tensors is not likely to be al
     \end{align*}
     Define the `differential of $\omega$' by 
     \begin{align*}
-      d\omega = \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
+      d\omega = 
+      \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k} = 
+      \sum_{i_1 < ... < i_k} \sum_{\alpha = 1}^n D_\alpha \omega_{i_1,...,i_k}  \cdot dx^\alpha \wedge dx^{i_1}\wedge ... \wedge dx^{i_k}.
     \end{align*}
   \end{definition}
+
+
+\begin{definition}
+  A form $\omega$ is called closed if $d\omega = 0$ and exact if $\omega = d\mu$ for some $\mu. $
+\end{definition} 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1624,20 +1682,20 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   Let $o$ be the cover of $(0, 1)$ consisting of the intervals
   $(1/n, 1 - 1/n)$ and $\Phi$ a $C^\infty$ partition of unity for $(0, 1)$
   subordinate to $o$.
-  Then each $\phi_i$ in $\Phi$ has support contained in some 
+  Then each $\varphi_i$ in $\Phi$ has support contained in some 
   $(1/m_i, 1 - 1/m_i)$ in $o$.
   Choose an ordering of $\Phi$ so that if $i < j$ then $m_i \leq m_j$, that way
-  the support of $\phi_i$ is in $ (1 / m_j, 1 - 1/m_j) $ for all $j > i.$
+  the support of $\varphi_i$ is in $ (1 / m_j, 1 - 1/m_j) $ for all $j > i.$
 
   Then the partial sums can be written as
   \begin{align*}
-    \sum_{k=1}^n \int_{(0, 1)} \phi_k \cdot f = 
-    \sum_{k=1}^n \int_{1/m_k}^{1 - 1/m_k} \phi_k \cdot f = 
-    \sum_{k=1}^n \int_{1/m_n}^{1 - 1/m_n} \phi_k \cdot f =  
-    \int_{1/m_n}^{1 - 1/m_n} \sum_{k=1}^n  \phi_k \cdot f =  
+    \sum_{k=1}^n \int_{(0, 1)} \varphi_k \cdot f = 
+    \sum_{k=1}^n \int_{1/m_k}^{1 - 1/m_k} \varphi_k \cdot f = 
+    \sum_{k=1}^n \int_{1/m_n}^{1 - 1/m_n} \varphi_k \cdot f =  
+    \int_{1/m_n}^{1 - 1/m_n} \sum_{k=1}^n  \varphi_k \cdot f =  
     \int_{1/m_n}^{1 - 1/m_n} f.
   \end{align*}
-  Since $\phi \cdot f$ is non-negative, convergence and absolute conergence
+  Since $\varphi \cdot f$ is non-negative, convergence and absolute conergence
   are the same thing. Thus the extended integral exists if and only if the 
   given limit exists.
 \end{proof}
@@ -1648,20 +1706,20 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   satisfies $\int_{A_n}f = (-1)^n/n$ and $f=0$ outside $A_n.$ 
   Then $f$ is not integrable.
   % Find two different partitions of unity for $\mathbb{R}$ for which 
-  % the series $\sum_{\Phi} \int_{A_n} \phi \cdot f$ converge absolutely
+  % the series $\sum_{\Phi} \int_{A_n} \varphi \cdot f$ converge absolutely
   % to different values.
 \end{problem}
 
 \begin{proof}
   Let $\Phi_n$ be a partition of unity for $A_n$ and extend each 
-  $\phi$ to a function on $\mathbb{R}$ by setting $\phi=0$ outside 
+  $\varphi$ to a function on $\mathbb{R}$ by setting $\varphi=0$ outside 
   $A_n$.
   Then their union $\Phi$ is a partion of unity for all of $\mathbb{R}$
   and 
   \begin{align*}
-    \sum_\Phi \int_\mathbb{R} \phi \cdot |f| = 
-    \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
-    \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \phi \cdot |f| \bigg) = 
+    \sum_\Phi \int_\mathbb{R} \varphi \cdot |f| = 
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) = 
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \varphi \cdot |f| \bigg) = 
     \sum_\naturals \int_{A_n}f = -\log 2.
   \end{align*}
 
@@ -1673,9 +1731,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   and let $\Phi_n$ be a partition of unity for $B_n$, taking the 
   value $0$ outside $B_n$.  Then as above
   \begin{align*}
-    \sum_\Phi \int_\reals \phi \cdot |f| = 
-    \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \phi \cdot |f| \bigg) = 
-    \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \phi \cdot |f| \bigg) = 
+    \sum_\Phi \int_\reals \varphi \cdot |f| = 
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) = 
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \varphi \cdot |f| \bigg) = 
     \sum_\naturals \int_{B_n}f.
   \end{align*} 
   Each of the integrals in the last sum has the value 
@@ -1903,10 +1961,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 \begin{problem}{4.1}
-  Let $e_1, ..., e_n$ be the usual basis of $\mathbb{R}^n$ and let $\phi_i$ be the dual basis.
+  Let $e_1, ..., e_n$ be the usual basis of $\mathbb{R}^n$ and let $\varphi_i$ be the dual basis.
   Then \\
-  $(a) \ \phi_{i_1} \wedge ... \wedge \phi_{i_k} (e_{i_1}, e_{i_k}) = 1$ and
-  $(b)$ $\phi_{i_1} \wedge ... \wedge \phi_{i_k}(v_1, ..., v_k)$ is the determinant of 
+  $(a) \ \varphi_{i_1} \wedge ... \wedge \varphi_{i_k} (e_{i_1}, e_{i_k}) = 1$ and
+  $(b)$ $\varphi_{i_1} \wedge ... \wedge \varphi_{i_k}(v_1, ..., v_k)$ is the determinant of 
   the $k \times k$ minor of 
   $$\begin{pmatrix}v_1 \\ ...\\ v_k\end{pmatrix}$$
   obtained by selecting $i_1, ..., i_k$.
@@ -1914,21 +1972,21 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{proof}
   By induction on $k$.
-  If $k = 1$ then $\phi_i(e_i) = 1.$
+  If $k = 1$ then $\varphi_i(e_i) = 1.$
   Assume the result for $k-1$. Then
   \begin{align*}
-    (\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}}) \wedge \phi_{i_{k}}
+    (\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}}) \wedge \varphi_{i_{k}}
     (e_{i_1}, ..., e_{i_{k-1}}, e_{i_{k}})=
-    \frac{1}{(k-1)!} \sum_{S_k}sign(\sigma)(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) \cdot
-     \phi_{i_{k}}(e_{\sigma(i_k)}).
+    \frac{1}{(k-1)!} \sum_{S_k}sign(\sigma)(\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) \cdot
+     \varphi_{i_{k}}(e_{\sigma(i_k)}).
   \end{align*}
 
-  Since $\phi_{i_{k}}(e_{\sigma(i_k)})$ is one if $\sigma$ fixes $i_k$ and zero otherwise and
-  $\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}}$ is alternating this reduces to 
+  Since $\varphi_{i_{k}}(e_{\sigma(i_k)})$ is one if $\sigma$ fixes $i_k$ and zero otherwise and
+  $\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}}$ is alternating this reduces to 
   \begin{align*}
-    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) = \\
-    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)^2(\phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}})(e_{i_1}, ..., e_{i_{k-1}}) = \\
-    \frac{|S_{k-1}|}{(k-1)!} \cdot  \phi_{i_{1}} \wedge ... \wedge \phi_{i_{k-1}} (e_{i_1}, ..., e_{i_{k-1}}) = 1
+    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)(\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) = \\
+    \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)^2(\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}})(e_{i_1}, ..., e_{i_{k-1}}) = \\
+    \frac{|S_{k-1}|}{(k-1)!} \cdot  \varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}} (e_{i_1}, ..., e_{i_{k-1}}) = 1
   \end{align*}
   by the inductive hypothesis.
 
@@ -2199,6 +2257,59 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.13(a)}
+  If $f: \reals^{n \to m}$ and $g: \reals^{m \to p}$ then $(g \circ f)_* = g_* \circ f_*$.
+\end{problem}
+
+\begin{proof}
+  \begin{align*}
+      (g \circ f)_*(v_q) = 
+      [D(g \circ f)(q)](v) = 
+      [Dg(f(q))\circ Df(q)](v) = \\
+      Dg(f(q))(Df(q)(v)) = 
+      Dg(f(q)) (f_*(v_q)) = g_*(f_*(v_q))
+  \end{align*}
+\end{proof}
+
+
+\begin{problem}{4.13(b)}
+  Let $f, g : \reals^n \to \reals$. Then $d(f\cdot g) = f \cdot dg  + g \cdot df.$
+\end{problem}
+
+\begin{proof}
+  \begin{align*}
+    d(f \cdot g) =
+    \sum_{j=1}^n D_j(f \cdot g) \cdot dx^j = 
+    \sum_{j=1}^n [f \cdot D_jg + g \cdot  D_jf] \cdot dx^j.
+  \end{align*}
+\end{proof}
 
 
 
