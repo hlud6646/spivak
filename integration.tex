@@ -303,13 +303,13 @@ In general, the tensor product of two alternating tensors is not likely to be al
     \end{align*}
     or without arguments 
     \begin{align*}
-      df = D_1f\cdot dx^1 + .... + D_nf dx^n.
+      df = D_1f\cdot dx^1 + .... + D_nf \cdot dx^n.
     \end{align*}
   \end{definition}
 
 
   \begin{definition}
-    If $f: \reals^n \to \reals^m$ is differentiable define the trasnsformation induced by $f$ as
+    If $f: \reals^n \to \reals^m$ is differentiable define the transformation induced by $f$ as
     \begin{align*}
       f_*(v_p) = (Df(p)(v))_{f(p)}.
     \end{align*}
@@ -403,14 +403,6 @@ In general, the tensor product of two alternating tensors is not likely to be al
 
 
 
-\section{Comments}
-
-There's a theme of `economy' in the presentation of the theorems.
-For example, Fubini's Theorem is given in pretty intense generality, 
-but several more specific results follow trivially from it, 
-such as Leibnitz' Rule, equality of continuous mixed derivatives,
-volumes of solids of revolution, Cavalieri's Principle and most importantly 
-the volume of the image of a rectangle under a linear transformation.
 
 
 
@@ -464,8 +456,6 @@ the volume of the image of a rectangle under a linear transformation.
 
 
 \section{Issues}
-
-
 
 These are incomplete/problematic:
 \begin{itemize}
@@ -1955,6 +1945,51 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \break
 \section{Integration on Chains}
 
@@ -2038,47 +2073,6 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{problem}{4.4}
   If $\omega$ is the volume element of $V$ determined by $T$ and $\mu$ and
   $f: \reals^n \to V$ is an isomorphism such that $f^*T = \langle, \rangle$ and such that 
@@ -2101,30 +2095,6 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{problem}{4.5}
     If $c: [0, 1] \to (\reals^n)^n$ is continuous and each $(c^1(t), ..., c^n(t))$ is a basis, 
     then any two have the same orientation. 
@@ -2141,15 +2111,6 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   \end{align*}
   as the argument above ensures the determinants on the right have the same sign.
 \end{proof}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2185,48 +2146,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{problem}{4.8}
   If $\omega \in \Omega^n(V)$ is a volume element define a `cross product' in terms of $\omega$.
 \end{problem}
 % \begin{prvf}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2250,6 +2173,54 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   \end{align*}
   for all $x, y$, and so $a_{ij}$ must equal $a_{ji}.$
 \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2313,6 +2284,60 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+\begin{problem}{4.14}
+  Let $c$ be a differentiable curve in $\reals^n$, that is, a differentiable func­tion 
+  $c: [0,1] \to \reals^n$. Define the tangent vector of $c$ at $t$ as
+  $v = c_*((e_1)_t) = ((c^1)'(t), ..., (c^n)'(t))_{c(t)}$.
+  If $f: \reals^n \to \reals^m$, show that the tangent vector to $f \circ c$ at $t$ is $f_*(v)$.
+\end{problem}
+
+\begin{proof}
+  By the previous problem the tangent to $f \circ c$ at $t$ is 
+  \begin{align}
+    (f \circ c)_*((e_1)_t) = f_* \circ c_*((e_1)_t) = f_*(c_*((e_1)_t)) = f_*(v).
+  \end{align}
+\end{proof}
+
+
+
+\begin{problem}{4.15}
+  Let $f: \reals \to \reals$ and define the planar curve $c$ by $c(t) = (t, f(t))$. 
+  Show that the end point of the tangent vector of $c$ at $t$ lies on the 
+  tangent line to the graph of $f$ at $(t,f(t))$.
+\end{problem}
+
+\begin{proof}
+  The tangent line to the graph of $f$ at $(t, f(t))$ is 
+  \begin{align*}
+    L:\ \ y - f(t) = f'(t)(x - t).
+  \end{align*}
+  The tangent vector to the curve $c$ at $t$ is 
+  \begin{align*}
+    c_*((e_1)_t) = (1, f'(t))_{c(t)}
+  \end{align*}
+  which starts at $(t, f(t))$ and ends at 
+  \begin{align*}
+    H: \ \ (t+1, f(t) + f'(t)).
+  \end{align*}
+  It is easy to see that the point $H$ lies on the line $L$.
+\end{proof}
+
+
+
+\begin{problem}
+  Let $c: [0, 1] \to \reals^n$ be a curve such that $|c(t)| = 1$ for all $t$.
+  Then $c(t)_{c(t)}$ and the tangent vector to $c$ at $t$ are perpendicular.
+\end{problem}
+\begin{proof}
+  Computing directly
+  \begin{align*}
+    c(t)_{c(t)} \cdot c_*((e_1)_t) = \sum c^i(t) \cdot (c^i)'(t).
+  \end{align*}
+  Differentiating the hypothesis $|c(t)|^2 = 1$,
+  \begin{align*}
+    \sum 2 \cdot c^i(t) \cdot (c^i)'(t) = 0.
+  \end{align*}
+\end{proof}
 
 
 
@@ -2327,6 +2352,45 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+\begin{problem}
+  If $f: \reals^n \to \reals^n$, define a vector  field $\pmb{f}$ by $\pmb{f}(p) = f(p)_p$.
+  Every vector  field $F$ on $\reals^n$ is of the form $\pmb{f}$ for
+  some $f$ and $div \pmb{f}$ = $trace f'$
+\end{problem}
+
+\begin{proof}
+  If $F$ is some vector field, define $f$ by $F(p) = v_p \iff f(p) = v$.
+  Then\footnote{This feels sketchy.} 
+  \begin{align*}
+    div\pmb{f}(p) = 
+    \sum D_i\pmb{f}^i(p) = 
+    \sum D_i f^i(p) = 
+    trace f'.
+  \end{align*}
+\end{proof}
+
+
+
+
+
+
+
+\begin{problem}{4.18}
+  For $f: \reals^n \to \reals$ define the vector field 
+  \begin{align*}
+    \nabla f (p) = D_1f(p)\cdot (e_1)_p + ... D_nf(p)\cdot (e_n)_p.
+  \end{align*}
+  If $\nabla f(p) = w_p$ then prove that $D_vf(p) = \langle v, w \rangle$ and 
+  conclude that $\nabla f (p)$ is the direction in which $f$ is changing fastest at $p$.
+\end{problem}
+\begin{proof}
+  If $w_p = \nabla f (p) = \sum D_i f(p) \cdot (e_i)_p$ then $w = \sum D_i f(p) \cdot e_i.$
+  If $v = \sum v^i \cdot e_i$ then by properties of the directional derivative
+  \begin{align}
+    \langle v, w \rangle = 
+    \sum v^i D_if(p) = D_v f(p).
+  \end{align}
+\end{proof}
 
 
 
@@ -2335,14 +2399,93 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
+\begin{problem}{4.19}
+  If $F$ is a vector field on $\reals^3$ define the forms 
+  \begin{align*}
+    \omega^1_F &= F^1 dx + F^2 dy + F^3 dz \\
+    \omega^2_F &= F^1 dy \wedge dz + F^2 dz \wedge dx + F^3 dx \wedge dy. 
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Prove that
+    \begin{align*}
+      df &= \omega^1_{\nabla f}\\
+      d(\omega^1_F) &= \omega^2_{curl\ F} \\
+      d(\omega^2_F) &= (div F)dx \wedge dy \wedge dz.
+    \end{align*}
+    \item 
+    Use part (a) to prove
+    \begin{align*}
+      curl \ grad\ f &= 0 \\
+      div \ curl \ F &= 0.
+    \end{align*}
+    \item 
+    If $F$ is a vector field on a star-shaped set $A$ and $curl\ F = 0$, show that 
+    $F = grad\ f$ for some function $f: A \to \reals$.  Similarly, if $\div\ F = 0$, 
+    show that $F = curl\ G$ for some vector field $G$ on $A$.
+  \end{enumerate}
+\end{problem}
+
+\begin{proof}
+  \begin{enumerate}[(a)]
+  \item
+  Write $\nabla f(p) = (D_1f^1(p), D_2f^2(p), D_3f^3(p))_p.$
+  Then 
+  \begin{align*}
+    \omega^1_{\nabla f}(p) = D_1f^1(p)dx + D_2f^2(p)dy + D_3f^3(p)dz = df(p).
+  \end{align*}
+  The equation $d(\omega^1_F) = \omega^2_{curl\ F}$
+  follows from the definitions and the facts 
+  $dx^i \wedge dx^i = 0$ and $dx \wedge dy = -dy \wedge dx$.
+  For the third equation 
+  \begin{align*}
+    d(\omega^2_F) = 
+    [d_1F^1 dx \wedge dy \wedge dz] + 
+    [d_2F^2 dy \wedge dz \wedge dx] + 
+    [d_3F^3 dz \wedge dx \wedge dy]
+  \end{align*}
+  which equals $(div f) dx \wedge dy \wedge dz$
+  after an even number of swaps of $dx^i$ in the latter two summands.
+  \item 
+  Although these are easy to prove without part (a) I guess you should do it that way to set
+  up part (c).
+  \end{enumerate}
+\end{proof}
 
 
 
-
-
-
-
-
+\begin{problem}{4.20}
+  Let $f: U \to \reals^n$ be a differentiable function with differentiable inverse
+  $f^{-1}: f(U) \to \reals^n$. If every closed form on $U$ is exact, show that 
+  the same is true for $f(U)$.
+\end{problem}
+\begin{proof}
+  Let $\omega$ be a form on $f(U)$ so that $f^*\omega$ is a form on 
+  $U$.  Then if $\omega$ is closed
+  \begin{align*}
+    d(f^*\omega) = f^*(d \omega) = f^*(0) = 0
+  \end{align*}
+  and so $f^*\omega$ is closed, therefore exact.  Let $\mu$ be such that 
+  $d(f^*\omega)= \mu$.
+  Then $(f^{-1})^*\mu$ is a form on $f(U)$ and it would be nice if
+  $d((f^{-1})^*\mu) = \omega$, so that $\omega$ is exact.  We have 
+  \begin{align*}
+    d((f^{-1})^*\mu) = (f^{-1})^*d\mu = (f^{-1})^* f^* \omega
+  \end{align*}
+  and so we need to show that $(f^{-1})^* f^*$ is the identity on forms.
+  Since
+  \begin{align*}
+    (f^{-1})^*f^*\omega(f(p))(v) = \omega(f(p))(f_*f^{-1}_*(v))
+  \end{align*}
+  we need to show that $f_* f^{-1}_*$ is the identity on vectors.
+  This follows from the inverse function theorem as follows:
+  \begin{align*}
+    f_*f^{-1}_*v_{f(p)} &= 
+    f_*[Df^{-1}(f(p))(v)]_{f^{-1}f(p)} \\&= 
+    [Df(p)\circ Df^{-1}(f(p))(v)]_{f(p)} \\&=
+    [f'(p) \cdot f^{-1}{'}(f(p)) \cdot v ]_{f(p)} \\&=
+    [f'(p) \cdot [f'(f^{-1}(f(p)))]^{-1} \cdot v]_{f(p)} = v_{f(p)}.
+  \end{align*}
+\end{proof}
 
 
 
