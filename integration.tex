@@ -367,13 +367,123 @@ In general, the tensor product of two alternating tensors is not likely to be al
 
 
 
+ 
 
 
 
+ 
 
 
 
+ 
 
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+\subsection{Chains}
+
+\begin{definition}
+   A singular $n$-cube in $A \subset \reals^m$ is a continuous function from 
+   $[0,1]^n$ to $A$.  Let $\reals^0$ and $[0,1]^0$ denote $\{0\}$.
+   Then a singular $0$-cube is a function from $\{0\}$ to $A$, that is a point 
+   in $A$.
+   A singular $1$-cube is often called a curve.
+\end{definition}
+\color{Blue}
+The book defines a $n$-cubes as a function from $[0, 1]^n$ to a subset of 
+Euclidean space of the same dimension.  This seems to be an error, for the following reason.
+The definition of a singular $0$-cube is given as a function from $\{0\}$ to $A$, which 
+must therefore be a subset of $\reals^0$, i.e. the only 
+singular $0$-cube is the function $c: \{0\} \to \{0\}$, definitely at odds with the 
+language of \textit{a} singular $0$-cube.
+Similarly the definition of a curve as a singular $1$-cube is unnatural if 
+the codomain is only one dimensional.
+\color{Black}
+
+\begin{definition}
+  The standard $n$-cube $I^n$ is the identity restricted to $[0, 1]^n$.
+\end{definition}
+
+\begin{definition}
+  Let $S$ be the set of all $n$-cubes in $A$.  An $n$-chain in $A$ is a function
+  $f: S \to \integers$ such that all but finitely many cubes are mapped to zero.
+  Define $f + g$ by $(f+g)(c) = f(c) + g(c)$ and $nf(c) = n \cdot f(c)$.
+\end{definition}
+
+\begin{definition}
+  Starting with the standard $n$-cube define, for each 
+  $1 \leq i \leq n$, the $(i, 0)$ and $(i, 1)$ faces as the following
+  functions on $[0, 1]^{n-1}$
+  \begin{align*}
+    I^n_{(i,0)}(x) = I^n(x^1, ..., x^{i-1}, 0, x^i, ..., x^{n-1}) \\
+    I^n_{(i,1)}(x) = I^n(x^1, ..., x^{i-1}, 1, x^i, ..., x^{n-1}) \\
+  \end{align*}
+  Define the boundary of the standard $n$-cube as 
+  \begin{align*}
+    \partial I^n = \sum_{i=1}^n \sum_{\alpha = 0, 1} (-1)^{i + \alpha}I^n_{(i, \alpha)}.
+  \end{align*}
+  For a general singular $n$-cube $c: [0, 1]^n \to A$ define the $(i, \alpha)$ faces as 
+  $c_{(i, \alpha)} = c \circ I^n_{(i, \alpha)}$
+  and the boundary of $c$ as 
+  \begin{align*}
+    \partial c = \sum_{i=1}^n \sum_{\alpha = 0, 1} (-1)^{i + \alpha}c_{(i, \alpha)}.
+  \end{align*}
+  Finally define the boundary of a sum (i.e. a chain) as the sum of the boundaries:
+  \begin{align*}
+    \partial \sum a_ic_i = \sum a_i \partial c_i.
+  \end{align*}
+\end{definition}
+
+  
 
 
 
@@ -471,6 +581,8 @@ These are incomplete/problematic:
   \item 3-37 (b) is reportedly broken. Still needs doing with an improved 
   hypothesis.
   \item 4.4 might need a better comment on orientation.
+  \item Almost all the problems on tensors...
+  \item Fix the brackets in 4.13.
 \end{itemize}
 
 It would be good to check whether an argument about absolute convergence should ever be made explicitly.  
@@ -2486,6 +2598,97 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     [f'(p) \cdot [f'(f^{-1}(f(p)))]^{-1} \cdot v]_{f(p)} = v_{f(p)}.
   \end{align*}
 \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.22}
+  Let $S$ be the set of all $n$-cubes.  Define a singular $n$-chain as a function
+  $f$ from $S$ to $\integers$ such that all but finitely many $f(c)$ are zero.
+  \begin{enumerate}[(a)]
+    \item 
+      Define $f+g$ and $nf$ by $(f+g)(c) = f(c) + g(c)$ and $nf(c) = n \cdot f(c)$.
+      Then $f+g$ and $nf$ are $n$-chains.
+    \item 
+      For an $n$-cube $c$ let $c$ also denote the $n$-chain which 
+      is $1$ at $c$ and $0$ at every other cube. 
+      Then every $n$-chain can be written as $a_1c_1 + ... + a_kc_k$
+      for integers $a$ and singular $n$-cubes $n$.
+  \end{enumerate}
+\end{problem}
+
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item 
+      These are obvious.
+    \item 
+      Let the finite collection of cubes at which $f$ is non-zero be 
+      $c_1, ..., c_k$.  Then 
+      \begin{align*}
+        f(c) = \sum_S f(c)c(c) = \sum_{i=1}^kf(c_i)c_i(c_i) = \bigg(\sum_{i=1}^ka_i c_i\bigg)(c)
+      \end{align*}
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+\begin{problem}{2.23}
+  For $R > 0$ and $n$ an integer, define the singular $1$-cube 
+  $C_{R, n} : [0, 1] \to \reals^2 - 0$ by
+  \begin{align*}
+    c_{R, n}(t) = (R \cos 2 \pi n t, R \sin 2 \pi n t).
+  \end{align*}
+  Show that there is a singular $2$-cube $c: [0,1]^2 \to \reals^2- 0$
+   such that $\partial c = c_{R_1, n} - c_{R_2, n}$.
+\end{problem}
+
+\begin{proof}
+  Let $c: [0, 1] \times [0,1] \to \reals^2 - 0$ be defined by 
+  \begin{align*}
+    c(x, y) = [(R_1 - R_2)x + R_2](\cos2 \pi n y ,\sin2 \pi n y).
+  \end{align*}
+  Then 
+  \begin{align*}
+    c_{(1, 0)}(x, y) = 
+    c \circ I_{(1, 0)}(x, y) = 
+    c(0, y) = 
+    (R_2 \cos 2 \pi n t, R_2 \sin 2 \pi n t) \\
+    c_{(1, 1)}(x, y) = 
+    c \circ I_{(1, 1)}(x, y) = 
+    c(1, y) = 
+    (R_1 \cos 2 \pi n t, R_1 \sin 2 \pi n t).
+  \end{align*}
+  Since $c_{(2, 0)} = c_{(2, 1)}$ they cancel in the expanded sum of $\partial c$ leaving
+  \begin{align*}
+    \partial c = c_{(1, 1)} - c_{(1, 0)} = c_{R_1, n} - c_{R_2, n}.
+  \end{align*}
+\end{proof}
+
+
 
 
 
