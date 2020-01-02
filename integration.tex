@@ -132,7 +132,8 @@
 \begin{definition}
   A $k-$tensor is a multilinear map from 
   $V^k \to \reals$ where $V$ is a vector space.
-  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$.
+  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$ and becomes a vector space 
+  with addition and scala multiplication defined the obvious way.
   If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
   define a tensor-product:
   \begin{align*}
@@ -316,30 +317,18 @@ In general, the tensor product of two alternating tensors is not likely to be al
   \end{definition}
 
   \begin{definition}
-    For $f$ as above we have $f_* : \reals^n_p \to \reals^m_{f(p)}$. 
-    Write $f^*$ for the dual map\footnote{How can this be made precise?}
-    , i.e. if $T \in \Omega^k(\reals^n_f(p))$ then
-    \begin{align*}
-      f^* : \Omega^k(\reals^m_{f(p)}) &\to \Omega^k(\reals^n_p)\\
-      f^*(T)(v_1, ..., v_k) &= T(f_*(v_1), ..., f_*(v_k)).
-    \end{align*}
-    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by $f^*\omega(p) = f^*(\omega(f(p))).$
-    To be explicit, 
+    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by 
+     $f^*\omega(p) = f^*(\omega(f(p)))$, i.e.
     \begin{align*}
      f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).      
     \end{align*} 
   \end{definition}
+  \color{Blue}
+  Although the centered equation is suitable for a definition, think of a 
+  `pointwise pullback of each tensor $\omega (f(p))$'.
+  \color{Black}
 
 
-  % \begin{theorem}
-  %   If $f: \reals^n \to \reals^m$ is differentiable, then
-  %   \begin{enumerate}
-  %     \item $f^*(dx^i) = \sum_{j=1}^nD_jf^i \cdot dx^j$
-  %     \item $f^*(\omega + \mu) = f^*(\omega) + f^*(\mu)$
-  %     \item $f^*(g \cdot \omega) = (f \circ \omega) \cdot f^*\omega$
-  %     \item $f^*(\omega \wedge \mu) = f^*(\omega) \wedge f^*(\mu)$
-  %   \end{enumerate}
-  % \end{theorem}
 
 
   \begin{definition}
@@ -565,27 +554,11 @@ the codomain is only one dimensional.
 
 
 
-\section{Issues}
+\section{Comments}
 
-These are incomplete/problematic:
-\begin{itemize}
-  \item 3.10 Would like a proof using the notions developed here rather than 
-  topological facts.
-  \item 3.11, 3.12, 3.19, 3.25, 3.28, 3.29, 3.31, 3.40, 3.41 Needs proof.
-  \item Still not sure I understand what 3.21 is getting at.  Is it asking for a partition 
-  which doesn't contain any rectangles in $A-C$? If so its easy to 
-  draw JM sets with two connected components which seem to break this idea.
-  \item 3.33 (b) straight up makes no sense. $f$ is defined on $[a, b] \times [c, d]$
-  and $G(x)$ is defined, nonsensically, as $\int_a^{g(x)}f(t, x)dt$.
-  \item Be more clear on the hypothesis of Fubinis for switching order in 3.35.
-  \item 3-37 (b) is reportedly broken. Still needs doing with an improved 
-  hypothesis.
-  \item 4.4 might need a better comment on orientation.
-  \item Almost all the problems on tensors...
-  \item Fix the brackets in 4.13.
-\end{itemize}
+Problems that I especially like are stated in \textbf{bold}.
 
-It would be good to check whether an argument about absolute convergence should ever be made explicitly.  
+It would be good to check whether an argument about absolute convergence should ever be made explicitly.
 
 In other proofs Lemma 3.1 is used generously, in the sense that if $(P')$ 
 is a family of partitions subject to some condition which does not restrict the
@@ -593,10 +566,6 @@ is a family of partitions subject to some condition which does not restrict the
 then each $P'$ is a refinement of some generic partition and so any result 
 involving an infinumum/suprememum over all partitions holds equally well over
 the restricted set of partitions.  Would be good to clear this up.
-
-Personally I think the original statement 3.21 is pretty confusing.  It could 
-state explicitly that the partition contains no subrectangles contained in $A-C.$
-\vspace{3em}
 
 
 
@@ -925,35 +894,34 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   On the other hand the set $\rationals \cap [0, 1]$ is bounded and has zero measure
   but its boundary is that whole interval.
 \end{proof}
-\color{ForestGreen}
+\color{Blue}
   Would be better to give a proof using only the theorems introduced in the book so far.
 \color{Black}
 
 
 
 \begin{problem}{3.11}
-  Let $A \subset [0, 1]$ be the union over countably many intervals $(a_i, b_i)$
+  Let $A \subset [0, 1]$ be the union of countably many open intervals $(a_i, b_i)$
   such that each rational number in $(0, 1)$ is contianed in  some interval.
-  Problem $1-18$ states that $\partial A = [0, 1] - A$.
-  Show that if each $b_i > a_i$ then $A$ does not have zero measure.
+  Problem 1.18 states that the boundary of $A$ is  $[0, 1] - A$.
+  Show that if each $\sum (b_i - a_i)$ then $A$ does not have zero measure.
 \end{problem}
-\begin{proof}
-  \color{ForestGreen} Follows from the subaditivity of a measure, but since that tool has not been introduced need a different proof.
-\end{proof}
+\color{Blue}
+Todo.
+\color{Black}
 
 
 \begin{problem}{3.12}
   Let $f: [a, b] \to \reals$ be increasing. Then the set 
   $X = \{ x: f\ discontinuous\ as\ f \}$ has measure zero.
 \end{problem}
-
-\begin{proof}
-  \color{ForestGreen}
-\end{proof}
+\color{Blue}
+Todo.
+\color{Black}
 
 
 \begin{problem}{3.13}
-  Any open cover admits a countable subcover.
+	\textbf{Any open cover admits a countable subcover.}
 \end{problem}
 
 \begin{proof}
@@ -1127,10 +1095,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   Let $U$ be the open set in problem 3.11.
   If $f = \chi_U$ except on a set of measure zero then $f$ is not integrable.
 \end{problem}
-
-\begin{proof}
-  \color{ForestGreen}?
-\end{proof}
+\color{Blue}
+Todo.
+\color{Black}
 
 
 \begin{problem}{3.20}
@@ -1143,49 +1110,17 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 \begin{problem}{3.21}
-  Let $A$ be a closed rectangle and $C \subset A$ and let $P$ be some 
-  partition in which every subrectangle is either contained in $C$, 
-  or intersects $C$ (without being contained.)  That is, there are no
-  subrectangles in $A-C$.
+	\color{Blue}
+	I find the problem statment here problematic.
 \end{problem}
-
-\begin{proof}
-\color{ForestGreen} ?
-\end{proof}
 
 \begin{problem}{3.22}
   If $A$ is a JM set and $\varepsilon > 0$ there is a compact JM set $C \subset A$
   such that $\int_{A-C}1 < \varepsilon.$ 
 \end{problem}
-
-% \begin{proof}
-%   Let $U_1, ...U_n$ be a cover of $\partial A$ by \textit{open} rectangles and define
-%   \begin{align*}
-%     C = \overline{A} - \bigcup U_i = \overline{A} \cap \big (\bigcup U_i^c\big )
-%   \end{align*}
-%   where $X^c$ denotes the complement of $X$ in the ambient space, $X-C$
-%   and $\overline{A}$ is the closure of $A$.  $C$ is compact so it remains to show that
-%   it has a small boundary.  
-
-%   If $x$ is some point in $\partial C$ then any neighbourhood of $x$
-%   contains a point $a \in C$, which the definition of $C$ directly
-%   implies is not in any of the $U_i$.
-%   The same neighbourhood contains another point $b$ which is not in $C$, i.e. 
-%   \begin{align*}
-%     b \in \overline A^c  \bigcup U_i.
-%   \end{align*}
-%   If $b$ is not in $\overline{A}^c$ then it must be in a $U_i$.
-%   Otherwise it is in $\overline{A}^c$ ie. is in the exterior of $A$. Hence our 
-%   rectangle contains a point in the exterior of $A$ (that one is $b$) and a point in 
-%   the closure of $A$ (that one is $x$).
-%   \footnote{since $C\subset A \Rightarrow \partial C \subset \overline{A}.$}
-%   Then it contains a point in 
-% \end{proof}
-
-\begin{proof}
-  \color{ForestGreen}
-  Baffling statement.
-\end{proof}
+\color{Blue}
+Todo.
+\color{Black}
 
 
 
@@ -1401,7 +1336,13 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   $D_{1, 2}f = D_{2, 1}f$ so long as these are continuous.
 \end{problem}
 \begin{proof}
-  \color{ForestGreen}?
+	If $D_{1, 2}f(x, y) \neq D_{2, 1}f(x, y)$ then there is a rectangle 
+	$A$ around $(x, y)$ on which $D_{1, 2}f(x, y) - D_{2, 1}f(x, y) > 0$ (or maybe $>$ 0)
+	since everything is continuous.  Then 
+	\begin{align*}
+		\int_a^b \int_c^d D_{1, 2} f(x, y)\ dx.dy - \int_c^d \int_a^b D_{2, 1} f(x, y)\ dx.dy > 0 \\
+	\end{align*}
+	by Fubini and so $0 > 0$.
 \end{proof}
 
 
@@ -1411,9 +1352,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   Find the volume of the solid obtained by rotating a 
   JM set in the $yz$ plane about the $z$-axis.
 \end{problem}
-\begin{proof}
-  \color{ForestGreen}?
-\end{proof}
+\color{Blue}
+This really shouldn't be difficult...
+\color{Black}
 
 
 
@@ -1448,10 +1389,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   \end{align*}
   What is $D_if(x)$ for $x$ in the interior of $A$?
 \end{problem}
-
-\begin{proof}
-  \color{ForestGreen}?
-\end{proof}
+\color{Blue}
+This one should be simple. It's good evidence that I'm not really at home with these concepts yet.
+\color{Black}
 
 
 
@@ -1480,7 +1420,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \begin{proof}
   By the FTC, $D_1F(x, y) = f(x, y)$ and by Leibnitz' rule $D_2F(x, y) = \int_a^bD_2f(t, y)dt.$
 \end{proof}
-
+\color{Blue}
+I don't believe part (b) makes any sense at all.
+\color{Black}
 
 
 
@@ -1508,8 +1450,8 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 \begin{problem}{3.35}
-  If $G: \reals^n \to \reals^n$ is a invertible linear transformation and $U$ a 
-  rectangle, then the volume of $G(U)$ is $|\det G|\cdot v(U).$
+  \textbf{If $G: \reals^n \to \reals^n$ is a invertible linear transformation and $U$ a 
+  rectangle, then the volume of $G(U)$ is $|\det G|\cdot v(U).$}
 \end{problem}
 
 \begin{proof}
@@ -1585,6 +1527,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
      We take as a fact that these elemetary operations generate the whole group 
      of invertible matrices and so this scaling factor is good for any invertible linear map.
 \end{proof}
+\color{Blue}
+More care is needed for the application of Fubini's Theorem.
+\color{Black}
 
 
 
@@ -1609,11 +1554,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \end{proof}
 
 
-
-
-
-
-
+\color{Blue}
+3-37 (b) is reportedly broken. Still needs doing with an improved hypothesis.
+\color{Black}
 
 
 
@@ -1991,16 +1934,14 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-
-
+\color{Blue}
+All the problems in this section (Change of Variable) are incomplete.
+\color{Black}
 
 \begin{problem}{3.39}
   The condition that $\det g$ in the formula for change of variables is
   superfluous, due to Sard's Theorem.
 \end{problem}
-\begin{proof}
-  \color{ForestGreen} ?
-\end{proof}
 
 
 
@@ -2013,29 +1954,21 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   diagonal.
 \end{problem}
 
-\begin{proof}
-  \color{ForestGreen} ?
-\end{proof}
-
 \begin{problem}
   \begin{align*}
     \int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi.}
   \end{align*}
 \end{problem}
 
-\begin{proof}
-  \begin{enumerate}
-    \item Define $f: \{r: r > 0 \} \times (0, 2\pi) \to \reals^2$ by
-    $f(r, \vartheta) = r(\cos \vartheta, \sin \vartheta).$
-    If $r(\cos \vartheta, \sin \vartheta) = r'(\cos \vartheta', \sin \vartheta')$
-    then the Pythagorean identity easily gives $r = r'$, and so 
-    $$\cos \vartheta = \cos \vartheta',\ \ \  \sin \vartheta = \sin \vartheta'.$$
-
-
-
-
-  \end{enumerate}
-\end{proof}
+% \begin{proof}
+%   \begin{enumerate}
+%     \item Define $f: \{r: r > 0 \} \times (0, 2\pi) \to \reals^2$ by
+%     $f(r, \vartheta) = r(\cos \vartheta, \sin \vartheta).$
+%     If $r(\cos \vartheta, \sin \vartheta) = r'(\cos \vartheta', \sin \vartheta')$
+%     then the Pythagorean identity easily gives $r = r'$, and so 
+%     $$\cos \vartheta = \cos \vartheta',\ \ \  \sin \vartheta = \sin \vartheta'.$$
+%   \end{enumerate}
+% \end{proof}
 
 
 
@@ -2136,9 +2069,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     \frac{|S_{k-1}|}{(k-1)!} \cdot  \varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}} (e_{i_1}, ..., e_{i_{k-1}}) = 1
   \end{align*}
   by the inductive hypothesis.
-
-  \color{ForestGreen} Part (b) ?
 \end{proof}
+\color{Blue}
+Part (b) needs doing.
+\color{Black}
 
 
   \begin{problem}{4.2}
@@ -2166,6 +2100,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     \begin{align*}
       |\omega(w_1, ..., w_n)| = \sqrt{det(g_{ij})}.
     \end{align*}    
+    \color{Blue}
     Note that the hint for the problem has the indicies around the wrong way.
   \end{problem}
   \begin{proof}
@@ -2252,8 +2187,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     \end{pmatrix}
   \end{align*}
   which has positive determinant so long as at least one of $v$ is non-zero. \\
-  \color{ForestGreen} Rest of it???
+  ...
 \end{proof}
+{\color{Blue}
+The above is only the start of an inductive proof.}
 
 
 
@@ -2261,7 +2198,10 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \begin{problem}{4.8}
   If $\omega \in \Omega^n(V)$ is a volume element define a `cross product' in terms of $\omega$.
 \end{problem}
-% \begin{prvf}
+{\color{Blue} Todo.\\
+4.9 is just a collection of calculations involving cross products.
+4.10 needs doing.}
+
 
 
 
@@ -2289,7 +2229,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-
+{\color{Blue} 4.12 needs doing.}
 
 
 
@@ -2436,7 +2376,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-\begin{problem}
+\begin{problem}{4.16}
   Let $c: [0, 1] \to \reals^n$ be a curve such that $|c(t)| = 1$ for all $t$.
   Then $c(t)_{c(t)}$ and the tangent vector to $c$ at $t$ are perpendicular.
 \end{problem}
@@ -2464,7 +2404,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-\begin{problem}
+\begin{problem}{4.17}
   If $f: \reals^n \to \reals^n$, define a vector  field $\pmb{f}$ by $\pmb{f}(p) = f(p)_p$.
   Every vector  field $F$ on $\reals^n$ is of the form $\pmb{f}$ for
   some $f$ and $div \pmb{f}$ = $trace f'$
@@ -2503,6 +2443,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     \sum v^i D_if(p) = D_v f(p).
   \end{align}
 \end{proof}
+{\color{Blue} And conclude...?}
 
 
 
@@ -2558,8 +2499,9 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   which equals $(div f) dx \wedge dy \wedge dz$
   after an even number of swaps of $dx^i$ in the latter two summands.
   \item 
-  Although these are easy to prove without part (a) I guess you should do it that way to set
-  up part (c).
+  {\color{Blue}Although these are easy to prove without part (a) I guess you should do it that way to set
+    up part (c).}
+	\item {\color{Blue} Todo.}	
   \end{enumerate}
 \end{proof}
 
@@ -2656,7 +2598,7 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 
-\begin{problem}{2.23}
+\begin{problem}{4.23}
   For $R > 0$ and $n$ an integer, define the singular $1$-cube 
   $C_{R, n} : [0, 1] \to \reals^2 - 0$ by
   \begin{align*}
@@ -2687,9 +2629,6 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
     \partial c = c_{(1, 1)} - c_{(1, 0)} = c_{R_1, n} - c_{R_2, n}.
   \end{align*}
 \end{proof}
-
-
-
 
 
 \end{document}  
