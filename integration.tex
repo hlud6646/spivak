@@ -1,7 +1,7 @@
 \documentclass[20pt]{article}
 \usepackage{geometry}
 \geometry{letterpaper}
-\usepackage[parfill]{parskip}    
+\usepackage[parfill]{parskip}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
@@ -48,8 +48,8 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
 \newtheorem*{surfacecor}{Corollary 1}
-\newtheorem{conjecture}{Conjecture} 
-\newtheorem{question}{Question} 
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}{Question}
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem*{problem}{Problem}
@@ -70,7 +70,7 @@
 
 
 \title{Integration on Manifolds}
-\date{\today} 
+\date{\today}
 \author{Hugo Ludemann}
 
 
@@ -93,17 +93,17 @@
 \section{Definitions}
 % \begin{theorem}
 %   Let $A \subset \reals^n$ and $o$ an open cover of $A$.
-%   Then there is countable collection $\Phi$ of $C^\infty$ 
+%   Then there is countable collection $\Phi$ of $C^\infty$
 %   functions $\varphi$ defined on $A$ with the following properties:
 %   \begin{enumerate}
 %     \item For any $x \in A$, $0 \leq \varphi(x) \leq 1$.
-%     \item For any $x \in A$ there is an open set $V$ containing $x$ 
+%     \item For any $x \in A$ there is an open set $V$ containing $x$
 %     such that all but finitely many $\varphi$ are zero on $V$.
-%     \item For each $x \in A$, we have $\sum_\Phi \varphi(x) = 1$ and 
+%     \item For each $x \in A$, we have $\sum_\Phi \varphi(x) = 1$ and
 %     by (2) this sum is finite in some open set around $x$.
 %     \item For each $\varphi \in \Phi$ there is an open set $U \in o$
-%     such that $\varphi = 0$ outisde some closed set contained in $U$ 
-%     (the support of each $\varphi$ is compact and contained in some 
+%     such that $\varphi = 0$ outisde some closed set contained in $U$
+%     (the support of each $\varphi$ is compact and contained in some
 %     $U \in o$.)
 %   \end{enumerate}
 
@@ -116,13 +116,13 @@
 
 % \begin{definition}
 %   Let $o$ be an admissible open cover of an open set $A \subset \mathbb{R}^n$
-%   (each $U \in o$ is contained in $A$) and $\Phi$ a partition of unity 
-%   subordinate to $o$.  If $f: A \to \reals$ is bounded in some 
+%   (each $U \in o$ is contained in $A$) and $\Phi$ a partition of unity
+%   subordinate to $o$.  If $f: A \to \reals$ is bounded in some
 %   open set around each point in $A$ and the subset of $A$ where $f$
-%   is discontinuous is measure zero then, each 
+%   is discontinuous is measure zero then, each
 %   $\int_A \varphi \cdot f$ exists.
-%   If the series $\sum_\Phi \int_A \varphi \cdot |f|$ converges 
-%   then we say $f$ is integrable write 
+%   If the series $\sum_\Phi \int_A \varphi \cdot |f|$ converges
+%   then we say $f$ is integrable write
 %   $\int_A f = \sum_\Phi \int_A \varphi \cdot f$.
 % \end{definition}
 
@@ -130,23 +130,23 @@
 
 \subsection{Tensors}
 \begin{definition}
-  A $k-$tensor is a multilinear map from 
+  A $k-$tensor is a multilinear map from
   $V^k \to \reals$ where $V$ is a vector space.
-  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$ and becomes a vector space 
+  The set of all $k$-tensors is denoted $\mathfrak{T}^k(V)$ and becomes a vector space
   with addition and scala multiplication defined the obvious way.
   If $S \in \mathfrak{T}^k(V)$ and $T \in \mathfrak{T}^l(V)$
   define a tensor-product:
   \begin{align*}
-    S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) = 
+    S \otimes T (v_1, ..., v_k, v_{k+1}, ..., v_{k+l}) =
     S(v_1, ..., v_k)\cdot T(v_{k+1}, ..., v_{k+l}).
   \end{align*}
   This product is left and right distributive and associative if addition is defined the obvious way.
 \end{definition}
 
 \begin{theorem}
-  Let $v_1, ..., v_n$ be a basis for $V$, and let 
+  Let $v_1, ..., v_n$ be a basis for $V$, and let
   $\varphi_1, ..., \varphi_n$ be the dual basis, $\varphi_i(v_j) = \delta_{ij}.$
-  Then the set of all 
+  Then the set of all
   \begin{align*}
     \varphi_{i_1} \otimes ... \otimes \varphi_{i_k}, \ \ 1 \leq i_1 \leq ... \leq i_k \leq n
   \end{align*}
@@ -164,7 +164,7 @@
 
 
 \begin{definition}
-  If $T$ is some $k$-tensor, 
+  If $T$ is some $k$-tensor,
   then you can have an alternating tensor for free:
   \begin{align*}
     Alt(T) = \frac{1}{k!}\sum_{\sigma \in S_k} sign(\sigma)
@@ -242,7 +242,7 @@ In general, the tensor product of two alternating tensors is not likely to be al
 \end{definition}
 
 \begin{definition}
-  The tangent space inherits the inner product from $\reals^n$, by defining 
+  The tangent space inherits the inner product from $\reals^n$, by defining
   \begin{align*}
     \langle v_p, w_p \rangle_p  = \langle v, w \rangle.
   \end{align*}
@@ -256,12 +256,12 @@ In general, the tensor product of two alternating tensors is not likely to be al
 \end{definition}
 
 \begin{definition}
-  A vector field $F$ is a function such that 
+  A vector field $F$ is a function such that
   \begin{align*}
     F(p) \in \reals^n_p
   \end{align*}
-  for every $p \in \reals^n.$  The component functions of $F$ are the functions 
-  $F_i: \reals^n \to \reals$ such that 
+  for every $p \in \reals^n.$  The component functions of $F$ are the functions
+  $F_i: \reals^n \to \reals$ such that
   \begin{align*}
     F(p) = F_1(p)\cdot(e_1)_p + ... + F_n(p)\cdot(e_n)_p.
   \end{align*}
@@ -293,16 +293,16 @@ In general, the tensor product of two alternating tensors is not likely to be al
     \begin{align*}
       df(p)(v_p) = Df(p)(v).
     \end{align*}
-    For example, writing $x^i$ for the projection map $\pi^i$ we have 
+    For example, writing $x^i$ for the projection map $\pi^i$ we have
     \begin{align*}
       dx^i(p)(v_p) = Dx^i(p)(v) = v^i
     \end{align*}
-    and so $dx^1(p), ..., dx^n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p.$ 
-    In particular, $df$ in this basis is 
+    and so $dx^1(p), ..., dx^n(p)$ is the dual basis to $(e_1)_p, ..., (e_n)_p.$
+    In particular, $df$ in this basis is
     \begin{align*}
       df(p)(v_p) = D_1f(p) \cdot dx^1(p)(v_p) + .... + D_nf(p)\cdot dx^n(p)(v_p)
     \end{align*}
-    or without arguments 
+    or without arguments
     \begin{align*}
       df = D_1f\cdot dx^1 + .... + D_nf \cdot dx^n.
     \end{align*}
@@ -317,14 +317,14 @@ In general, the tensor product of two alternating tensors is not likely to be al
   \end{definition}
 
   \begin{definition}
-    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by 
+    If $\omega$ is a $k$-form on $\reals^m$ define the $k$-form $f^*\omega$ on $\reals^n$ by
      $f^*\omega(p) = f^*(\omega(f(p)))$, i.e.
     \begin{align*}
-     f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).      
-    \end{align*} 
+     f^*(\omega(p))(v_1, ..., v_k) &= \omega(f(p))(f_*(v_1), ..., f_*(v_k)).
+    \end{align*}
   \end{definition}
   \color{Blue}
-  Although the centered equation is suitable for a definition, think of a 
+  Although the centered equation is suitable for a definition, think of a
   `pointwise pullback of each tensor $\omega (f(p))$'.
   \color{Black}
 
@@ -336,10 +336,10 @@ In general, the tensor product of two alternating tensors is not likely to be al
     \begin{align*}
       \omega = \sum_{i_1 < ... < i_k} \omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k}.
     \end{align*}
-    Define the `differential of $\omega$' by 
+    Define the `differential of $\omega$' by
     \begin{align*}
-      d\omega = 
-      \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k} = 
+      d\omega =
+      \sum_{i_1 < ... < i_k} d\omega_{i_1,...,i_k}dx^{i_1} \wedge ... \wedge dx^{i_k} =
       \sum_{i_1 < ... < i_k} \sum_{\alpha = 1}^n D_\alpha \omega_{i_1,...,i_k}  \cdot dx^\alpha \wedge dx^{i_1}\wedge ... \wedge dx^{i_k}.
     \end{align*}
   \end{definition}
@@ -347,94 +347,94 @@ In general, the tensor product of two alternating tensors is not likely to be al
 
 \begin{definition}
   A form $\omega$ is called closed if $d\omega = 0$ and exact if $\omega = d\mu$ for some $\mu. $
-\end{definition} 
+\end{definition}
 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Chains}
 
 \begin{definition}
-   A singular $n$-cube in $A \subset \reals^m$ is a continuous function from 
+   A singular $n$-cube in $A \subset \reals^m$ is a continuous function from
    $[0,1]^n$ to $A$.  Let $\reals^0$ and $[0,1]^0$ denote $\{0\}$.
-   Then a singular $0$-cube is a function from $\{0\}$ to $A$, that is a point 
+   Then a singular $0$-cube is a function from $\{0\}$ to $A$, that is a point
    in $A$.
    A singular $1$-cube is often called a curve.
 \end{definition}
 \color{Blue}
-The book defines a $n$-cubes as a function from $[0, 1]^n$ to a subset of 
+The book defines a $n$-cubes as a function from $[0, 1]^n$ to a subset of
 Euclidean space of the same dimension.  This seems to be an error, for the following reason.
-The definition of a singular $0$-cube is given as a function from $\{0\}$ to $A$, which 
-must therefore be a subset of $\reals^0$, i.e. the only 
-singular $0$-cube is the function $c: \{0\} \to \{0\}$, definitely at odds with the 
+The definition of a singular $0$-cube is given as a function from $\{0\}$ to $A$, which
+must therefore be a subset of $\reals^0$, i.e. the only
+singular $0$-cube is the function $c: \{0\} \to \{0\}$, definitely at odds with the
 language of \textit{a} singular $0$-cube.
-Similarly the definition of a curve as a singular $1$-cube is unnatural if 
+Similarly the definition of a curve as a singular $1$-cube is unnatural if
 the codomain is only one dimensional.
 \color{Black}
 
@@ -449,20 +449,20 @@ the codomain is only one dimensional.
 \end{definition}
 
 \begin{definition}
-  Starting with the standard $n$-cube define, for each 
+  Starting with the standard $n$-cube define, for each
   $1 \leq i \leq n$, the $(i, 0)$ and $(i, 1)$ faces as the following
   functions on $[0, 1]^{n-1}$
   \begin{align*}
     I^n_{(i,0)}(x) = I^n(x^1, ..., x^{i-1}, 0, x^i, ..., x^{n-1}) \\
     I^n_{(i,1)}(x) = I^n(x^1, ..., x^{i-1}, 1, x^i, ..., x^{n-1}) \\
   \end{align*}
-  Define the boundary of the standard $n$-cube as 
+  Define the boundary of the standard $n$-cube as
   \begin{align*}
     \partial I^n = \sum_{i=1}^n \sum_{\alpha = 0, 1} (-1)^{i + \alpha}I^n_{(i, \alpha)}.
   \end{align*}
-  For a general singular $n$-cube $c: [0, 1]^n \to A$ define the $(i, \alpha)$ faces as 
+  For a general singular $n$-cube $c: [0, 1]^n \to A$ define the $(i, \alpha)$ faces as
   $c_{(i, \alpha)} = c \circ I^n_{(i, \alpha)}$
-  and the boundary of $c$ as 
+  and the boundary of $c$ as
   \begin{align*}
     \partial c = \sum_{i=1}^n \sum_{\alpha = 0, 1} (-1)^{i + \alpha}c_{(i, \alpha)}.
   \end{align*}
@@ -472,7 +472,6 @@ the codomain is only one dimensional.
   \end{align*}
 \end{definition}
 
-  
 
 
 
@@ -492,6 +491,21 @@ the codomain is only one dimensional.
 
 
 
+\subsection{Integration}
+\begin{definition}
+	If $\omega$ is a $k$-form on $[0,1]^k$ then $\omega = f dx^1 \wedge ... \wedge dx^k$
+	for some function $f$.  Define the integral of $\omega$ as
+	\begin{align*}
+		\int_{[0,1]^k} \omega = \int_{[0,1]} f.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	If $\omega$ is a $k$-form on $A$ and $c$ a singular $k$-cube in $A$ define
+	\begin{align*}
+		\int_c \omega = \int_{[0,1]^k}c^*\omega.
+	\end{align*}
+\end{definition}
 
 
 
@@ -560,10 +574,10 @@ Problems that I especially like are stated in \textbf{bold}.
 
 It would be good to check whether an argument about absolute convergence should ever be made explicitly.
 
-In other proofs Lemma 3.1 is used generously, in the sense that if $(P')$ 
+In other proofs Lemma 3.1 is used generously, in the sense that if $(P')$
 is a family of partitions subject to some condition which does not restrict the
 `fine-ness' of $P'$
-then each $P'$ is a refinement of some generic partition and so any result 
+then each $P'$ is a refinement of some generic partition and so any result
 involving an infinumum/suprememum over all partitions holds equally well over
 the restricted set of partitions.  Would be good to clear this up.
 
@@ -627,14 +641,14 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \end{problem}
 
 \begin{proof}
-  For $\varepsilon > 0$ let $P_\varepsilon$ be the partition with subrectangles 
+  For $\varepsilon > 0$ let $P_\varepsilon$ be the partition with subrectangles
   \begin{align*}
     S_1 &= [0, \frac{1}{2} - \frac{\varepsilon}{4}] \times [0, 1] \\
     S_2 &= [\frac{1}{2} -\frac{\varepsilon}{4}, \frac{1}{2} + \frac{\varepsilon}{4}] \times [0, 1] \\
     S_3 &= [\frac{1}{2} + \frac{\varepsilon}{4}, 1] \times [0, 1]
    \end{align*}
-   Then 
-   $U(f, P_\varepsilon) - L(f, P_\varepsilon)$ = $\dfrac{\varepsilon}{2} < \varepsilon$ 
+   Then
+   $U(f, P_\varepsilon) - L(f, P_\varepsilon)$ = $\dfrac{\varepsilon}{2} < \varepsilon$
    i.e. $f$ is integrable
    and $\int f = \inf U(f, P_\varepsilon) = \frac{1}{2}.$
 \end{proof}
@@ -647,18 +661,18 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{proof}
   Suppose $f$ and $g$ differ except at a single point $x$.
-  Let $P$ be some partition fine enough that $x$ lies in a single 
+  Let $P$ be some partition fine enough that $x$ lies in a single
   subrectangle $S$. Then
   $$(U-L)(g, P) = (U-L)(f, P) + (M_S-m_S)(g-f)\cdot v(S)$$
-  can be made arbitrarily small, as the term $(U-L)(f, P)$ vanishes by 
+  can be made arbitrarily small, as the term $(U-L)(f, P)$ vanishes by
   integrability of $f$ and the other term can be made as small
-  as we like by insiting that the rectangle $S$ is sufficiently small. 
-  Furthermore if $g(x) > f(x)$ then 
+  as we like by insiting that the rectangle $S$ is sufficiently small.
+  Furthermore if $g(x) > f(x)$ then
   \begin{align*}
     \int g = \inf [U(g, P)] = \inf[ U(f, P) + (M_S(g - f)\cdot v(S))] = \inf[U(f, P)] = \int f
   \end{align*}
-  with a similar argument for when $g(x) < f(x).$  
-  Repetition of the argument proves the result for a finite collection of 
+  with a similar argument for when $g(x) < f(x).$
+  Repetition of the argument proves the result for a finite collection of
   points.
 \end{proof}
 
@@ -669,29 +683,29 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 \end{problem}
 
 \begin{proof}
-  Since 
+  Since
   $$m_S(f) + m_S(g) \leq f(x) + g(x) \ \ \forall x \in S$$
   it follows that
   $$m_S(f) + m_S(g) \leq \inf_{S}(f + g) = m_S(f + g).$$
-  Then $L(f, P) + L(g, P) \leq L(f + g, P)$ follows easily and by a similar argument 
-  $U(f + g, P) \leq U(f, P) + U(g, P).$  Hence the differece 
-  $(U-L)(f + g, P)$ is bounded from above by $(U-L)(f, P) + (U-L)(g, P)$ 
+  Then $L(f, P) + L(g, P) \leq L(f + g, P)$ follows easily and by a similar argument
+  $U(f + g, P) \leq U(f, P) + U(g, P).$  Hence the differece
+  $(U-L)(f + g, P)$ is bounded from above by $(U-L)(f, P) + (U-L)(g, P)$
   which vanishes by integrability of $f$ and $g$.
 
-  To compute the value of the integral, 
+  To compute the value of the integral,
   \begin{align*}
-    \int f + \int g = \sup L(f, P) + \sup L(g, P) = \sup[ L(f, P) + L(g, P) ] 
+    \int f + \int g = \sup L(f, P) + \sup L(g, P) = \sup[ L(f, P) + L(g, P) ]
     \leq \sup L (f + g, P) = \int f + g \\
     \int f + \int g = \inf U(f, P) + \inf U(g, P) = \inf[ U(f, P) + U(f, P) ]
     \geq \inf U(f + g, P) = \int f + g
   \end{align*}
   and so $\inf f + \int g = \int f + g.$
 
-  Finally for constants $c$, 
+  Finally for constants $c$,
   \begin{align*}
     \inf U(cf, P) = c \inf U(f, P) = c \sup L(f, P) = \sup L(cf, P)
   \end{align*}
-  i.e $cf$ is integrable with the value 
+  i.e $cf$ is integrable with the value
   $\int cf = \inf U(cf, P) = c \inf U(f, P) = c \int f.$
 \end{proof}
 
@@ -699,19 +713,19 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{problem}{3.4}
   Let $f: A\to \reals$ and let $P$ be a partition of $A$. Then $f$ is integrable
-  if and only if the restriction of $f$ to each subrectangle is integrable, 
+  if and only if the restriction of $f$ to each subrectangle is integrable,
   and in this case $\int_A f = \sum_P \int_S f|_S.$
 \end{problem}
 
 \begin{proof}
   Let the $n$ subrectangles of $P$ be $S_i$ and suppose that each $f|_{S_i}$ is integrable.
-  Then for any $\varepsilon > 0$ and each $i$ there is a partitions $P_i$ of $S_i$ such that 
+  Then for any $\varepsilon > 0$ and each $i$ there is a partitions $P_i$ of $S_i$ such that
   $(U - L)(f|_{S_i}, P_i) <\varepsilon / n.$
-  Then 
+  Then
   \begin{align*}
-    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f|S_i)\cdot v(S_{ij}) ] < 
-    \varepsilon \Longrightarrow 
-    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f)\cdot v(S_{ij}) ] < 
+    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f|S_i)\cdot v(S_{ij}) ] <
+    \varepsilon \Longrightarrow
+    \sum_{S_i \in P} \sum_{S_{ij} \in P_i} [ (M_{S_{ij}} - m_{S_{ij}})(f)\cdot v(S_{ij}) ] <
     \varepsilon
   \end{align*}
   where the latter double sum is $(U - L)f$ over the partition formed by taking the union of
@@ -719,37 +733,37 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
   On the other hand for any rectangle $S \in P$  we have
   $$(U-L)(f|_S, S) = (U-L)(f, S) \leq (U - L)(f, P)$$
-  since $U-L$ is non-negative and $S$ is containined in $P$. 
-  If $f$ is integrable then the RHS can be made arbitrarily small by refining $P$, 
-  in which case $S$ may need to be replaced by the part of that refinement which 
+  since $U-L$ is non-negative and $S$ is containined in $P$.
+  If $f$ is integrable then the RHS can be made arbitrarily small by refining $P$,
+  in which case $S$ may need to be replaced by the part of that refinement which
   covers it, $S = \cup P'$. Then $(U-L)(f|_S, P')$ vanishes and so $f|_S$
   is integrable.
 
   To compute the integral we have, for partitions $P_S$ of each $S$
   \begin{align*}
-    \sum_P \int_{S} f|_S = 
-    \sum_P \sup [L(f|_S, P_S)] = 
-    \sup \bigg[\sum_P L(f|_S, P_s)\bigg] = 
+    \sum_P \int_{S} f|_S =
+    \sum_P \sup [L(f|_S, P_S)] =
+    \sup \bigg[\sum_P L(f|_S, P_s)\bigg] =
     \sup \bigg[\sum_P \sum_{P_i} m_{S_ij}(f)\cdot v(S_{ij}) \bigg].
   \end{align*}
   The last term is the supremum over partitions $P'$ which are generic partitions
   of $A$ but for the refinement that each rectangle must be contained in one of the
-  original $S \in P.$  
+  original $S \in P.$
   Hence the supremum over such partitions coincides with the supremum over generic ones
   and so $\sum \int f|_S = \int f.$
 \end{proof}
 
 
 \begin{problem}{3.5}
-  Let $g, f: A \to \reals$ be integrable and suppose $f \leq g$.  
+  Let $g, f: A \to \reals$ be integrable and suppose $f \leq g$.
   Then $\int f \leq \int g.$
 \end{problem}
 
 \begin{proof}
   \begin{align*}
   \int f \ =
-  \ \ \inf \sum M_S(f) \cdot v(S)\ \  \leq 
-  \ \ \inf \sum M_S(g) \cdot v(S) \ \ = 
+  \ \ \inf \sum M_S(f) \cdot v(S)\ \  \leq
+  \ \ \inf \sum M_S(g) \cdot v(S) \ \ =
   \ \int g.
   \end{align*}
 \end{proof}
@@ -762,18 +776,18 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 \begin{proof}
   \begin{align*}
-    (U-L)(|f|, P) = \sum (M_S(|f|) - m_S(|f|))\cdot v(S) 
+    (U-L)(|f|, P) = \sum (M_S(|f|) - m_S(|f|))\cdot v(S)
     \leq \sum (M_S(f) - m_S(f))\cdot v(S)
   \end{align*}
   which is as small as we like by integrability of $f$. The required comparison
   follows from taking infinums of
-  $$\big | \sum M_s(f) \cdot(S) \big |  \leq 
-  \sum |M_s(f) \cdot(S)| = 
-  \sum M_s(|f|) \cdot(S).$$ 
+  $$\big | \sum M_s(f) \cdot(S) \big |  \leq
+  \sum |M_s(f) \cdot(S)| =
+  \sum M_s(|f|) \cdot(S).$$
 \end{proof}
 
 \begin{problem}{3.7}
-  Let $f: [0, 1]\times[0,1] \to \reals$ be defined by 
+  Let $f: [0, 1]\times[0,1] \to \reals$ be defined by
    \begin{equation*}
     f(x, y) =
     \begin{cases*}
@@ -844,21 +858,21 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
 
 
 \begin{problem}{3.8}
-  The rectangle $A = \Pi [a_i, b_i] \subset \reals^m$ 
+  The rectangle $A = \Pi [a_i, b_i] \subset \reals^m$
   does not have content zero if each $a_i < b_i.$
 \end{problem}
 
 \begin{proof}
   Let $U_1, ..., U_n$ be a finite cover of closed rectangles with each $U_i$ contained in $A$ and
-  let $P_d = (a_d = t_{d0} < ... < t_{dk(d)} = b_d)$ be the partition containing all 
+  let $P_d = (a_d = t_{d0} < ... < t_{dk(d)} = b_d)$ be the partition containing all
   the endpoints of $U_i$ in the $d$th dimension, $d = 1,..,m$.
-  Then each $v(U_i) = \Pi_{d=1}^m \sum ( t_{d,j} - t_{d,j-1} )$ for a 
+  Then each $v(U_i) = \Pi_{d=1}^m \sum ( t_{d,j} - t_{d,j-1} )$ for a
   `certain number' of summands.
   Moreover each $\Pi_{d=1}^m(t_{d,j} - t_{d,j-1})$ lies in at least one $U_i,$
   so
   \begin{align*}
-    \sum v(U_i) \geq 
-    \prod_{d = 1}^m \sum_{j=1}^{k(d)}(t_{d,j} - t_{d,j-1}) = 
+    \sum v(U_i) \geq
+    \prod_{d = 1}^m \sum_{j=1}^{k(d)}(t_{d,j} - t_{d,j-1}) =
     \prod(b_d - a_d) = v(A)
   \end{align*}
   which is positive so long as each $a_i < b_i.$
@@ -872,21 +886,21 @@ Then $f$ is integrable and the value of the integral is $\frac{1}{2}.$
   If $A$ has content zero then there is a finite cover of $A$ by closed rectangles.
   Then each point of $A$ lies in some closed rectangle, i.e. $A$ is bounded.
 
-  The set $\{1 ,2, 3, ...\}$ is clearly unbounded, but the cover 
+  The set $\{1 ,2, 3, ...\}$ is clearly unbounded, but the cover
    $n \in [n - \frac{\varepsilon}{2^{n+1}},n + \frac{\varepsilon}{2^{n+1}} ]$
    has volume $\varepsilon$, which is as small as we like.
 \end{proof}
 
 \begin{problem}{3.10}
-  A bounded set of content zero has boundary of content zero, but 
+  A bounded set of content zero has boundary of content zero, but
   a bounded set of measure zero may have boundary with positive measure.
 \end{problem}
 
 \begin{proof}{Using results from topology.}
-  Let $C$ be a bounded set, $\overline{C}$ the closure of $C$ and 
-  $U_i$ a finite cover of $C$ by closed rectangles. Then $U = \cup U_i$ is a finite union 
-  of closed sets, hence closed. 
-  The closure of $C$ is by definition the smallest 
+  Let $C$ be a bounded set, $\overline{C}$ the closure of $C$ and
+  $U_i$ a finite cover of $C$ by closed rectangles. Then $U = \cup U_i$ is a finite union
+  of closed sets, hence closed.
+  The closure of $C$ is by definition the smallest
   closed set containing $C$.  Furthermore it can be shown that it also contains
   the bounday of $C$, whence
   $ \partial C \subset \overline{C} \subset U$ and so $\partial C$ has content zero.
@@ -912,7 +926,7 @@ Todo.
 
 
 \begin{problem}{3.12}
-  Let $f: [a, b] \to \reals$ be increasing. Then the set 
+  Let $f: [a, b] \to \reals$ be increasing. Then the set
   $X = \{ x: f\ discontinuous\ as\ f \}$ has measure zero.
 \end{problem}
 \color{Blue}
@@ -925,15 +939,15 @@ Todo.
 \end{problem}
 
 \begin{proof}
-  The first result is that the collection of `rational rectangles' - closed rectangles 
+  The first result is that the collection of `rational rectangles' - closed rectangles
   with all rational endpoints - is countable. This is a consequence of theorem which says
-  a finite cartesian product of countable sets is countable, after identifying the rectangle 
-  in $\rationals^n$ with a point in $\rationals^{2n}$.
+  a finite cartesian product of countable sets is countable, after identifying the rectangle
+  in $\reals^n$ with a point in $\rationals^{2^n}$.
 
-  For the main result, let $C_i$ be any open cover. For any $x$ in our set, 
+  For the main result, let $C_i$ be any open cover. For any $x$ in our set,
   there is some $C_i$ containing $x$.  Then there is a closed rectangle $B$ with
-  $x \in B \subset C_i$.  By a generalisation of the argument that any interval contains 
-  infinitley many rational numbers, there is a rational rectangle $A_x$ with 
+  $x \in B \subset C_i$.  By a generalisation of the argument that any interval contains
+  infinitley many rational numbers, there is a rational rectangle $A_x$ with
   $x \in A_x \subset B \subset C_i.$
   Then the union of all the $A_x$ is obviously a cover, which cannot be larger than $\cup_\naturals A_j$ since there are only countably many rational rectangles $A$.
   Then each $x$ is in some $A_j \subset C_j$, whence $C_j$ is a cover.
@@ -1010,7 +1024,7 @@ Todo.
 
 
 \begin{problem}{3.15}
-  If $C$ has content zero then $C$ is Jordan Measurable and 
+  If $C$ has content zero then $C$ is Jordan Measurable and
   then volume of $C$ is zero.
 \end{problem}
 
@@ -1021,11 +1035,11 @@ Todo.
   By problem 3.10 the boundary of $C$ has content zero, hence measure zero and so
   the $C$ is Jordan Measurable.
 
-  To compute the integral take $\varepsilon > 0$ and let 
+  To compute the integral take $\varepsilon > 0$ and let
   $U_1, ..., U_n$ be some cover of $C$ which has volume smaller than $\varepsilon.$
-  Let $P$ be some partition of $A$ consisting 
+  Let $P$ be some partition of $A$ consisting
   of each $U$ together with other rectangles $V$.
-  Then 
+  Then
   \begin{align*}
     L(\chi_C, P) = \sum 1 \cdot v(U) + \sum 0 \cdot v(V) = \sum v(U) < \varepsilon
   \end{align*}
@@ -1038,10 +1052,10 @@ Todo.
 \end{problem}
 
 \begin{proof}
-  Consider $\rationals \cap [0,1].$  The set is bounded and has zero measure but 
-  (becasue the boundary is large) not integrable. 
+  Consider $\rationals \cap [0,1].$  The set is bounded and has zero measure but
+  (becasue the boundary is large) not integrable.
   If $P$ is any partition, then each subrectangle $S$ contains both rational and
-  irrational numbers, so $M_s(\chi_C) = 1$ and $m_s(\chi_C) = 0.$  Clearly the upper and lower 
+  irrational numbers, so $M_s(\chi_C) = 1$ and $m_s(\chi_C) = 0.$  Clearly the upper and lower
   sums over $P$ can never agree.
 \end{proof}
 
@@ -1051,16 +1065,16 @@ Todo.
 
 \begin{proof}
   Let $A$ be some rectangle containing $C$ so that $\int_C 1 = \int_A \chi_C$
-  and let $P$ be a partition of $A$.  Then 
+  and let $P$ be a partition of $A$.  Then
   \begin{align*}
-    L(\chi_C, P) = 
-    \sum m(\chi_C, S)\cdot v(S) + \sum m(\chi_C, Q) \cdot v(Q) = 
+    L(\chi_C, P) =
+    \sum m(\chi_C, S)\cdot v(S) + \sum m(\chi_C, Q) \cdot v(Q) =
     \sum v(S)
   \end{align*}
   where $S$ are the subrectangles contained in $C$ and $Q$ are the rest.
-  The inclusion $S \subset C$ implies $S$ is also zero measure, and 
-  so by problem 3.8 is a degenerate rectangle. This is not allowed in 
-  our definition of a partition and so all subrectangles 
+  The inclusion $S \subset C$ implies $S$ is also zero measure, and
+  so by problem 3.8 is a degenerate rectangle. This is not allowed in
+  our definition of a partition and so all subrectangles
   are of the type $Q$, so $L(\chi_C, P) = 0$ for any partition $P$.
   We have assumed that the integral exists, and so its value must be zero.
 \end{proof}
@@ -1072,11 +1086,11 @@ Todo.
 \end{problem}
 
 \begin{proof}
-  For any integer $n$ and $\varepsilon > 0$ let $P$ be a partition with 
-  $\sum M_S(f)\cdot v(S) < \varepsilon/n.$ 
-  Then either $M_S(f) > 1/n$ or $M_S(f) \leq 1/n$ and so 
+  For any integer $n$ and $\varepsilon > 0$ let $P$ be a partition with
+  $\sum M_S(f)\cdot v(S) < \varepsilon/n.$
+  Then either $M_S(f) > 1/n$ or $M_S(f) \leq 1/n$ and so
   \begin{align*}
-    \sum_{M\leq 1/n} M_S(f) \cdot v(S) + \sum_{M > 1/n} \frac{1}{n}v(S) < 
+    \sum_{M\leq 1/n} M_S(f) \cdot v(S) + \sum_{M > 1/n} \frac{1}{n}v(S) <
     \varepsilon/n
   \end{align*}
   from which (since both sums are finite)
@@ -1086,7 +1100,7 @@ Todo.
 
   If $D_n$ is defined as  $\{ x: f(x) > 1 / n \}$ then it is surely covered by these
   $S$, which the argument above shows to be a cover of content zero.
-  The support of $supp(f) = D_1 \cup D_2 \cup ...$ is a countable union of 
+  The support of $supp(f) = D_1 \cup D_2 \cup ...$ is a countable union of
   measure zero sets, hence measure zero.
 \end{proof}
 
@@ -1104,7 +1118,7 @@ Todo.
   An increasing function from $[a, b]$ to $\reals$ is integrable.
 \end{problem}
 \begin{proof}
-  By problem 3.12 the subset of the domain where the function is 
+  By problem 3.12 the subset of the domain where the function is
   discontinuous has measure zero. The function is therefore integrable by theorem 3.8.
 \end{proof}
 
@@ -1116,7 +1130,7 @@ Todo.
 
 \begin{problem}{3.22}
   If $A$ is a JM set and $\varepsilon > 0$ there is a compact JM set $C \subset A$
-  such that $\int_{A-C}1 < \varepsilon.$ 
+  such that $\int_{A-C}1 < \varepsilon.$
 \end{problem}
 \color{Blue}
 Todo.
@@ -1241,7 +1255,7 @@ Todo.
 
 \begin{problem}{3.23}
   Let $C = A \times B$ be a set of content zero.
-  Let $A' \subset A$ be the set of $x \in A$ such that 
+  Let $A' \subset A$ be the set of $x \in A$ such that
   $\{ y \in B: (x, y) \in C \}$ is not content zero.
   Then $A'$ is measure zero.
 \end{problem}
@@ -1256,12 +1270,12 @@ Todo.
 \end{problem}
 
 \begin{proof}
-  Let $C\subset [0,1] \times [0,1]$ be the union of all 
-  $\{ p/q \} \times [0, 1]$ where $p/q$ is a rational number in $[0, 1]$ with 
+  Let $C\subset [0,1] \times [0,1]$ be the union of all
+  $\{ p/q \} \times [0, 1]$ where $p/q$ is a rational number in $[0, 1]$ with
   $p/q$ in lowest terms. It's a werid comb kind of thing.
-  The $C$ has content zero as the bounded countable union of measure zero sets, but 
+  The $C$ has content zero as the bounded countable union of measure zero sets, but
   for any $p/q$ the set $\{ y \in [0, 1]: (p/q, y) \in C \} = [0, p/q]$
-  is not content zero for any $p/q$, i.e. $A'$ is all rationals in $[0,1]$, which 
+  is not content zero for any $p/q$, i.e. $A'$ is all rationals in $[0,1]$, which
   is not content zero.
 \end{proof}
 
@@ -1276,32 +1290,32 @@ Todo.
   \color{ForestGreen}
   Seems to be more going on than I thought.
 \end{proof}
-  
+
 
 
 \begin{problem}{3.26}
-  Let $f: [a, b] \to \reals$ be integrable and non-negative and let 
+  Let $f: [a, b] \to \reals$ be integrable and non-negative and let
   $A_f$ be the region between the graph of $f(x)$ and the $x$-axis.
   Then $A_f$ is Jordan Measurable and has area $\int_a^b f.$
 \end{problem}
 
 \begin{proof}
   The boundary of $A$ consists of three bounded line segments and the graph of $f$.
-  Since $f$ is integrable, it is continuous almost everywhere and so the 
+  Since $f$ is integrable, it is continuous almost everywhere and so the
   the graph is a countable union\footnote{A measure zero subset of an interval must be a countable union of singletons.}
-   of continuous plane curves.  Together with 
-  the obvious fact that $A_f$ is bounded establishes that $A_f$ is 
+   of continuous plane curves.  Together with
+  the obvious fact that $A_f$ is bounded establishes that $A_f$ is
   Jordan measurable.
 
-  Let $M$ be some upper bound for $f$.  Then 
+  Let $M$ be some upper bound for $f$.  Then
   \begin{align*}
     \mathcal{L}(x) = \int_{[0, M]} \chi_{A_f}(x, y)dy = f(x)
   \end{align*}
-  and so by Fubini the volume of $A_f$ is 
+  and so by Fubini the volume of $A_f$ is
   \begin{align*}
-    \int_{A_f}1 = 
+    \int_{A_f}1 =
     \int_{[a, b]\times[0, M]} \chi_{A_f}
-    \int_{[a, b]} \mathcal{L}(x) = 
+    \int_{[a, b]} \mathcal{L}(x) =
     \int_a^b f.
   \end{align*}
 \end{proof}
@@ -1309,23 +1323,23 @@ Todo.
 
 
 \begin{problem}{3.27}
-  If $f: [a, b] \times [a, b] \to \reals$ is continuous then 
+  If $f: [a, b] \times [a, b] \to \reals$ is continuous then
   \begin{align*}
     \int_a^b \int_a^y f(x, y)dxdy = \int_a^b \int_x^b f(x, y)dy  dx.
   \end{align*}
 \end{problem}
 
 \begin{proof}
-  Let $C$ be the region above the diagonal, that is 
+  Let $C$ be the region above the diagonal, that is
   \begin{align*}
-    \{ (x, y) : y \in [a, b]\ and \ x \in [a, y] \} = 
+    \{ (x, y) : y \in [a, b]\ and \ x \in [a, y] \} =
     \{ (x, y) : x \in [a, b]\ and \ y \in [x, b] \}.
   \end{align*}
-  Then 
+  Then
   \begin{align*}
-    \int_C f = 
-    \int_{[a, b], [a, b]}\chi_C \cdot f = 
-    \int_{[a, b]}\bigg(\int_{[a, b]}(f\cdot \chi_C)(x, y)dy\bigg)dx = 
+    \int_C f =
+    \int_{[a, b], [a, b]}\chi_C \cdot f =
+    \int_{[a, b]}\bigg(\int_{[a, b]}(f\cdot \chi_C)(x, y)dy\bigg)dx =
     \int_a^b \bigg(\int_x^b f dy\bigg)dx
   \end{align*}
   with the other side following from a similar calculation.
@@ -1336,9 +1350,9 @@ Todo.
   $D_{1, 2}f = D_{2, 1}f$ so long as these are continuous.
 \end{problem}
 \begin{proof}
-	If $D_{1, 2}f(x, y) \neq D_{2, 1}f(x, y)$ then there is a rectangle 
+	If $D_{1, 2}f(x, y) \neq D_{2, 1}f(x, y)$ then there is a rectangle
 	$A$ around $(x, y)$ on which $D_{1, 2}f(x, y) - D_{2, 1}f(x, y) > 0$ (or maybe $>$ 0)
-	since everything is continuous.  Then 
+	since everything is continuous.  Then
 	\begin{align*}
 		\int_a^b \int_c^d D_{1, 2} f(x, y)\ dx.dy - \int_c^d \int_a^b D_{2, 1} f(x, y)\ dx.dy > 0 \\
 	\end{align*}
@@ -1349,7 +1363,7 @@ Todo.
 
 
 \begin{problem}{3.29}
-  Find the volume of the solid obtained by rotating a 
+  Find the volume of the solid obtained by rotating a
   JM set in the $yz$ plane about the $z$-axis.
 \end{problem}
 \color{Blue}
@@ -1361,7 +1375,7 @@ This really shouldn't be difficult...
 
 
 \begin{problem}{3.30}
-  Let $C$ be the set in problem $1.17$ (the evil dense subset of the unit square 
+  Let $C$ be the set in problem $1.17$ (the evil dense subset of the unit square
   containing at most one point on any horizontal or vertical line.)
   Then both $\int_0^1 \int_0^1 \chi_C dydx$ and  $\int_0^1 \int_0^1 \chi_C dxdy$
   are zero but the integral over $C$ does not exist.
@@ -1402,7 +1416,7 @@ This one should be simple. It's good evidence that I'm not really at home with t
 \end{problem}
 
 \begin{proof}
-  Rewrite $F(y)$ as 
+  Rewrite $F(y)$ as
   \begin{align*}
     \int_a^b \int_c^y D_2f(x, t)dtdx + \int_a^b f(x, c) dx.
   \end{align*}
@@ -1428,8 +1442,8 @@ I don't believe part (b) makes any sense at all.
 
 
 \begin{problem}{3.34}
-  Let $g_1, g_2: \reals^2 \to \reals$ be continuously differentiable and 
-  suppose $D_1g_2 = D_2g_1.$  Define 
+  Let $g_1, g_2: \reals^2 \to \reals$ be continuously differentiable and
+  suppose $D_1g_2 = D_2g_1.$  Define
   \begin{align*}
     f(x, y) = \int_0^x g_1(t, 0)dt + \int_0^yg_2(x, t)dt.
   \end{align*}
@@ -1450,81 +1464,81 @@ I don't believe part (b) makes any sense at all.
 
 
 \begin{problem}{3.35}
-  \textbf{If $G: \reals^n \to \reals^n$ is a invertible linear transformation and $U$ a 
+  \textbf{If $G: \reals^n \to \reals^n$ is a invertible linear transformation and $U$ a
   rectangle, then the volume of $G(U)$ is $|\det G|\cdot v(U).$}
 \end{problem}
 
 \begin{proof}
   Let $U = [a_1, b_1] \times ... \times [a_n, b_n]$
-  and consider first of all three kinds of elementary transformations.  
+  and consider first of all three kinds of elementary transformations.
   \begin{enumerate}
      \item $G$ takes one of the basis vectors $e^i$ to $ce^i$ and fixes the rest.
-     If $c$ is positive then 
+     If $c$ is positive then
      \begin{align*}
        v(G(U))
        &= v([a_1, b_1]\times...\times[ca_i, c_bi]\times...\times[a_n, b_n]) \\
        &= (b_1 - a_1)\cdot...\cdot(cb_i - ca_i)\cdot ... \cdot(b_n-a_n) \\
        &= c\cdot v(U).
      \end{align*}
-     The matrix representation of $G$ is the identity with the $i$-th 
-     entry replaced by $c$, which has determinant $c.$ 
-     If $c$ is negative then the absolute value signs are needed but 
-     the volume is unchanged, although $[a, b]$ must become $[cb, ca]$. 
+     The matrix representation of $G$ is the identity with the $i$-th
+     entry replaced by $c$, which has determinant $c.$
+     If $c$ is negative then the absolute value signs are needed but
+     the volume is unchanged, although $[a, b]$ must become $[cb, ca]$.
 
-     \item $G$ swaps two dimensions and fixes the rest, i.e. 
+     \item $G$ swaps two dimensions and fixes the rest, i.e.
      $g(e_i) = e_j$ and $g(e_j) =e_i.$
-     As a matrix $G$ is the identity with zeros in the $i$ and $j$-th positions, 
+     As a matrix $G$ is the identity with zeros in the $i$ and $j$-th positions,
      and ones in the $G_{i, j}$ and $G_{j,i}$ positions.  In $\reals^3$ it might look like
-     \begin{align*}       
+     \begin{align*}
        \begin{pmatrix}
          1 & 0 & 0 \\
          0 & 0 & 1 \\
          0 & 1 & 0
        \end{pmatrix}
      \end{align*}
-     and in any dimension larger than one has determinant $-1.$  
-     Clearly this operation has no effect on the volume of the rectangle 
+     and in any dimension larger than one has determinant $-1.$
+     Clearly this operation has no effect on the volume of the rectangle
 
      \item $G$ adds basis vector to another and fixes the rest, i.e.
      \begin{align*}
        G(x^1,..., x^i,..., x^j,..., x^n) = (x^1,..., x^i + x^j,..., x^j,..., x^n).
      \end{align*}
-     As a matrix $G$ is the identity with a single extra one somewhere, and so it is easy to 
+     As a matrix $G$ is the identity with a single extra one somewhere, and so it is easy to
      see that $\det G = 1$.
 
 
      Linear operators on $\mathbb{R}^n$ are bounded, so the volume of $G(U)$
-     can be calculated as 
+     can be calculated as
      \begin{align*}
        \int_{[-M_n, M_n]\times...\times [-M_1,M_1]}\chi_{G(U)}dx^1...dx^n
      \end{align*}
      for some upper bound $M$ of both $U$ and $G(U)$.  Since Fubini's theorem will allow us to interchange
-     the order of integration, we can assume that $G$ 
+     the order of integration, we can assume that $G$
      adds $e_2$ to $e_1$ and leaves the rest. Then $v(G(U)) = $
      \begin{align*}
-       \int_{[-M_n, M_n]\times...\times[-M_3, M_3]} \bigg( 
+       \int_{[-M_n, M_n]\times...\times[-M_3, M_3]} \bigg(
           \int_{[-M_2,M_2]\times[-M_1,M_1]} \chi_{G(U)}(x^1, x^2, ...)dx^1dx^2
         \bigg) dx^3...dx^n.
      \end{align*}
-     The value of the inner integral is the area of a parallelogram, which 
-     coincides with the area of the rectangle which fell over.  Hence this inner integral 
+     The value of the inner integral is the area of a parallelogram, which
+     coincides with the area of the rectangle which fell over.  Hence this inner integral
      would not be changed by replacing $\chi_{G(U)}$ with $\chi_U.$
-     Furthermore, for fixed $a^1$ and $a^2$ and varying coordinates in the 
-     remaining positions, $\chi_U(a_1, a_2, x_3, ..., x_n)$ and 
+     Furthermore, for fixed $a^1$ and $a^2$ and varying coordinates in the
+     remaining positions, $\chi_U(a_1, a_2, x_3, ..., x_n)$ and
      $\chi_{G(U)}(a_1, a_2, x_3, ..., x_n)$ conincide exactly.
-     So for the purposes of evaulating this integral, $\chi_U$ will do 
+     So for the purposes of evaulating this integral, $\chi_U$ will do
      just as well as $\chi_{U(G)}$, or in other words their volumes are equal.
-     
+
      \end{enumerate}
 
      Finally if $G$ is the composition of elementary operations as described above
-     then $G$ alters the volume of $U$ by a factor of 
+     then $G$ alters the volume of $U$ by a factor of
      \begin{align*}
-        |\det G_1| \cdot .. \cdot |\det G_m| = 
-        |\det G_1 \cdot ... \cdot \det G_m | = 
+        |\det G_1| \cdot .. \cdot |\det G_m| =
+        |\det G_1 \cdot ... \cdot \det G_m | =
         |\det (G_1 \cdot ... \cdot G_m) | = |\det G|.
      \end{align*}
-     We take as a fact that these elemetary operations generate the whole group 
+     We take as a fact that these elemetary operations generate the whole group
      of invertible matrices and so this scaling factor is good for any invertible linear map.
 \end{proof}
 \color{Blue}
@@ -1535,20 +1549,20 @@ More care is needed for the application of Fubini's Theorem.
 
 
 \begin{problem}{3.36 Cavalieri's Principle.}
-    Let $A$ and $B$ be JM subsets of $\reals^3$. 
+    Let $A$ and $B$ be JM subsets of $\reals^3$.
     Let $A_c = \{(x, y): (x, y, c) \in A\}$ and define $B_c$ similarly.
     If each $A_c$ and $B_c$ are JM  and have the same area then $A$ and $B$
     have the same volume.
 \end{problem}
 
 \begin{proof}
-  Let $[-M, M]^3$ be a rectangle bounding $A$ and $B$. Then 
+  Let $[-M, M]^3$ be a rectangle bounding $A$ and $B$. Then
   \begin{align*}
-    \int_{[-M, M]^3}\chi_A 
+    \int_{[-M, M]^3}\chi_A
     &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_A \bigg)dz \\
     &= \int_{-M}^M \bigg( \int_{A_z} 1 \bigg) dz
     = \int_{-M}^M \bigg( \int_{B_z} 1 \bigg) dz \\
-    &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_B \bigg)dz 
+    &= \int_{-M}^M \bigg( \int_{[-M, M]^2} \chi_B \bigg)dz
     = \int_{[-M, M]^3}\chi_B.
   \end{align*}
 \end{proof}
@@ -1719,7 +1733,7 @@ More care is needed for the application of Fubini's Theorem.
 
 \begin{problem}{3.37}
   Suppose that $f: (0, 1) \to \reals$ is non-negative and continuous.
-  Then $\int_{(0,1)}f$ exists if and only if 
+  Then $\int_{(0,1)}f$ exists if and only if
   $\lim_{\varepsilon \to 0} \int_\varepsilon^{1-\varepsilon}f$ exists.
 \end{problem}
 
@@ -1727,66 +1741,66 @@ More care is needed for the application of Fubini's Theorem.
   Let $o$ be the cover of $(0, 1)$ consisting of the intervals
   $(1/n, 1 - 1/n)$ and $\Phi$ a $C^\infty$ partition of unity for $(0, 1)$
   subordinate to $o$.
-  Then each $\varphi_i$ in $\Phi$ has support contained in some 
+  Then each $\varphi_i$ in $\Phi$ has support contained in some
   $(1/m_i, 1 - 1/m_i)$ in $o$.
   Choose an ordering of $\Phi$ so that if $i < j$ then $m_i \leq m_j$, that way
   the support of $\varphi_i$ is in $ (1 / m_j, 1 - 1/m_j) $ for all $j > i.$
 
   Then the partial sums can be written as
   \begin{align*}
-    \sum_{k=1}^n \int_{(0, 1)} \varphi_k \cdot f = 
-    \sum_{k=1}^n \int_{1/m_k}^{1 - 1/m_k} \varphi_k \cdot f = 
-    \sum_{k=1}^n \int_{1/m_n}^{1 - 1/m_n} \varphi_k \cdot f =  
-    \int_{1/m_n}^{1 - 1/m_n} \sum_{k=1}^n  \varphi_k \cdot f =  
+    \sum_{k=1}^n \int_{(0, 1)} \varphi_k \cdot f =
+    \sum_{k=1}^n \int_{1/m_k}^{1 - 1/m_k} \varphi_k \cdot f =
+    \sum_{k=1}^n \int_{1/m_n}^{1 - 1/m_n} \varphi_k \cdot f =
+    \int_{1/m_n}^{1 - 1/m_n} \sum_{k=1}^n  \varphi_k \cdot f =
     \int_{1/m_n}^{1 - 1/m_n} f.
   \end{align*}
   Since $\varphi \cdot f$ is non-negative, convergence and absolute conergence
-  are the same thing. Thus the extended integral exists if and only if the 
+  are the same thing. Thus the extended integral exists if and only if the
   given limit exists.
 \end{proof}
 
 
 \begin{problem}{3.38}
   Let $A_n$ be a closed set in $(n, n+1)$. Suppose that $f: \reals \to \reals$
-  satisfies $\int_{A_n}f = (-1)^n/n$ and $f=0$ outside $A_n.$ 
+  satisfies $\int_{A_n}f = (-1)^n/n$ and $f=0$ outside $A_n.$
   Then $f$ is not integrable.
-  % Find two different partitions of unity for $\mathbb{R}$ for which 
+  % Find two different partitions of unity for $\mathbb{R}$ for which
   % the series $\sum_{\Phi} \int_{A_n} \varphi \cdot f$ converge absolutely
   % to different values.
 \end{problem}
 
 \begin{proof}
-  Let $\Phi_n$ be a partition of unity for $A_n$ and extend each 
-  $\varphi$ to a function on $\mathbb{R}$ by setting $\varphi=0$ outside 
+  Let $\Phi_n$ be a partition of unity for $A_n$ and extend each
+  $\varphi$ to a function on $\mathbb{R}$ by setting $\varphi=0$ outside
   $A_n$.
   Then their union $\Phi$ is a partion of unity for all of $\mathbb{R}$
-  and 
+  and
   \begin{align*}
-    \sum_\Phi \int_\mathbb{R} \varphi \cdot |f| = 
-    \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) = 
-    \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \varphi \cdot |f| \bigg) = 
+    \sum_\Phi \int_\mathbb{R} \varphi \cdot |f| =
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) =
+    \sum_\naturals \bigg( \sum_{\Phi_n} \int_{A_n} \varphi \cdot |f| \bigg) =
     \sum_\naturals \int_{A_n}f = -\log 2.
   \end{align*}
 
-  Following the example in the wiki for conditional convergence, 
-  define the sets 
+  Following the example in the wiki for conditional convergence,
+  define the sets
   \begin{align*}
     B_n = A_{2n - 1} \cup A_{2(2n-1)} \cup A_{4n}
   \end{align*}
-  and let $\Phi_n$ be a partition of unity for $B_n$, taking the 
+  and let $\Phi_n$ be a partition of unity for $B_n$, taking the
   value $0$ outside $B_n$.  Then as above
   \begin{align*}
-    \sum_\Phi \int_\reals \varphi \cdot |f| = 
-    \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) = 
-    \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \varphi \cdot |f| \bigg) = 
+    \sum_\Phi \int_\reals \varphi \cdot |f| =
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_\reals \varphi \cdot |f| \bigg) =
+    \sum_\naturals \bigg(\sum_{\Phi_n} \int_{B_n} \varphi \cdot |f| \bigg) =
     \sum_\naturals \int_{B_n}f.
-  \end{align*} 
-  Each of the integrals in the last sum has the value 
+  \end{align*}
+  Each of the integrals in the last sum has the value
   \begin{align*}
     \int_{B_n}f
     &= \int_{A_{2n-1}}f + \int_{A_{2(2n-1)}}f + \int_{A_{4n}}f \\
-    &=  \frac{(-1)^{2n-1}}{2n-1} + 
-        \frac{(-1)^{2(2n-1)}}{2(2n-1)} + 
+    &=  \frac{(-1)^{2n-1}}{2n-1} +
+        \frac{(-1)^{2(2n-1)}}{2(2n-1)} +
         \frac{(-1)^{4n}}{4n} \\
     &=  \frac{1}{2(2n-1)} +
         \frac{1}{4n} -
@@ -1946,11 +1960,11 @@ All the problems in this section (Change of Variable) are incomplete.
 
 
 \begin{problem}{3-40}
-  If $g: \reals^n \to \reals^n$ and $\det g'(x) \neq 0$ then 
-  there is an open set containing $x$ in which 
+  If $g: \reals^n \to \reals^n$ and $\det g'(x) \neq 0$ then
+  there is an open set containing $x$ in which
   $g = T \circ g_n \circ ... \circ g_1$ where each $g_i$
   is of the form $g_i(x) = (x^i, ..., f_i(x^i), ..., x^n)$
-  and $T$ is a linear transformation.  Furthermore $g$ can be written as $g = g_n \circ...\circ g_1$ if and only if $g'$ is 
+  and $T$ is a linear transformation.  Furthermore $g$ can be written as $g = g_n \circ...\circ g_1$ if and only if $g'$ is
   diagonal.
 \end{problem}
 
@@ -1965,7 +1979,7 @@ All the problems in this section (Change of Variable) are incomplete.
 %     \item Define $f: \{r: r > 0 \} \times (0, 2\pi) \to \reals^2$ by
 %     $f(r, \vartheta) = r(\cos \vartheta, \sin \vartheta).$
 %     If $r(\cos \vartheta, \sin \vartheta) = r'(\cos \vartheta', \sin \vartheta')$
-%     then the Pythagorean identity easily gives $r = r'$, and so 
+%     then the Pythagorean identity easily gives $r = r'$, and so
 %     $$\cos \vartheta = \cos \vartheta',\ \ \  \sin \vartheta = \sin \vartheta'.$$
 %   \end{enumerate}
 % \end{proof}
@@ -2044,8 +2058,8 @@ All the problems in this section (Change of Variable) are incomplete.
   Let $e_1, ..., e_n$ be the usual basis of $\mathbb{R}^n$ and let $\varphi_i$ be the dual basis.
   Then \\
   $(a) \ \varphi_{i_1} \wedge ... \wedge \varphi_{i_k} (e_{i_1}, e_{i_k}) = 1$ and
-  $(b)$ $\varphi_{i_1} \wedge ... \wedge \varphi_{i_k}(v_1, ..., v_k)$ is the determinant of 
-  the $k \times k$ minor of 
+  $(b)$ $\varphi_{i_1} \wedge ... \wedge \varphi_{i_k}(v_1, ..., v_k)$ is the determinant of
+  the $k \times k$ minor of
   $$\begin{pmatrix}v_1 \\ ...\\ v_k\end{pmatrix}$$
   obtained by selecting $i_1, ..., i_k$.
 \end{problem}
@@ -2062,7 +2076,7 @@ All the problems in this section (Change of Variable) are incomplete.
   \end{align*}
 
   Since $\varphi_{i_{k}}(e_{\sigma(i_k)})$ is one if $\sigma$ fixes $i_k$ and zero otherwise and
-  $\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}}$ is alternating this reduces to 
+  $\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}}$ is alternating this reduces to
   \begin{align*}
     \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)(\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}})(e_{\sigma(i_1)}, ..., e_{\sigma(i_{k-1})}) = \\
     \frac{1}{(k-1)!} \sum_{S_{k-1}}sign(\sigma)^2(\varphi_{i_{1}} \wedge ... \wedge \varphi_{i_{k-1}})(e_{i_1}, ..., e_{i_{k-1}}) = \\
@@ -2082,38 +2096,38 @@ Part (b) needs doing.
 
   \begin{proof}
     Let $v_1, ..., v_n$ be a basis and let $w_1, ..., w_n$ be $n$ vectors.
-    Let $A$ be the matrix such that $w_i = Av_i$ and let $F$ be the matrix 
-    of $f$ with respect to the basis $v_i$.  Then, taking huge liberties with 
+    Let $A$ be the matrix such that $w_i = Av_i$ and let $F$ be the matrix
+    of $f$ with respect to the basis $v_i$.  Then, taking huge liberties with
     notation, $\omega(f(w_1), f(w_n)) = $
     \begin{align*}
-      \omega(F(w_1,w_n)) = 
-      \omega(FA(v_1,v_n)) = 
-      \det(FA)\cdot \omega(v_1, v_n) = 
-      \det F \cdot \omega(A(v_1, v_n)) = 
+      \omega(F(w_1,w_n)) =
+      \omega(FA(v_1,v_n)) =
+      \det(FA)\cdot \omega(v_1, v_n) =
+      \det F \cdot \omega(A(v_1, v_n)) =
       \det F \cdot \omega(w_1, w_n).
     \end{align*}
   \end{proof}
 
 
   \begin{problem}{4.3}
-    If $\omega$ is the volume element determined by $T$ and $\mu$ and $w_1, ..., w_n$ are vectors in $V$ then 
+    If $\omega$ is the volume element determined by $T$ and $\mu$ and $w_1, ..., w_n$ are vectors in $V$ then
     \begin{align*}
       |\omega(w_1, ..., w_n)| = \sqrt{det(g_{ij})}.
-    \end{align*}    
+    \end{align*}
     \color{Blue}
     Note that the hint for the problem has the indicies around the wrong way.
   \end{problem}
   \begin{proof}
-    Let $v_1, ...v_n$ be an orthonormal basis with resepect to $T$ and $A = a_{ih}$ numbers such that 
+    Let $v_1, ...v_n$ be an orthonormal basis with resepect to $T$ and $A = a_{ih}$ numbers such that
     $w_i = \sum_{h=1}^n a_{ih}v_h$.
-    Then 
+    Then
     \begin{align*}
       g_{ij} := T(w_i, w_j) = \sum_{h,g=1}^n a_{ih}a_{jg}T(v_i, v_j) = \sum_{k=1}^n a_{ik}a_{jk},
     \end{align*}
     that is $(g_{ij}) = A\cdot A^T$ and
     $$\sqrt{\det G} = \det A.$$
 
-    By theorem 4.6 we have 
+    By theorem 4.6 we have
     $ \omega(w_1, ..., w_n) = \det A \cdot \omega(v_1, ...v_n) = \pm \det(A)$
     (since $\omega$ is the volume element with respect to the orthonormal basis $v_i$) which proves the result.
   \end{proof}
@@ -2122,12 +2136,12 @@ Part (b) needs doing.
 
 \begin{problem}{4.4}
   If $\omega$ is the volume element of $V$ determined by $T$ and $\mu$ and
-  $f: \reals^n \to V$ is an isomorphism such that $f^*T = \langle, \rangle$ and such that 
+  $f: \reals^n \to V$ is an isomorphism such that $f^*T = \langle, \rangle$ and such that
   $[f(e_1), ..., f(e_n)] = \mu$ then $f*\omega = \det.$
 \end{problem}
 
 \begin{proof}
-  If $(f(e_i))$ were an orthonormal basis with positive orientation then 
+  If $(f(e_i))$ were an orthonormal basis with positive orientation then
   \begin{align*}
     1 = \omega( f(e_1), ..., f(e_n) ) = f*\omega(e_1, ..., e_n)
   \end{align*}
@@ -2143,16 +2157,16 @@ Part (b) needs doing.
 
 
 \begin{problem}{4.5}
-    If $c: [0, 1] \to (\reals^n)^n$ is continuous and each $(c^1(t), ..., c^n(t))$ is a basis, 
-    then any two have the same orientation. 
+    If $c: [0, 1] \to (\reals^n)^n$ is continuous and each $(c^1(t), ..., c^n(t))$ is a basis,
+    then any two have the same orientation.
 \end{problem}
 
 \begin{proof}
   Since $c(t)$ is a basis for any $t$ it must always be non-singular.
-  Hence $\det \circ c \neq 0$ on $[0, 1]$, which means it is always 
+  Hence $\det \circ c \neq 0$ on $[0, 1]$, which means it is always
   positive, or always negative.
-  Let $C_1$ and $C_2$ be the matrices of two bases in this family, and $A$ the transformation between them. 
-  Then 
+  Let $C_1$ and $C_2$ be the matrices of two bases in this family, and $A$ the transformation between them.
+  Then
   \begin{align*}
     \det A = \det(C^{-1}_1) \cdot \det C_2 > 0
   \end{align*}
@@ -2163,24 +2177,24 @@ Part (b) needs doing.
 
 
 \begin{problem}{4.6}
-  If $v_1, ..., v_{n-1} \in \reals^n$ are linearly independent then 
-  $[v_1, .., v_{n-1}, v_1 \times ... \times v_{n-1}]$ is the usual 
+  If $v_1, ..., v_{n-1} \in \reals^n$ are linearly independent then
+  $[v_1, .., v_{n-1}, v_1 \times ... \times v_{n-1}]$ is the usual
   orientation for $\reals^n$.
 \end{problem}
 \begin{proof}
-  If $n=2$ then it follows from the definition that 
+  If $n=2$ then it follows from the definition that
   \begin{align*}
     \begin{pmatrix}
       v_1 \\ v_2
     \end{pmatrix}
-    \times = 
+    \times =
     \begin{pmatrix}
       -v_2 \\ v_1
     \end{pmatrix}.
   \end{align*}
   It is clear that $\times v$ is just $v$ rotated $90$ degrees anticlockwise,
-  which is the usual orientation.   To be extra sure, the matrix taking 
-  $(1, 0)$ to $(v_1, v_2)$ and $(0, 1)$ to $(-v_2, v_1)$ is 
+  which is the usual orientation.   To be extra sure, the matrix taking
+  $(1, 0)$ to $(v_1, v_2)$ and $(0, 1)$ to $(-v_2, v_1)$ is
   \begin{align*}
     \begin{pmatrix}
       v_1 && -v_2 \\ v_2 && v_1
@@ -2207,7 +2221,7 @@ The above is only the start of an inductive proof.}
 
 \begin{problem}{4.11}
   Let $f$ be a self-adjoint linear map on $V$ with respect to the inner product
-  $T$.  If $v_1, v_n$ is an orthonormal basis and $A = (a_{ij})$ is the matrix of 
+  $T$.  If $v_1, v_n$ is an orthonormal basis and $A = (a_{ij})$ is the matrix of
   $f$ with respect to $v_i$ then $A$ is symmetric.
 \end{problem}
 \begin{proof}
@@ -2219,7 +2233,7 @@ The above is only the start of an inductive proof.}
     \sum_{i,j = 1}^n x^iy^ja_{ji}.
   \end{align*}
   By a similar calculation $T(f(x), y) = \sum_{i,j = 1}^n x^iy^ja_{ij}$.
-  Since $f$ is self-adjoint we have 
+  Since $f$ is self-adjoint we have
   \begin{align*}
     \sum_{i,j = 1}^n x^iy^ja_{ji} = \sum_{i,j = 1}^n x^iy^ja_{ij}
   \end{align*}
@@ -2313,10 +2327,10 @@ The above is only the start of an inductive proof.}
 
 \begin{proof}
   \begin{align*}
-      (g \circ f)_*(v_q) = 
-      [D(g \circ f)(q)](v) = 
+      (g \circ f)_*(v_q) =
+      [D(g \circ f)(q)](v) =
       [Dg(f(q))\circ Df(q)](v) = \\
-      Dg(f(q))(Df(q)(v)) = 
+      Dg(f(q))(Df(q)(v)) =
       Dg(f(q)) (f_*(v_q)) = g_*(f_*(v_q))
   \end{align*}
 \end{proof}
@@ -2329,7 +2343,7 @@ The above is only the start of an inductive proof.}
 \begin{proof}
   \begin{align*}
     d(f \cdot g) =
-    \sum_{j=1}^n D_j(f \cdot g) \cdot dx^j = 
+    \sum_{j=1}^n D_j(f \cdot g) \cdot dx^j =
     \sum_{j=1}^n [f \cdot D_jg + g \cdot  D_jf] \cdot dx^j.
   \end{align*}
 \end{proof}
@@ -2337,14 +2351,14 @@ The above is only the start of an inductive proof.}
 
 
 \begin{problem}{4.14}
-  Let $c$ be a differentiable curve in $\reals^n$, that is, a differentiable func­tion 
+  Let $c$ be a differentiable curve in $\reals^n$, that is, a differentiable func­tion
   $c: [0,1] \to \reals^n$. Define the tangent vector of $c$ at $t$ as
   $v = c_*((e_1)_t) = ((c^1)'(t), ..., (c^n)'(t))_{c(t)}$.
   If $f: \reals^n \to \reals^m$, show that the tangent vector to $f \circ c$ at $t$ is $f_*(v)$.
 \end{problem}
 
 \begin{proof}
-  By the previous problem the tangent to $f \circ c$ at $t$ is 
+  By the previous problem the tangent to $f \circ c$ at $t$ is
   \begin{align}
     (f \circ c)_*((e_1)_t) = f_* \circ c_*((e_1)_t) = f_*(c_*((e_1)_t)) = f_*(v).
   \end{align}
@@ -2353,21 +2367,21 @@ The above is only the start of an inductive proof.}
 
 
 \begin{problem}{4.15}
-  Let $f: \reals \to \reals$ and define the planar curve $c$ by $c(t) = (t, f(t))$. 
-  Show that the end point of the tangent vector of $c$ at $t$ lies on the 
+  Let $f: \reals \to \reals$ and define the planar curve $c$ by $c(t) = (t, f(t))$.
+  Show that the end point of the tangent vector of $c$ at $t$ lies on the
   tangent line to the graph of $f$ at $(t,f(t))$.
 \end{problem}
 
 \begin{proof}
-  The tangent line to the graph of $f$ at $(t, f(t))$ is 
+  The tangent line to the graph of $f$ at $(t, f(t))$ is
   \begin{align*}
     L:\ \ y - f(t) = f'(t)(x - t).
   \end{align*}
-  The tangent vector to the curve $c$ at $t$ is 
+  The tangent vector to the curve $c$ at $t$ is
   \begin{align*}
     c_*((e_1)_t) = (1, f'(t))_{c(t)}
   \end{align*}
-  which starts at $(t, f(t))$ and ends at 
+  which starts at $(t, f(t))$ and ends at
   \begin{align*}
     H: \ \ (t+1, f(t) + f'(t)).
   \end{align*}
@@ -2412,11 +2426,11 @@ The above is only the start of an inductive proof.}
 
 \begin{proof}
   If $F$ is some vector field, define $f$ by $F(p) = v_p \iff f(p) = v$.
-  Then\footnote{This feels sketchy.} 
+  Then\footnote{This feels sketchy.}
   \begin{align*}
-    div\pmb{f}(p) = 
-    \sum D_i\pmb{f}^i(p) = 
-    \sum D_i f^i(p) = 
+    div\pmb{f}(p) =
+    \sum D_i\pmb{f}^i(p) =
+    \sum D_i f^i(p) =
     trace f'.
   \end{align*}
 \end{proof}
@@ -2428,18 +2442,18 @@ The above is only the start of an inductive proof.}
 
 
 \begin{problem}{4.18}
-  For $f: \reals^n \to \reals$ define the vector field 
+  For $f: \reals^n \to \reals$ define the vector field
   \begin{align*}
     \nabla f (p) = D_1f(p)\cdot (e_1)_p + ... D_nf(p)\cdot (e_n)_p.
   \end{align*}
-  If $\nabla f(p) = w_p$ then prove that $D_vf(p) = \langle v, w \rangle$ and 
+  If $\nabla f(p) = w_p$ then prove that $D_vf(p) = \langle v, w \rangle$ and
   conclude that $\nabla f (p)$ is the direction in which $f$ is changing fastest at $p$.
 \end{problem}
 \begin{proof}
   If $w_p = \nabla f (p) = \sum D_i f(p) \cdot (e_i)_p$ then $w = \sum D_i f(p) \cdot e_i.$
   If $v = \sum v^i \cdot e_i$ then by properties of the directional derivative
   \begin{align}
-    \langle v, w \rangle = 
+    \langle v, w \rangle =
     \sum v^i D_if(p) = D_v f(p).
   \end{align}
 \end{proof}
@@ -2453,10 +2467,10 @@ The above is only the start of an inductive proof.}
 
 
 \begin{problem}{4.19}
-  If $F$ is a vector field on $\reals^3$ define the forms 
+  If $F$ is a vector field on $\reals^3$ define the forms
   \begin{align*}
     \omega^1_F &= F^1 dx + F^2 dy + F^3 dz \\
-    \omega^2_F &= F^1 dy \wedge dz + F^2 dz \wedge dx + F^3 dx \wedge dy. 
+    \omega^2_F &= F^1 dy \wedge dz + F^2 dz \wedge dx + F^3 dx \wedge dy.
   \end{align*}
   \begin{enumerate}[(a)]
     \item Prove that
@@ -2465,15 +2479,15 @@ The above is only the start of an inductive proof.}
       d(\omega^1_F) &= \omega^2_{curl\ F} \\
       d(\omega^2_F) &= (div F)dx \wedge dy \wedge dz.
     \end{align*}
-    \item 
+    \item
     Use part (a) to prove
     \begin{align*}
       curl \ grad\ f &= 0 \\
       div \ curl \ F &= 0.
     \end{align*}
-    \item 
-    If $F$ is a vector field on a star-shaped set $A$ and $curl\ F = 0$, show that 
-    $F = grad\ f$ for some function $f: A \to \reals$.  Similarly, if $\div\ F = 0$, 
+    \item
+    If $F$ is a vector field on a star-shaped set $A$ and $curl\ F = 0$, show that
+    $F = grad\ f$ for some function $f: A \to \reals$.  Similarly, if $\div\ F = 0$,
     show that $F = curl\ G$ for some vector field $G$ on $A$.
   \end{enumerate}
 \end{problem}
@@ -2482,26 +2496,26 @@ The above is only the start of an inductive proof.}
   \begin{enumerate}[(a)]
   \item
   Write $\nabla f(p) = (D_1f^1(p), D_2f^2(p), D_3f^3(p))_p.$
-  Then 
+  Then
   \begin{align*}
     \omega^1_{\nabla f}(p) = D_1f^1(p)dx + D_2f^2(p)dy + D_3f^3(p)dz = df(p).
   \end{align*}
   The equation $d(\omega^1_F) = \omega^2_{curl\ F}$
-  follows from the definitions and the facts 
+  follows from the definitions and the facts
   $dx^i \wedge dx^i = 0$ and $dx \wedge dy = -dy \wedge dx$.
-  For the third equation 
+  For the third equation
   \begin{align*}
-    d(\omega^2_F) = 
-    [d_1F^1 dx \wedge dy \wedge dz] + 
-    [d_2F^2 dy \wedge dz \wedge dx] + 
+    d(\omega^2_F) =
+    [d_1F^1 dx \wedge dy \wedge dz] +
+    [d_2F^2 dy \wedge dz \wedge dx] +
     [d_3F^3 dz \wedge dx \wedge dy]
   \end{align*}
   which equals $(div f) dx \wedge dy \wedge dz$
   after an even number of swaps of $dx^i$ in the latter two summands.
-  \item 
+  \item
   {\color{Blue}Although these are easy to prove without part (a) I guess you should do it that way to set
     up part (c).}
-	\item {\color{Blue} Todo.}	
+	\item {\color{Blue} Todo.}
   \end{enumerate}
 \end{proof}
 
@@ -2509,19 +2523,19 @@ The above is only the start of an inductive proof.}
 
 \begin{problem}{4.20}
   Let $f: U \to \reals^n$ be a differentiable function with differentiable inverse
-  $f^{-1}: f(U) \to \reals^n$. If every closed form on $U$ is exact, show that 
+  $f^{-1}: f(U) \to \reals^n$. If every closed form on $U$ is exact, show that
   the same is true for $f(U)$.
 \end{problem}
 \begin{proof}
-  Let $\omega$ be a form on $f(U)$ so that $f^*\omega$ is a form on 
+  Let $\omega$ be a form on $f(U)$ so that $f^*\omega$ is a form on
   $U$.  Then if $\omega$ is closed
   \begin{align*}
     d(f^*\omega) = f^*(d \omega) = f^*(0) = 0
   \end{align*}
-  and so $f^*\omega$ is closed, therefore exact.  Let $\mu$ be such that 
+  and so $f^*\omega$ is closed, therefore exact.  Let $\mu$ be such that
   $d(f^*\omega)= \mu$.
   Then $(f^{-1})^*\mu$ is a form on $f(U)$ and it would be nice if
-  $d((f^{-1})^*\mu) = \omega$, so that $\omega$ is exact.  We have 
+  $d((f^{-1})^*\mu) = \omega$, so that $\omega$ is exact.  We have
   \begin{align*}
     d((f^{-1})^*\mu) = (f^{-1})^*d\mu = (f^{-1})^* f^* \omega
   \end{align*}
@@ -2533,8 +2547,8 @@ The above is only the start of an inductive proof.}
   we need to show that $f_* f^{-1}_*$ is the identity on vectors.
   This follows from the inverse function theorem as follows:
   \begin{align*}
-    f_*f^{-1}_*v_{f(p)} &= 
-    f_*[Df^{-1}(f(p))(v)]_{f^{-1}f(p)} \\&= 
+    f_*f^{-1}_*v_{f(p)} &=
+    f_*[Df^{-1}(f(p))(v)]_{f^{-1}f(p)} \\&=
     [Df(p)\circ Df^{-1}(f(p))(v)]_{f(p)} \\&=
     [f'(p) \cdot f^{-1}{'}(f(p)) \cdot v ]_{f(p)} \\&=
     [f'(p) \cdot [f'(f^{-1}(f(p)))]^{-1} \cdot v]_{f(p)} = v_{f(p)}.
@@ -2566,12 +2580,12 @@ The above is only the start of an inductive proof.}
   Let $S$ be the set of all $n$-cubes.  Define a singular $n$-chain as a function
   $f$ from $S$ to $\integers$ such that all but finitely many $f(c)$ are zero.
   \begin{enumerate}[(a)]
-    \item 
+    \item
       Define $f+g$ and $nf$ by $(f+g)(c) = f(c) + g(c)$ and $nf(c) = n \cdot f(c)$.
       Then $f+g$ and $nf$ are $n$-chains.
-    \item 
-      For an $n$-cube $c$ let $c$ also denote the $n$-chain which 
-      is $1$ at $c$ and $0$ at every other cube. 
+    \item
+      For an $n$-cube $c$ let $c$ also denote the $n$-chain which
+      is $1$ at $c$ and $0$ at every other cube.
       Then every $n$-chain can be written as $a_1c_1 + ... + a_kc_k$
       for integers $a$ and singular $n$-cubes $n$.
   \end{enumerate}
@@ -2579,11 +2593,11 @@ The above is only the start of an inductive proof.}
 
 \begin{proof}
   \begin{enumerate}[(a)]
-    \item 
+    \item
       These are obvious.
-    \item 
-      Let the finite collection of cubes at which $f$ is non-zero be 
-      $c_1, ..., c_k$.  Then 
+    \item
+      Let the finite collection of cubes at which $f$ is non-zero be
+      $c_1, ..., c_k$.  Then
       \begin{align*}
         f(c) = \sum_S f(c)c(c) = \sum_{i=1}^kf(c_i)c_i(c_i) = \bigg(\sum_{i=1}^ka_i c_i\bigg)(c)
       \end{align*}
@@ -2599,7 +2613,7 @@ The above is only the start of an inductive proof.}
 
 
 \begin{problem}{4.23}
-  For $R > 0$ and $n$ an integer, define the singular $1$-cube 
+  For $R > 0$ and $n$ an integer, define the singular $1$-cube
   $C_{R, n} : [0, 1] \to \reals^2 - 0$ by
   \begin{align*}
     c_{R, n}(t) = (R \cos 2 \pi n t, R \sin 2 \pi n t).
@@ -2609,19 +2623,19 @@ The above is only the start of an inductive proof.}
 \end{problem}
 
 \begin{proof}
-  Let $c: [0, 1] \times [0,1] \to \reals^2 - 0$ be defined by 
+  Let $c: [0, 1] \times [0,1] \to \reals^2 - 0$ be defined by
   \begin{align*}
     c(x, y) = [(R_1 - R_2)x + R_2](\cos2 \pi n y ,\sin2 \pi n y).
   \end{align*}
-  Then 
+  Then
   \begin{align*}
-    c_{(1, 0)}(x, y) = 
-    c \circ I_{(1, 0)}(x, y) = 
-    c(0, y) = 
+    c_{(1, 0)}(x, y) =
+    c \circ I_{(1, 0)}(x, y) =
+    c(0, y) =
     (R_2 \cos 2 \pi n t, R_2 \sin 2 \pi n t) \\
-    c_{(1, 1)}(x, y) = 
-    c \circ I_{(1, 1)}(x, y) = 
-    c(1, y) = 
+    c_{(1, 1)}(x, y) =
+    c \circ I_{(1, 1)}(x, y) =
+    c(1, y) =
     (R_1 \cos 2 \pi n t, R_1 \sin 2 \pi n t).
   \end{align*}
   Since $c_{(2, 0)} = c_{(2, 1)}$ they cancel in the expanded sum of $\partial c$ leaving
@@ -2631,4 +2645,277 @@ The above is only the start of an inductive proof.}
 \end{proof}
 
 
-\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.25}
+	\textbf{The integral of a form over a chain is independent of parametrization.}
+\end{problem}
+
+\begin{proof}
+	Let $c$ be a singular $k$ cube in $A$ and $p: [0,1]^k \to [0,1]^k$ a 1-1 function with
+	$p([0,1]^k) = [0,1]^k$ and $\det p'(x) \geq 0$ for all $x \in [0,1]^k$.
+
+	Let $\omega$ be a $k$-form in $A$.  Then $c^*\omega$ is a $k$-form on $[0,1]^k$ and so can be written
+	\begin{align*}
+		c^*\omega = f dx^1 \wedge ... \wedge dx^k
+	\end{align*}
+	for some function $f$.
+	Hence we can rewrite the integral $\int_{c \circ p} \omega$ as
+	\begin{align*}
+		\int_{[0,1]^k} (c \circ p)^* \omega =
+		\int_{[0,1]^k} p^* c^* \omega =
+		\int_{[0,1]^k} p^*(f dx^1 \wedge...\wedge dx^k).
+	\end{align*}
+	By Theorem 4.9 this is
+	\begin{align*}
+		\int_{[0,1]^k} (f \circ p) (\det p') dx^1 \wedge... \wedge dx^k =
+		\int_{[0,1]^k} (f \circ p) (\det p')
+	\end{align*}
+	The rest of the proof follows from the formula for change of variables.
+\end{proof}
+
+
+\begin{problem}{4.26}
+	Show that $\int_{c_{R, n}} d\theta = 2\pi n$, and use Stokes' theorem to conclude that $c_{R, n} \neq \partial c$
+	 for any 2-chain $c$ in $R^2 - 0$.
+\end{problem}
+
+\begin{proof}
+	We have
+	\begin{align*}
+		\int_{c_{R, n}} d\theta =
+		\int_0^1 c_{R, n}^* d \theta =
+		\int_0^1 d(c_{R, n}^* \theta) =
+		\int_0^1 d(\theta \circ c_{R, n}).
+	\end{align*}
+	Using $x = R \cos 2 \pi n t$ and $y = R \sin 2 \pi n t$ and the definition of $d \theta$
+	on page 93 we have $d(\theta \circ c_{R, n}) = 2 \pi n.$
+	If $c_{R, n}$ were the boundary of some other chain $c$ then
+	\begin{align*}
+		\int_{\partial c} d\theta = \int_c d^2 \theta = 0
+	\end{align*}
+	i.e. $0 = 2 \pi n$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem}{4.27}
+	The winding number of a curve is well defined.
+\end{problem}
+
+\begin{proof}
+	If $c - c_{1, n} = \partial c^2$ and $c - c_{1, m} = \partial c^2$ then
+	$c_{1, n} = c_{1, m}$ and so $n = m$.
+\end{proof}
+{\color{Blue} This feels too simple.}
+
+
+\begin{problem}{4.28: \textit{Fundamental Theorem of Algebra.}}
+	Every polynomial $z^n + a_az^{n-1} + ... + a_n$ with $a_i \in C$ has a root in $C$.
+\end{problem}
+\begin{proof}
+	Define $f(z) = z^n + a_az^{n-1} + ... + a_n$.
+	Define the singular 1-cube $c_{R, f}: [0, 1] \to C - 0$ by $f \circ c_{R, n}$
+	and the singular 2-cube $c$ by $c(s, t) = t \cdot c_{R, n}(s)  + (1-t) \cdot c_{R,f}(s).$
+	Then $c$ has the following faces:
+	\begin{align*}
+		c_{1, 0}(x) &= Rx + (1-x) \cdot f(Rx)\\
+		c_{1, 1}(x) &= Rx + (1-x) \cdot f(Rx)\\
+		c_{2, 0}(x) &= c_{R, f}(x)\\
+		c_{2, 1}(x) &= c_{R, n}(x)\\
+	\end{align*}
+	and so
+	\begin{align*}
+		\partial c = c_{R, f}(x) - c_{R, n}(x).
+	\end{align*}
+	...
+\end{proof}
+{\color{Blue} Struggling to show that the image of $c$ is contained in $c - 0$, which
+incidentally seems a convoluted way of saying `is non-zero'.
+Also unclear on the journey from these chains to the FTA.}
+
+
+\begin{problem}{4.29}
+	If $\omega$ is a 1-form $f dx$ on $[0,1]$ with $f(0) = f(1)$ then there is a unique number
+	$\lambda$ such that $\omega - \lambda dx = dg$ for some function $dg$ with
+	$g(0) = g(1)$.
+\end{problem}
+{\color{Blue} The hint is weird: seems circular.}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
